@@ -1,0 +1,201 @@
+/* Ridge & Beam — custom.css
+   Keyframes, fine-grained selectors and anything Tailwind's utility
+   classes can't express cleanly. Design tokens (colour/type) are set
+   in the Tailwind config inline in index.html; this file only adds
+   behaviour Tailwind can't reach.
+*/
+
+:root {
+  --slate: #242b33;
+  --lead: #5c6670;
+  --limewash: #efede6;
+  --oxide: #9c3b2a;
+  --brass: #b08d57;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', system-ui, sans-serif;
+  background-color: var(--limewash);
+  color: var(--slate);
+}
+
+/* ------------------------------------------------------------------
+   Focus visibility — oxide outline everywhere, offset so it reads
+   against both limewash and slate backgrounds. Suppress the default
+   mouse-click outline but keep it for keyboard users.
+   ------------------------------------------------------------------ */
+:focus-visible {
+  outline: 3px solid var(--oxide);
+  outline-offset: 3px;
+  border-radius: 0;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Zero border-radius everywhere except the brass hotspot circles,
+   which set their own radius explicitly below. */
+button,
+input,
+select,
+textarea {
+  border-radius: 0;
+}
+
+/* ------------------------------------------------------------------
+   Hero rooftop skyline — a slow, extremely subtle parallax drift on
+   the chimney smoke wisps only. Everything else in the SVG is static
+   line art; motion is spent in exactly one place.
+   ------------------------------------------------------------------ */
+@keyframes drift-smoke {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate(6px, -10px);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.55;
+  }
+}
+
+.smoke-wisp {
+  animation: drift-smoke 7s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.smoke-wisp:nth-of-type(2) {
+  animation-delay: -2.3s;
+}
+
+.smoke-wisp:nth-of-type(3) {
+  animation-delay: -4.6s;
+}
+
+/* ------------------------------------------------------------------
+   KNOW YOUR ROOF diagram
+   ------------------------------------------------------------------ */
+.roof-part {
+  color: var(--lead);
+  transition: color 0.25s ease;
+}
+
+.roof-part.is-active {
+  color: var(--oxide);
+}
+
+.roof-part.is-active path,
+.roof-part.is-active line,
+.roof-part.is-active rect,
+.roof-part.is-active ellipse,
+.roof-part.is-active polyline,
+.roof-part.is-active polygon {
+  stroke-width: 3;
+}
+
+.roof-hotspot {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  margin-left: -17px;
+  margin-top: -17px;
+  border-radius: 999px;
+  border: 2px solid var(--brass);
+  background: var(--limewash);
+  color: var(--slate);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  box-shadow: 0 1px 3px rgba(36, 43, 51, 0.25);
+}
+
+.roof-hotspot:hover {
+  transform: scale(1.12);
+  border-color: var(--oxide);
+}
+
+.roof-hotspot[aria-pressed='true'] {
+  background: var(--oxide);
+  border-color: var(--oxide);
+  color: var(--limewash);
+  transform: scale(1.12);
+}
+
+/* ------------------------------------------------------------------
+   Ledger table — brass rule sweeps in on hover, a small nod to a
+   surveyor drawing a line under a completed entry.
+   ------------------------------------------------------------------ */
+.ledger-row {
+  position: relative;
+  border-left: 3px solid transparent;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.ledger-row:hover,
+.ledger-row:focus-within {
+  border-left-color: var(--brass);
+  background-color: rgba(176, 141, 87, 0.06);
+}
+
+/* ------------------------------------------------------------------
+   Form success state — a quiet check mark draw-in, once.
+   ------------------------------------------------------------------ */
+@keyframes draw-check {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.success-check path {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 24;
+  animation: draw-check 0.5s ease forwards 0.1s;
+}
+
+/* ------------------------------------------------------------------
+   Reduced motion — kill everything above.
+   ------------------------------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .smoke-wisp,
+  .success-check path {
+    animation: none !important;
+  }
+  .roof-hotspot,
+  .roof-hotspot:hover,
+  .roof-hotspot[aria-pressed='true'] {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Mobile nav panel slide
+   ------------------------------------------------------------------ */
+.mobile-nav-panel {
+  transition: max-height 0.25s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-nav-panel {
+    transition: none !important;
+  }
+}

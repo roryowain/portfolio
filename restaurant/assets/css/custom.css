@@ -1,0 +1,153 @@
+/* ==========================================================================
+   API API — custom.css
+   Only what Tailwind utilities can't do: keyframes, textures, ::selection,
+   scrollbar, native form-control resets. Everything else lives in index.html
+   as Tailwind classes.
+   ========================================================================== */
+
+/* ---- Base texture: subtle charcoal grain over the smoke background ---- */
+body {
+  position: relative;
+}
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---- Selection & scrollbar ---- */
+::selection {
+  background-color: #FF5C1F;
+  color: #171310;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #FF5C1F #241E19;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #241E19;
+}
+::-webkit-scrollbar-thumb {
+  background: #FF5C1F;
+  border: 2px solid #241E19;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #FFB021;
+}
+
+/* ---- Sharp, brutal-elegant: strip native radius from form controls ---- */
+input,
+select,
+textarea,
+button {
+  border-radius: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+select.select-arrow {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23EFE6D8'%3E%3Cpath d='M5 7l5 5 5-5' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.9rem center;
+  background-size: 0.9rem;
+  padding-right: 2.5rem;
+}
+
+/* ---- Focus states: an ember outline everywhere, always visible ---- */
+:focus-visible {
+  outline: 2px solid #FF5C1F;
+  outline-offset: 3px;
+}
+
+/* ---- Alpine: hide [x-cloak] elements until Alpine has initialized ---- */
+[x-cloak] {
+  display: none !important;
+}
+
+/* ---- Hero: rising ember glow ---- */
+.hero-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 55% at 50% 115%,
+    rgba(255, 92, 31, 0.38),
+    rgba(255, 176, 33, 0.14) 42%,
+    transparent 72%
+  );
+  animation: ember-rise 9s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes ember-rise {
+  0%, 100% { opacity: 0.65; transform: translateY(0) scale(1); }
+  50%      { opacity: 1;    transform: translateY(-3%) scale(1.06); }
+}
+
+/* ---- Scroll cue ---- */
+.scroll-cue-line {
+  animation: scroll-cue 1.8s ease-in-out infinite;
+}
+
+@keyframes scroll-cue {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50%      { transform: translateY(8px); opacity: 0.3; }
+}
+
+/* ---- Marquee: infinite horizontal drift, pauses on hover ---- */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-wrap:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-text {
+  -webkit-text-stroke: 1.5px #EFE6D8;
+  color: transparent;
+}
+
+/* ---- Menu section divider: a thin ember line that breathes ---- */
+.ember-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #FF5C1F 20%, #FFB021 50%, #FF5C1F 80%, transparent);
+  background-size: 200% 100%;
+  animation: ember-pulse 5s ease-in-out infinite;
+}
+
+@keyframes ember-pulse {
+  0%, 100% { background-position: 0% 50%; opacity: 0.55; }
+  50%      { background-position: 100% 50%; opacity: 1; }
+}
+
+/* ---- Reduced motion: kill everything that moves on its own ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+  .hero-glow,
+  .scroll-cue-line,
+  .marquee-track,
+  .ember-divider {
+    animation: none !important;
+  }
+}

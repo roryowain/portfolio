@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API API — Modern Malaysian Wood-Fire | Kuala Lumpur</title>
+  <meta name="description" content="API API is a modern-Malaysian wood-fire restaurant in Bukit Bintang, Kuala Lumpur. No gas — everything is cooked over api-api wood and charcoal." />
+  <meta name="theme-color" content="#171310" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="API API — Modern Malaysian Wood-Fire | Kuala Lumpur" />
+  <meta property="og:description" content="Modern Malaysian, cooked entirely over api-api wood and charcoal. No gas in the kitchen. Bukit Bintang, Kuala Lumpur." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og.png" />
+
+  <!-- Fonts: Anton (display), Instrument Serif italic (dish copy), Manrope (UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (Play CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            smoke: '#171310',
+            ash: '#241E19',
+            ember: '#FF5C1F',
+            heat: '#FFB021',
+            bone: '#EFE6D8',
+            leaf: '#45624A',
+          },
+          fontFamily: {
+            display: ['Anton', 'sans-serif'],
+            serif: ['"Instrument Serif"', 'serif'],
+            sans: ['Manrope', 'sans-serif'],
+          },
+          borderRadius: {
+            none: '0px',
+            DEFAULT: '0px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="assets/css/custom.css" />
+  <!-- main.js registers Alpine.data('reservationForm', ...) on alpine:init,
+       so it must be parsed before the Alpine core script runs. -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body class="bg-smoke text-bone font-sans antialiased selection:bg-ember selection:text-smoke">
+
+  <!-- Grain texture, sits above everything, blocks nothing -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Hidden SVG sprite: flame + snowflake symbols, reused across the menu -->
+  <svg class="hidden" aria-hidden="true">
+    <symbol id="icon-flame" viewBox="0 0 20 20">
+      <path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.878A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" />
+    </symbol>
+    <symbol id="icon-snowflake" viewBox="0 0 24 24">
+      <g stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="12" y1="2" x2="12" y2="22" />
+        <line x1="4.2" y1="7" x2="19.8" y2="17" />
+        <line x1="19.8" y1="7" x2="4.2" y2="17" />
+        <line x1="12" y1="2" x2="9" y2="5" />
+        <line x1="12" y1="2" x2="15" y2="5" />
+        <line x1="12" y1="22" x2="9" y2="19" />
+        <line x1="12" y1="22" x2="15" y2="19" />
+        <line x1="4.2" y1="7" x2="7.4" y2="7.4" />
+        <line x1="4.2" y1="7" x2="5.6" y2="4.1" />
+        <line x1="19.8" y1="17" x2="16.6" y2="16.6" />
+        <line x1="19.8" y1="17" x2="18.4" y2="19.9" />
+        <line x1="19.8" y1="7" x2="16.6" y2="7.4" />
+        <line x1="19.8" y1="7" x2="18.4" y2="4.1" />
+        <line x1="4.2" y1="17" x2="7.4" y2="16.6" />
+        <line x1="4.2" y1="17" x2="5.6" y2="19.9" />
+      </g>
+    </symbol>
+    <symbol id="icon-flame-outline" viewBox="0 0 20 20">
+      <path d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.878A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" />
+    </symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="0" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.5" />
+      <circle cx="17.3" cy="6.7" r="1.1" fill="currentColor" />
+    </symbol>
+    <symbol id="icon-facebook" viewBox="0 0 24 24">
+      <path d="M14 21v-7h2.4l.4-3H14V9.2c0-.9.2-1.5 1.5-1.5H17V5.1c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V11H8.5v3H10.8v7H14z" fill="currentColor" />
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 20 20">
+      <path d="M4 10h12M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+  </svg>
+
+  <!-- ===================== NAV ===================== -->
+  <header
+    x-data="{ scrolled: false, mobileOpen: false }"
+    x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 40)"
+    :class="scrolled ? 'bg-smoke/85 backdrop-blur-md border-b border-bone/10' : 'bg-transparent border-b border-transparent'"
+    class="fixed top-0 inset-x-0 z-50 transition-colors duration-300"
+  >
+    <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 h-20" aria-label="Primary">
+      <a href="#top" class="flex items-center gap-2 font-display uppercase text-xl tracking-tight text-bone">
+        <span>API</span>
+        <svg class="w-4 h-4 text-ember" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><use href="#icon-flame"></use></svg>
+        <span>API</span>
+      </a>
+
+      <ul class="hidden md:flex items-center gap-10 font-sans font-600 text-sm uppercase tracking-[0.15em]">
+        <li><a href="#menu" class="hover:text-ember transition-colors">Menu</a></li>
+        <li><a href="#story" class="hover:text-ember transition-colors">Story</a></li>
+        <li><a href="#visit" class="hover:text-ember transition-colors">Visit</a></li>
+      </ul>
+
+      <div class="flex items-center gap-4">
+        <a href="#visit" class="hidden md:inline-block bg-ember text-smoke font-sans font-800 text-sm uppercase tracking-[0.1em] px-6 py-3 hover:bg-heat transition-colors">
+          Reserve
+        </a>
+        <button
+          type="button"
+          class="md:hidden text-bone p-2 -mr-2"
+          @click="mobileOpen = !mobileOpen"
+          :aria-expanded="mobileOpen"
+          aria-controls="mobile-menu"
+          aria-label="Toggle menu"
+        >
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path x-show="!mobileOpen" d="M4 7h16M4 12h16M4 17h16" />
+            <path x-show="mobileOpen" x-cloak d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu overlay -->
+    <div
+      id="mobile-menu"
+      x-show="mobileOpen"
+      x-cloak
+      x-transition:enter="transition ease-out duration-200"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition ease-in duration-150"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      class="md:hidden fixed inset-0 top-20 bg-smoke border-t border-bone/10 px-6 py-10"
+    >
+      <ul class="flex flex-col gap-8 font-display uppercase text-4xl">
+        <li><a href="#menu" @click="mobileOpen = false" class="hover:text-ember transition-colors">Menu</a></li>
+        <li><a href="#story" @click="mobileOpen = false" class="hover:text-ember transition-colors">Story</a></li>
+        <li><a href="#visit" @click="mobileOpen = false" class="hover:text-ember transition-colors">Visit</a></li>
+        <li>
+          <a href="#visit" @click="mobileOpen = false" class="inline-block bg-ember text-smoke px-6 py-3 text-2xl hover:bg-heat transition-colors">
+            Reserve
+          </a>
+        </li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ===================== HERO ===================== -->
+    <section class="relative min-h-screen flex flex-col justify-center overflow-hidden px-6 md:px-10">
+      <div class="hero-glow" aria-hidden="true"></div>
+
+      <div class="relative max-w-7xl mx-auto w-full pt-20">
+        <h1 class="font-display uppercase leading-[0.85] tracking-tight text-[clamp(3.2rem,13vw,11.5rem)]">
+          <span class="block">Cooked by</span>
+          <span class="block text-ember">Fire.</span>
+        </h1>
+
+        <p class="mt-8 max-w-xl font-serif italic text-2xl md:text-3xl text-bone/90">
+          Modern Malaysian, over api-api wood and charcoal. Kuala Lumpur.
+        </p>
+      </div>
+
+      <a
+        href="#story"
+        class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-bone/60 hover:text-bone transition-colors"
+        aria-label="Scroll to story"
+      >
+        <span class="font-sans font-600 text-xs uppercase tracking-[0.35em]">Scroll</span>
+        <svg class="scroll-cue-line w-4 h-6" viewBox="0 0 16 24" fill="none" aria-hidden="true">
+          <path d="M8 1v18M2 13l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </section>
+
+    <!-- ===================== MARQUEE ===================== -->
+    <div class="marquee-wrap relative bg-ash border-y border-bone/10 py-6 overflow-hidden" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-text font-display uppercase text-4xl md:text-6xl px-6 whitespace-nowrap">
+          Asap &middot; Arang &middot; Api &middot; Asap &middot; Arang &middot; Api &middot; Asap &middot; Arang &middot; Api &middot;
+        </span>
+        <span class="marquee-text font-display uppercase text-4xl md:text-6xl px-6 whitespace-nowrap">
+          Asap &middot; Arang &middot; Api &middot; Asap &middot; Arang &middot; Api &middot; Asap &middot; Arang &middot; Api &middot;
+        </span>
+      </div>
+    </div>
+
+    <!-- ===================== STORY ===================== -->
+    <section id="story" class="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-36 grid md:grid-cols-2 gap-16 md:gap-24 items-center">
+      <div>
+        <span class="font-sans font-800 text-xs uppercase tracking-[0.35em] text-ember">Our Story</span>
+        <h2 class="font-display uppercase text-4xl md:text-5xl mt-4 mb-10 leading-[0.95]">
+          No gas.<br />Only fire.
+        </h2>
+
+        <div class="space-y-6 font-serif italic text-xl md:text-2xl text-bone/90 max-w-lg">
+          <p>
+            Api-api is a mangrove tree. It grows in the brackish water between land and sea, and when it burns, it burns slow, hot, and clean. We drive it in from Kuala Selangor twice a week — nothing else goes in the pit.
+          </p>
+          <p>
+            Wok hei is the breath of the wok. The char, the smoke, the thirty seconds where the metal runs hotter than any stove can manage. We chase it dish by dish. It cannot be rushed, and it cannot be faked.
+          </p>
+          <p>
+            There is no gas line in this kitchen. Every plate that leaves it has touched fire directly — arang, embers, or open flame. It is slower. It is harder to control. It is the only way we know how to cook.
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-center">
+        <svg viewBox="0 0 400 520" class="w-full max-w-md text-bone" aria-hidden="true">
+          <!-- rising smoke -->
+          <g fill="none" stroke-linecap="round">
+            <path d="M200,255 C178,215 222,175 200,135 C178,95 222,55 202,15" class="text-ember" stroke="currentColor" stroke-width="2.5" opacity="0.75" />
+            <path d="M168,258 C146,208 188,168 162,118 C142,80 172,50 158,18" stroke="currentColor" stroke-width="1.5" opacity="0.3" />
+            <path d="M232,258 C258,208 214,168 244,118 C266,80 234,50 250,18" stroke="currentColor" stroke-width="1.5" opacity="0.3" />
+          </g>
+
+          <!-- stacked firewood, cross-section rings -->
+          <g fill="none" stroke="currentColor">
+            <g stroke-width="2">
+              <circle cx="200" cy="278" r="36" />
+              <circle cx="150" cy="345" r="40" />
+              <circle cx="248" cy="345" r="40" />
+              <circle cx="105" cy="418" r="42" />
+              <circle cx="200" cy="418" r="42" />
+              <circle cx="295" cy="418" r="42" />
+            </g>
+            <g stroke-width="1" opacity="0.4">
+              <circle cx="200" cy="278" r="19" />
+              <circle cx="150" cy="345" r="21" />
+              <circle cx="248" cy="345" r="21" />
+              <circle cx="105" cy="418" r="22" />
+              <circle cx="200" cy="418" r="22" />
+              <circle cx="295" cy="418" r="22" />
+            </g>
+          </g>
+
+          <!-- ember glow at the base -->
+          <circle cx="200" cy="278" r="5" class="text-ember" fill="currentColor" />
+          <circle cx="150" cy="345" r="4" class="text-heat" fill="currentColor" opacity="0.85" />
+          <circle cx="295" cy="418" r="4" class="text-ember" fill="currentColor" opacity="0.7" />
+        </svg>
+      </div>
+    </section>
+
+    <!-- ===================== THE FIRE MENU ===================== -->
+    <section id="menu" class="border-t border-bone/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 pt-28 md:pt-36 pb-10">
+        <span class="font-sans font-800 text-xs uppercase tracking-[0.35em] text-ember">The Fire Menu</span>
+        <h2 class="font-display uppercase text-5xl md:text-7xl mt-4 leading-[0.9]">
+          Rated by flame.
+        </h2>
+        <p class="font-serif italic text-xl md:text-2xl text-bone/80 mt-6 max-w-xl">
+          Every dish carries its heat on its sleeve. One flame is gentle. Four will make you sweat.
+        </p>
+      </div>
+
+      <!-- OVER FIRE -->
+      <div class="border-t border-bone/10">
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-[240px_1fr] gap-x-12 gap-y-10">
+          <div class="md:sticky md:top-32 md:self-start">
+            <h3 class="font-display uppercase text-3xl md:text-4xl text-ember">Over Fire</h3>
+            <p class="font-sans text-sm text-bone/60 mt-2">Grilled mains, straight off the coals.</p>
+          </div>
+
+          <ul class="divide-y divide-bone/10">
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Fire-Grilled Tiger Prawns</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 68</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Whole prawns, budu butter, char at the edges.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="3"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Whole Grilled Sea Bass</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 98</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Calamansi, bird's eye chilli, skin blistered over arang.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="4"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Charcoal Lamb Satay</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 52</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Turmeric marinade, crushed peanut arang, licked by smoke.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="2"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Ayam Percik</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 46</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Coconut char, kaffir lime, basted till the skin cracks.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="3"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Smoked Duck Breast</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 62</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Tamarind glaze, crushed peanuts, rendered slow over the fire.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="2"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10"><div class="ember-divider"></div></div>
+
+      <!-- FROM THE WOK -->
+      <div>
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-[240px_1fr] gap-x-12 gap-y-10">
+          <div class="md:sticky md:top-32 md:self-start">
+            <h3 class="font-display uppercase text-3xl md:text-4xl text-ember">From The Wok</h3>
+            <p class="font-sans text-sm text-bone/60 mt-2">Thirty seconds of violent heat.</p>
+          </div>
+
+          <ul class="divide-y divide-bone/10">
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Wok-Charred Kailan</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 24</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Garlic, fermented soybean, thirty seconds of violent heat.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="1"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Wok-Fried Udang Galah</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 78</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">River prawns, sambal harum manis, shells cracked open.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="4"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Kampung Fried Rice</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 32</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Salted egg, ikan bilis, rice that remembers the wok.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="2"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Charred Eggplant</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 28</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Belacan XO, crispy shallot, blistered skin, silk inside.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="3"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Stir-Fried Pucuk Paku</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 22</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Fern tips, fermented shrimp, garlic oil, nothing else.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="1"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10"><div class="ember-divider"></div></div>
+
+      <!-- SLOW & SMOKED -->
+      <div>
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-[240px_1fr] gap-x-12 gap-y-10">
+          <div class="md:sticky md:top-32 md:self-start">
+            <h3 class="font-display uppercase text-3xl md:text-4xl text-ember">Slow &amp; Smoked</h3>
+            <p class="font-sans text-sm text-bone/60 mt-2">Hours in the pit, no shortcuts.</p>
+          </div>
+
+          <ul class="divide-y divide-bone/10">
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">14-Hour Beef Short Rib Rendang</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 88</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Toasted coconut, dry spice, falling from the bone.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="3"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Smoked Pork Belly</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 58</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Tamarind caramel, pickled mustard greens, fat rendered soft.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="3"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Ember-Roasted Whole Chicken</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 92</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Galangal, lemongrass ash, for the table — worth the wait.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="2"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Smoked Brisket Rendang Tok</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 84</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Dry-fried dark, crisp shallot, hours of patient smoke.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="4"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-10"><div class="ember-divider"></div></div>
+
+      <!-- SWEET / SEJUK -->
+      <div>
+        <div class="max-w-7xl mx-auto px-6 md:px-10 py-16 md:py-20 grid md:grid-cols-[240px_1fr] gap-x-12 gap-y-10">
+          <div class="md:sticky md:top-32 md:self-start">
+            <h3 class="font-display uppercase text-3xl md:text-4xl text-heat">Sweet / Sejuk</h3>
+            <p class="font-sans text-sm text-bone/60 mt-2">The fire stops here. Rated in snowflakes.</p>
+          </div>
+
+          <ul class="divide-y divide-bone/10">
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Grilled Pineapple</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 26</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Gula melaka caramel, coconut ash ice cream, charred edges.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="snow"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Smoked Banana</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 24</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Santan custard, toasted peanut brittle, warm and cool together.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="snow"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Charcoal Coconut Sorbet</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 22</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Pandan syrup, black as the grill it's named for.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="snow"></div>
+              </div>
+            </li>
+            <li class="py-6 flex items-start justify-between gap-6">
+              <div class="flex-1">
+                <div class="flex items-baseline justify-between gap-4">
+                  <h4 class="font-sans font-800 uppercase tracking-wide">Burnt Honey Cheesecake</h4>
+                  <span class="font-sans font-800 text-ember whitespace-nowrap">RM 28</span>
+                </div>
+                <p class="font-serif italic text-lg text-bone/75 mt-1">Calamansi curd, torched top, sharp against the sweet.</p>
+                <div class="flex gap-1 mt-3" data-fire-rating="snow"></div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== VISIT / RESERVE ===================== -->
+    <section id="visit" class="border-t border-bone/10 bg-ash">
+      <div class="max-w-7xl mx-auto px-6 md:px-10 py-28 md:py-36 grid md:grid-cols-2 gap-16 md:gap-24">
+        <!-- Hours / address -->
+        <div>
+          <span class="font-sans font-800 text-xs uppercase tracking-[0.35em] text-ember">Visit</span>
+          <h2 class="font-display uppercase text-5xl md:text-6xl mt-4 mb-10 leading-[0.9]">Find the fire.</h2>
+
+          <dl class="space-y-8 font-sans">
+            <div>
+              <dt class="font-800 uppercase text-sm tracking-[0.15em] text-bone/60">Hours</dt>
+              <dd class="mt-2 text-lg">Tue &ndash; Sun, 6:00pm &ndash; 11:00pm</dd>
+              <dd class="mt-1 font-serif italic text-lg text-bone/70">Closed Mondays — the fire rests.</dd>
+            </div>
+            <div>
+              <dt class="font-800 uppercase text-sm tracking-[0.15em] text-bone/60">Address</dt>
+              <dd class="mt-2 text-lg">27 Jalan Mesui<br />Bukit Bintang, 50200<br />Kuala Lumpur, Malaysia</dd>
+              <a href="#" class="inline-flex items-center gap-2 mt-3 text-ember hover:text-heat transition-colors font-800 text-sm uppercase tracking-[0.1em]">
+                Get directions
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="none" aria-hidden="true"><use href="#icon-arrow"></use></svg>
+              </a>
+            </div>
+            <div>
+              <dt class="font-800 uppercase text-sm tracking-[0.15em] text-bone/60">Phone</dt>
+              <dd class="mt-2 text-lg">
+                <a href="tel:+60321104487" class="hover:text-ember transition-colors">+60 3-2110 4487</a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+
+        <!-- Reservation form -->
+        <div x-data="reservationForm">
+          <div x-show="!submitted">
+            <h3 class="font-display uppercase text-3xl mb-6">Request a table</h3>
+
+            <form @submit.prevent="submit" novalidate class="space-y-5">
+              <div>
+                <label for="name" class="block font-sans font-600 text-sm uppercase tracking-[0.1em] mb-2">Name</label>
+                <input
+                  id="name" type="text" x-model="form.name"
+                  class="w-full bg-smoke border border-bone/25 text-bone placeholder:text-bone/35 px-4 py-3 focus:border-ember"
+                  placeholder="Your full name"
+                  :aria-invalid="errors.name ? 'true' : 'false'"
+                  aria-describedby="name-error"
+                />
+                <p id="name-error" x-show="errors.name" x-text="errors.name" class="text-ember text-sm mt-1"></p>
+              </div>
+
+              <div>
+                <label for="email" class="block font-sans font-600 text-sm uppercase tracking-[0.1em] mb-2">Email</label>
+                <input
+                  id="email" type="email" x-model="form.email"
+                  class="w-full bg-smoke border border-bone/25 text-bone placeholder:text-bone/35 px-4 py-3 focus:border-ember"
+                  placeholder="you@email.com"
+                  :aria-invalid="errors.email ? 'true' : 'false'"
+                  aria-describedby="email-error"
+                />
+                <p id="email-error" x-show="errors.email" x-text="errors.email" class="text-ember text-sm mt-1"></p>
+              </div>
+
+              <div class="grid grid-cols-2 gap-5">
+                <div>
+                  <label for="partySize" class="block font-sans font-600 text-sm uppercase tracking-[0.1em] mb-2">Party size</label>
+                  <select id="partySize" x-model="form.partySize" class="select-arrow w-full bg-smoke border border-bone/25 text-bone px-4 py-3 focus:border-ember">
+                    <option value="1">1 guest</option>
+                    <option value="2">2 guests</option>
+                    <option value="3">3 guests</option>
+                    <option value="4">4 guests</option>
+                    <option value="5">5 guests</option>
+                    <option value="6">6 guests</option>
+                    <option value="7">7 guests</option>
+                    <option value="8">8 guests</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="time" class="block font-sans font-600 text-sm uppercase tracking-[0.1em] mb-2">Time</label>
+                  <select id="time" x-model="form.time" class="select-arrow w-full bg-smoke border border-bone/25 text-bone px-4 py-3 focus:border-ember">
+                    <option value="18:00">6:00pm</option>
+                    <option value="18:30">6:30pm</option>
+                    <option value="19:00">7:00pm</option>
+                    <option value="19:30">7:30pm</option>
+                    <option value="20:00">8:00pm</option>
+                    <option value="20:30">8:30pm</option>
+                    <option value="21:00">9:00pm</option>
+                    <option value="21:30">9:30pm</option>
+                    <option value="22:00">10:00pm</option>
+                    <option value="22:30">10:30pm</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label for="date" class="block font-sans font-600 text-sm uppercase tracking-[0.1em] mb-2">Date</label>
+                <input
+                  id="date" type="date" x-model="form.date"
+                  class="w-full bg-smoke border border-bone/25 text-bone px-4 py-3 focus:border-ember"
+                  :aria-invalid="errors.date ? 'true' : 'false'"
+                  aria-describedby="date-error"
+                />
+                <p id="date-error" x-show="errors.date" x-text="errors.date" class="text-ember text-sm mt-1"></p>
+              </div>
+
+              <div>
+                <label for="occasion" class="block font-sans font-600 text-sm uppercase tracking-[0.1em] mb-2">Occasion <span class="text-bone/40 normal-case font-400">(optional)</span></label>
+                <textarea
+                  id="occasion" x-model="form.occasion" rows="3"
+                  class="w-full bg-smoke border border-bone/25 text-bone placeholder:text-bone/35 px-4 py-3 focus:border-ember"
+                  placeholder="Birthday, anniversary, first date — tell us so we can set the table right."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-ember text-smoke font-sans font-800 uppercase tracking-[0.1em] px-6 py-4 hover:bg-heat transition-colors">
+                Request table
+              </button>
+            </form>
+          </div>
+
+          <div x-show="submitted" x-cloak class="border border-ember/40 bg-smoke p-8">
+            <svg class="w-8 h-8 text-ember mb-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><use href="#icon-flame"></use></svg>
+            <h3 class="font-display uppercase text-2xl mb-2">Table requested.</h3>
+            <p class="font-serif italic text-lg text-bone/80">We'll confirm by email within the hour.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-bone/10 bg-smoke">
+    <div class="max-w-7xl mx-auto px-6 md:px-10 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+      <a href="#top" class="flex items-center gap-2 font-display uppercase text-xl tracking-tight text-bone">
+        <span>API</span>
+        <svg class="w-4 h-4 text-ember" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><use href="#icon-flame"></use></svg>
+        <span>API</span>
+      </a>
+
+      <div class="flex items-center gap-5">
+        <a href="#" class="text-bone/60 hover:text-ember transition-colors" aria-label="API API on Instagram">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-instagram"></use></svg>
+        </a>
+        <a href="#" class="text-bone/60 hover:text-ember transition-colors" aria-label="API API on Facebook">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" aria-hidden="true"><use href="#icon-facebook"></use></svg>
+        </a>
+      </div>
+
+      <div class="font-sans text-sm text-bone/50 text-left md:text-right">
+        <p>Site by Rory Phillips — hand-coded, no templates.</p>
+        <p>&copy; 2026 API API. Kuala Lumpur.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

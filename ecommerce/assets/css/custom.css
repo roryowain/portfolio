@@ -1,0 +1,125 @@
+/*
+  TANAH — custom.css
+  Only things Tailwind's utility classes can't express cleanly:
+  keyframes, the grain texture overlay, the scroll-driven journey line,
+  and global focus/motion rules. Everything else lives in Tailwind
+  classes directly on the markup.
+*/
+
+/* ---------- Base ---------- */
+/* Note: smooth-scrolling for in-page nav/CTA links is handled in main.js
+   via scrollIntoView(), not with global `html { scroll-behavior: smooth }`.
+   A blanket CSS smooth-scroll hijacks *every* scroll on the page (wheel,
+   keyboard, browser find-in-page), which is surprising for users and can
+   fight with normal wheel scrolling — a plain JS handler on anchor clicks
+   keeps the effect scoped to the one interaction it's meant for. */
+
+::selection {
+  background: #E3A422;
+  color: #241611;
+}
+
+/* Gold focus ring on every interactive element, keyboard only */
+:focus-visible {
+  outline: 2px solid #E3A422;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---------- Warm grain texture overlay ---------- */
+/* Low-opacity feTurbulence noise, fixed over the whole page, never
+   intercepts clicks. Keeps the espresso background from reading flat. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.7 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- Hero bag: gentle float ---------- */
+
+@keyframes bagFloat {
+  0%   { transform: translateY(0) rotate(-0.6deg); }
+  50%  { transform: translateY(-14px) rotate(0.6deg); }
+  100% { transform: translateY(0) rotate(-0.6deg); }
+}
+
+.hero-bag-float {
+  animation: bagFloat 4s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* ---------- Journey: gold line grows on scroll ---------- */
+
+.journey-track {
+  position: relative;
+}
+
+.journey-line-fill {
+  transform: scaleY(var(--journey-progress, 0));
+  transform-origin: top center;
+  transition: transform 0.08s linear;
+}
+
+.journey-station {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.journey-station.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Alpine: hide un-initialised markup on first paint ---------- */
+
+[x-cloak] {
+  display: none !important;
+}
+
+/* ---------- Accordion chevron rotation ---------- */
+
+.faq-chevron {
+  transition: transform 0.25s ease;
+}
+
+[aria-expanded="true"] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* ---------- Reduced motion: kill everything above ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-bag-float {
+    animation: none;
+  }
+
+  .journey-line-fill {
+    transform: scaleY(1);
+    transition: none;
+  }
+
+  .journey-station {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .badge-pop {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}

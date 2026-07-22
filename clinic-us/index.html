@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lakeline Dental Studio — Modern Dentistry in Austin, TX</title>
+<meta name="description" content="Lakeline Dental Studio is a modern dental practice in Austin, Texas with published prices, gentle hands, and same-day emergency appointments. Dentistry, minus the dread.">
+<meta property="og:title" content="Lakeline Dental Studio — Modern Dentistry in Austin, TX">
+<meta property="og:description" content="Transparent prices, gentle hands, and a ceiling TV with your name on it. Book online today.">
+<meta property="og:image" content="assets/img/og.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#F3F6F4">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Nunito+Sans:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cloud: '#F3F6F4',
+          pine: '#17372C',
+          sage: '#AFC8B4',
+          apricot: '#FF9E6D',
+        },
+        fontFamily: {
+          display: ['"Young Serif"', 'serif'],
+          body: ['"Nunito Sans"', 'sans-serif'],
+        },
+        borderRadius: {
+          '4xl': '2rem',
+          '5xl': '2.5rem',
+        },
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="assets/css/custom.css">
+<script src="assets/js/main.js"></script>
+<script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="bg-cloud text-pine font-body antialiased">
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Top bar -->
+<div class="bg-pine text-cloud text-xs sm:text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center font-bold tracking-wide">
+    <span>Open today until 6pm</span>
+    <span class="opacity-50" aria-hidden="true">&middot;</span>
+    <span>Same-day emergency appointments</span>
+    <span class="opacity-50" aria-hidden="true">&middot;</span>
+    <a href="tel:+15125550184" class="underline decoration-apricot decoration-2 underline-offset-2 hover:text-apricot transition-colors">(512) 555-0184</a>
+  </div>
+</div>
+
+<!-- Nav -->
+<header x-data="mobileNav()" class="sticky top-0 z-40 bg-cloud/90 backdrop-blur border-b border-pine/10">
+  <nav class="max-w-7xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between" aria-label="Primary">
+    <a href="#top" class="flex items-center gap-3 group">
+      <span class="shrink-0" aria-hidden="true">
+        <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="22" cy="22" r="22" class="fill-pine"/>
+          <path d="M22 12c-2.6 0-4.2 1.1-5.4 1.1-1.1 0-2.3-.7-3.6-.7-2.5 0-4.5 2-4.5 5.4 0 4.1 2.9 10.2 5.3 10.2 1.3 0 1.7-.9 3.2-.9s1.9.9 3.2.9c2.5 0 5.6-6.4 5.6-10.4 0-3.2-2-5-4.4-5-1.3 0-2.4.4-3.4.4 0 0 1.3-1.1 4-1z" class="fill-cloud" transform="translate(0,0.5) scale(1.02)"/>
+          <path d="M27.5 12.5l1.4 1.4-1.4 1.4M28.9 13.9h-3.4" stroke="#FF9E6D" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="30" cy="10.5" r="1.1" class="fill-apricot"/>
+          <circle cx="27.3" cy="9.6" r="0.7" class="fill-apricot"/>
+        </svg>
+      </span>
+      <span class="flex flex-col leading-none">
+        <span class="font-display text-xl text-pine">Lakeline</span>
+        <span class="text-[0.65rem] font-body font-900 tracking-[0.14em] text-pine/70 mt-1">DENTAL STUDIO</span>
+      </span>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8 font-body font-bold text-sm">
+      <li><a href="#services" class="hover:text-apricot transition-colors">Services</a></li>
+      <li><a href="#pricing" class="hover:text-apricot transition-colors">Pricing</a></li>
+      <li><a href="#comfort" class="hover:text-apricot transition-colors">Comfort</a></li>
+      <li><a href="#team" class="hover:text-apricot transition-colors">Team</a></li>
+      <li><a href="#faq" class="hover:text-apricot transition-colors">FAQ</a></li>
+    </ul>
+
+    <div class="flex items-center gap-3">
+      <a href="#booking" class="hidden sm:inline-flex items-center rounded-full bg-apricot text-pine font-body font-900 text-sm px-5 py-2.5 shadow-sm hover:bg-pine hover:text-cloud transition-colors">Book online</a>
+      <button @click="open = true" type="button" class="lg:hidden p-2 -mr-2 text-pine" aria-label="Open menu" :aria-expanded="open.toString()" aria-controls="mobile-menu">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M4 8h20M4 14h20M4 20h20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile overlay -->
+  <div
+    id="mobile-menu"
+    x-show="open"
+    x-cloak
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="fixed inset-0 z-50 bg-pine text-cloud lg:hidden"
+    @keydown.escape.window="open = false"
+  >
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <span class="font-display text-xl">Lakeline</span>
+      <button @click="open = false" type="button" class="p-2 -mr-2" aria-label="Close menu">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" aria-hidden="true"><path d="M7 7l14 14M21 7L7 21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+    <ul class="flex flex-col items-center justify-center gap-8 font-display text-3xl mt-16" @click="open = false">
+      <li><a href="#services" class="hover:text-apricot transition-colors">Services</a></li>
+      <li><a href="#pricing" class="hover:text-apricot transition-colors">Pricing</a></li>
+      <li><a href="#comfort" class="hover:text-apricot transition-colors">Comfort</a></li>
+      <li><a href="#team" class="hover:text-apricot transition-colors">Team</a></li>
+      <li><a href="#faq" class="hover:text-apricot transition-colors">FAQ</a></li>
+      <li class="mt-4"><a href="#booking" class="inline-flex items-center rounded-full bg-apricot text-pine font-body font-900 text-lg px-8 py-3">Book online</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="main">
+<!-- Hero -->
+<section id="top" class="relative overflow-hidden bg-cloud">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-14 pb-20 lg:pt-20 lg:pb-28 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+    <div class="max-w-xl">
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl leading-[0.98] text-pine">Dentistry,<br>minus the dread.</h1>
+      <p class="mt-6 text-lg sm:text-xl text-pine/80 leading-relaxed max-w-md">Transparent prices, gentle hands, and a ceiling TV with your name on it. Lakeline is the dentist you stop cancelling on.</p>
+
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a href="#booking" class="inline-flex items-center rounded-full bg-apricot text-pine font-body font-900 px-7 py-3.5 shadow-sm hover:-translate-y-0.5 hover:shadow-md transition-all">Book an appointment</a>
+        <a href="#pricing" class="inline-flex items-center rounded-full border-2 border-pine/20 text-pine font-body font-900 px-7 py-3.5 hover:border-pine transition-colors">See our prices</a>
+      </div>
+
+      <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-bold text-pine/70">
+        <span class="flex items-center gap-1.5"><span class="text-apricot" aria-hidden="true">&#9733;</span> 4.9 — 600+ Google reviews</span>
+        <span class="hidden sm:inline text-pine/30" aria-hidden="true">&middot;</span>
+        <span>In-network with 5 major insurers</span>
+        <span class="hidden sm:inline text-pine/30" aria-hidden="true">&middot;</span>
+        <span>Se habla espa&ntilde;ol</span>
+      </div>
+    </div>
+
+    <div class="relative" aria-hidden="true">
+      <svg viewBox="0 0 560 480" class="w-full h-auto max-w-lg mx-auto" xmlns="http://www.w3.org/2000/svg">
+        <!-- backdrop blob -->
+        <ellipse cx="300" cy="250" rx="240" ry="210" class="fill-sage/40"/>
+        <!-- sparkles -->
+        <path d="M470 90l6 16 16 6-16 6-6 16-6-16-16-6 16-6z" class="fill-apricot"/>
+        <path d="M90 130l4 11 11 4-11 4-4 11-4-11-11-4 11-4z" class="fill-apricot"/>
+        <circle cx="500" cy="200" r="5" class="fill-pine/30"/>
+        <circle cx="70" cy="330" r="6" class="fill-pine/30"/>
+
+        <!-- dental chair -->
+        <g>
+          <rect x="150" y="330" width="220" height="26" rx="13" class="fill-pine"/>
+          <rect x="230" y="356" width="24" height="60" rx="8" class="fill-pine"/>
+          <rect x="200" y="410" width="120" height="16" rx="8" class="fill-pine"/>
+          <rect x="140" y="230" width="60" height="130" rx="24" class="fill-pine" transform="rotate(-12 170 295)"/>
+        </g>
+
+        <!-- reclining tooth character (deep root cleft so it reads as a tooth, seated on the chair) -->
+        <g transform="translate(215,172) rotate(-6)">
+          <!-- body/tooth shape -->
+          <path d="M60 0C26 0 0 24 0 62c0 30 10 54 18 80 5 15 10 20 16 20 9 0 7-22 26-22s17 22 26 22c6 0 11-5 16-20 8-26 18-50 18-80C120 24 94 0 60 0z" class="fill-cloud" stroke="#17372C" stroke-width="4"/>
+          <!-- rosy cheeks -->
+          <circle cx="28" cy="72" r="9" class="fill-apricot/50"/>
+          <circle cx="92" cy="72" r="9" class="fill-apricot/50"/>
+          <!-- smile -->
+          <path d="M42 84c6 8 30 8 36 0" stroke="#17372C" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <!-- sunglasses -->
+          <rect x="24" y="46" width="30" height="20" rx="8" class="fill-pine"/>
+          <rect x="66" y="46" width="30" height="20" rx="8" class="fill-pine"/>
+          <rect x="54" y="53" width="12" height="5" rx="2" class="fill-pine"/>
+          <path d="M24 52h-12M96 52h12" stroke="#17372C" stroke-width="4" stroke-linecap="round"/>
+          <!-- little shine on shades -->
+          <path d="M30 52l6-4M72 52l6-4" stroke="#AFC8B4" stroke-width="3" stroke-linecap="round"/>
+          <!-- arms resting -->
+          <path d="M6 90c-14 6-22 18-20 30" stroke="#17372C" stroke-width="4" stroke-linecap="round" fill="none"/>
+          <path d="M114 90c14 6 22 18 20 30" stroke="#17372C" stroke-width="4" stroke-linecap="round" fill="none"/>
+        </g>
+
+        <!-- ceiling TV -->
+        <g transform="translate(360,60)">
+          <rect x="0" y="0" width="120" height="76" rx="14" class="fill-pine"/>
+          <rect x="10" y="10" width="100" height="56" rx="6" class="fill-cloud"/>
+          <path d="M40 30l16 8-16 8V30z" class="fill-apricot"/>
+          <rect x="50" y="-24" width="8" height="24" class="fill-pine"/>
+        </g>
+
+        <!-- floating tray -->
+        <g transform="translate(370,300)">
+          <ellipse cx="30" cy="60" rx="70" ry="12" class="fill-sage/50"/>
+          <rect x="0" y="0" width="70" height="14" rx="7" class="fill-pine"/>
+          <circle cx="14" cy="7" r="4" class="fill-apricot"/>
+          <circle cx="34" cy="7" r="4" class="fill-cloud" stroke="#17372C" stroke-width="2"/>
+          <circle cx="54" cy="7" r="4" class="fill-apricot"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="bg-sage/30 py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="max-w-2xl">
+      <p class="eyebrow">What we do</p>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 text-pine">Everything a full-service studio should cover — nothing you don't need.</h2>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Checkups -->
+      <div class="service-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="20" stroke="#17372C" stroke-width="2.5"/><path d="M16 24l5.5 6L33 17" stroke="#FF9E6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Checkups &amp; cleanings</h3>
+        <p class="mt-2 text-sm text-pine/70 leading-relaxed">A thorough look, a proper polish, and a straight answer about what — if anything — needs attention.</p>
+        <p class="mt-4 font-display text-lg text-apricot">from $89</p>
+      </div>
+      <!-- Fillings & crowns -->
+      <div class="service-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 8c-9 0-14 7-14 16 0 11 5 20 8 20 3 0 3.5-3 6-3s3 3 6 3c3 0 8-9 8-20 0-9-5-16-14-16z" stroke="#17372C" stroke-width="2.5"/><circle cx="24" cy="22" r="4" fill="#FF9E6D"/></svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Fillings &amp; crowns</h3>
+        <p class="mt-2 text-sm text-pine/70 leading-relaxed">Tooth-colored fillings that actually match, and crowns built to survive whatever you forgot not to chew.</p>
+        <p class="mt-4 font-display text-lg text-apricot">from $195</p>
+      </div>
+      <!-- Invisalign -->
+      <div class="service-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="8" y="18" width="32" height="14" rx="7" stroke="#17372C" stroke-width="2.5"/><path d="M13 25h22" stroke="#FF9E6D" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="0.5 5"/></svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Invisalign&reg;</h3>
+        <p class="mt-2 text-sm text-pine/70 leading-relaxed">Straighter teeth without the metal-mouth years. Clear trays, checked in every six weeks or so.</p>
+        <p class="mt-4 font-display text-lg text-apricot">from $3,900</p>
+      </div>
+      <!-- Whitening -->
+      <div class="service-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" stroke="#17372C" stroke-width="2.5" stroke-linejoin="round"/><circle cx="38" cy="10" r="2" fill="#FF9E6D"/></svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Whitening</h3>
+        <p class="mt-2 text-sm text-pine/70 leading-relaxed">One in-studio visit for a noticeably brighter smile, no sensitivity horror stories.</p>
+        <p class="mt-4 font-display text-lg text-apricot">from $349</p>
+      </div>
+      <!-- Implants -->
+      <div class="service-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 6c-6 0-10 4-10 9 0 4 2 6 4 7l1 20h10l1-20c2-1 4-3 4-7 0-5-4-9-10-9z" stroke="#17372C" stroke-width="2.5"/><path d="M19 24h10M19 30h10" stroke="#FF9E6D" stroke-width="2"/></svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Implants</h3>
+        <p class="mt-2 text-sm text-pine/70 leading-relaxed">A permanent fix for a missing tooth — titanium root, natural-looking crown, done right.</p>
+        <p class="mt-4 font-display text-lg text-apricot">from $1,150</p>
+      </div>
+      <!-- Kids -->
+      <div class="service-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><circle cx="24" cy="24" r="17" stroke="#17372C" stroke-width="2.5"/><circle cx="18" cy="21" r="2" fill="#17372C"/><circle cx="30" cy="21" r="2" fill="#17372C"/><path d="M17 28c3 4 11 4 14 0" stroke="#FF9E6D" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Kids' dentistry</h3>
+        <p class="mt-2 text-sm text-pine/70 leading-relaxed">Patient, playful, and built to make the first ten visits feel as easy as the hundredth.</p>
+        <p class="mt-4 font-display text-lg text-apricot">from $79</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Honest Pricing -->
+<section id="pricing" class="py-20 sm:py-28">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-2xl mx-auto">
+      <p class="eyebrow justify-center">Honest pricing</p>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 text-pine">No mystery bills. Prices on the wall, like anywhere honest.</h2>
+    </div>
+
+    <div class="mt-14 bg-white rounded-4xl shadow-sm overflow-hidden border border-pine/5">
+      <ul class="divide-y divide-pine/10">
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">New-patient exam + X-rays</p>
+            <p class="text-sm text-pine/60 mt-0.5">The getting-to-know-you visit. Full picture, no surprises after.</p>
+          </div>
+          <p class="price-row-amount">$89</p>
+        </li>
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">Cleaning</p>
+            <p class="text-sm text-pine/60 mt-0.5">The polish your toothbrush can't do at home.</p>
+          </div>
+          <p class="price-row-amount">$119</p>
+        </li>
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">Whitening</p>
+            <p class="text-sm text-pine/60 mt-0.5">Same smile, several shades brighter.</p>
+          </div>
+          <p class="price-row-amount">$349</p>
+        </li>
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">Filling</p>
+            <p class="text-sm text-pine/60 mt-0.5">Patches a cavity before it becomes a bigger conversation.</p>
+          </div>
+          <p class="price-row-amount">from $195</p>
+        </li>
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">Crown</p>
+            <p class="text-sm text-pine/60 mt-0.5">A crown is a helmet for a cracked tooth.</p>
+          </div>
+          <p class="price-row-amount">from $1,150</p>
+        </li>
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">Root canal</p>
+            <p class="text-sm text-pine/60 mt-0.5">Sounds worse than it is — this is the fix, not the injury.</p>
+          </div>
+          <p class="price-row-amount">from $890</p>
+        </li>
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">Invisalign&reg;</p>
+            <p class="text-sm text-pine/60 mt-0.5">Straighter teeth, tracked digitally, over about a year.</p>
+          </div>
+          <p class="price-row-amount">from $3,900</p>
+        </li>
+        <li class="price-row">
+          <div class="price-row-info">
+            <p class="font-display text-lg text-pine">Emergency visit</p>
+            <p class="text-sm text-pine/60 mt-0.5">Something hurts and it won't wait. We'll fit you in today.</p>
+          </div>
+          <div class="text-right">
+            <p class="price-row-amount">$95</p>
+            <p class="text-xs font-bold text-apricot mt-0.5">waived if treated same day</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center text-center gap-4">
+      <p class="text-sm font-900 tracking-wide uppercase text-pine/60">We accept</p>
+      <div class="flex flex-wrap justify-center gap-2.5">
+        <span class="chip">Delta Dental</span>
+        <span class="chip">Cigna</span>
+        <span class="chip">Aetna</span>
+        <span class="chip">MetLife</span>
+        <span class="chip">Guardian</span>
+      </div>
+      <p class="text-sm text-pine/70 max-w-md mt-2">No insurance? Our membership plan is <span class="font-900 text-pine">$29/mo</span> — two cleanings included.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Comfort Menu -->
+<section id="comfort" class="bg-pine text-cloud py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-2xl">
+      <p class="eyebrow !text-apricot">The comfort menu</p>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3">Scared of the dentist? We planned for that.</h2>
+      <p class="mt-4 text-cloud/70 text-lg">Order off this menu the way you'd order off any other. Mix and match — it's your visit.</p>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="comfort-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="10" width="36" height="22" rx="4" stroke="#F3F6F4" stroke-width="2.5"/><path d="M18 38h12M24 32v6" stroke="#FF9E6D" stroke-width="2.5" stroke-linecap="round"/><path d="M16 21l5 5 10-10" stroke="#FF9E6D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 class="font-display text-xl mt-5">Ceiling TVs + Netflix</h3>
+        <p class="mt-2 text-sm text-cloud/70 leading-relaxed">Pick a show. We'll pick up when you're not looking.</p>
+      </div>
+      <div class="comfort-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M8 26a16 16 0 0132 0" stroke="#F3F6F4" stroke-width="2.5" fill="none"/><rect x="4" y="24" width="9" height="14" rx="4" stroke="#FF9E6D" stroke-width="2.5"/><rect x="35" y="24" width="9" height="14" rx="4" stroke="#FF9E6D" stroke-width="2.5"/></svg>
+        <h3 class="font-display text-xl mt-5">Noise-cancelling headphones</h3>
+        <p class="mt-2 text-sm text-cloud/70 leading-relaxed">Your playlist, not the drill, gets top billing.</p>
+      </div>
+      <div class="comfort-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><rect x="6" y="14" width="36" height="24" rx="6" stroke="#F3F6F4" stroke-width="2.5"/><path d="M6 22h36M6 30h36" stroke="#FF9E6D" stroke-width="2"/></svg>
+        <h3 class="font-display text-xl mt-5">Weighted blankets</h3>
+        <p class="mt-2 text-sm text-cloud/70 leading-relaxed">Like a hug that doesn't ask how your week's going.</p>
+      </div>
+      <div class="comfort-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><ellipse cx="24" cy="28" rx="14" ry="12" stroke="#F3F6F4" stroke-width="2.5"/><path d="M24 16c-2-4-2-8 2-10" stroke="#FF9E6D" stroke-width="2.5" stroke-linecap="round" fill="none"/><circle cx="19" cy="26" r="2" fill="#FF9E6D"/><circle cx="29" cy="26" r="2" fill="#FF9E6D"/></svg>
+        <h3 class="font-display text-xl mt-5">Nitrous, if you want it</h3>
+        <p class="mt-2 text-sm text-cloud/70 leading-relaxed">Laughing gas, if you want it. No judgment either way.</p>
+      </div>
+      <div class="comfort-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 30c0-11 8-19 14-19s14 8 14 19" stroke="#F3F6F4" stroke-width="2.5" fill="none"/><circle cx="24" cy="35" r="4" fill="#FF9E6D"/></svg>
+        <h3 class="font-display text-xl mt-5">Numbing before the numbing</h3>
+        <p class="mt-2 text-sm text-cloud/70 leading-relaxed">A numbing gel goes on before the actual injection. You barely feel either.</p>
+      </div>
+      <div class="comfort-card">
+        <svg class="glyph" viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M24 8v8M14 12l4 6M34 12l-4 6" stroke="#F3F6F4" stroke-width="2.5" stroke-linecap="round"/><rect x="14" y="20" width="20" height="20" rx="4" stroke="#FF9E6D" stroke-width="2.5"/></svg>
+        <h3 class="font-display text-xl mt-5">The stop-anything hand signal</h3>
+        <p class="mt-2 text-sm text-cloud/70 leading-relaxed">Raise a hand, everything pauses instantly. No questions, no delay.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="team" class="py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-2xl">
+      <p class="eyebrow">Who you'll see</p>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 text-pine">A small team, a lot of chairside manner.</h2>
+    </div>
+
+    <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="team-card">
+        <svg class="avatar" viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="48" class="fill-sage"/>
+          <path d="M48 30c-11 0-16 8-16 17 0 5 1.5 9 4 12l1 13c0 2 2 3 4 3h14c2 0 4-1 4-3l1-13c2.5-3 4-7 4-12 0-9-5-17-16-17z" class="fill-cloud"/>
+          <path d="M32 40c2-8 8-13 16-13s14 5 16 13" stroke="#17372C" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <circle cx="41" cy="46" r="2.2" class="fill-pine"/>
+          <circle cx="55" cy="46" r="2.2" class="fill-pine"/>
+          <path d="M42 55c3 2.5 9 2.5 12 0" stroke="#17372C" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M20 88c2-14 12-22 28-22s26 8 28 22" class="fill-pine"/>
+        </svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Dr. Maya Castellanos, DDS</h3>
+        <p class="text-xs font-900 tracking-wide uppercase text-apricot mt-1">Founder</p>
+        <p class="mt-3 text-sm text-pine/70 leading-relaxed">Started Lakeline because her own dentist visits used to make her cry in the parking lot — figured she could build something better.</p>
+      </div>
+      <div class="team-card">
+        <svg class="avatar" viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="48" class="fill-apricot/60"/>
+          <path d="M48 28c-12 0-17 9-17 18 0 5 1.5 9 4 12l1 13c0 2 2 3 4 3h16c2 0 4-1 4-3l1-13c2.5-3 4-7 4-12 0-9-5-18-17-18z" class="fill-cloud"/>
+          <path d="M31 38c0-8 20-14 30-4-2 2-4 2-4 2s2 4 2 8" stroke="#17372C" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <circle cx="41" cy="48" r="2.2" class="fill-pine"/>
+          <circle cx="55" cy="48" r="2.2" class="fill-pine"/>
+          <path d="M42 57c3 2.5 9 2.5 12 0" stroke="#17372C" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M20 88c2-14 12-22 28-22s26 8 28 22" class="fill-pine"/>
+        </svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Dr. James Okafor, DDS</h3>
+        <p class="text-xs font-900 tracking-wide uppercase text-apricot mt-1">Associate Dentist</p>
+        <p class="mt-3 text-sm text-pine/70 leading-relaxed">Explains every step before he does it, in plain English, whether you ask or not — patients tend to like that part.</p>
+      </div>
+      <div class="team-card">
+        <svg class="avatar" viewBox="0 0 96 96" aria-hidden="true">
+          <circle cx="48" cy="48" r="48" class="fill-pine/20"/>
+          <path d="M48 30c-11 0-16 8-16 17 0 5 1.5 9 4 12l1 13c0 2 2 3 4 3h14c2 0 4-1 4-3l1-13c2.5-3 4-7 4-12 0-9-5-17-16-17z" class="fill-cloud"/>
+          <path d="M30 42c4-2 8-10 18-10s14 8 18 10c0-12-8-19-18-19s-18 7-18 19z" class="fill-pine"/>
+          <circle cx="41" cy="47" r="2.2" class="fill-pine"/>
+          <circle cx="55" cy="47" r="2.2" class="fill-pine"/>
+          <path d="M42 56c3 2.5 9 2.5 12 0" stroke="#17372C" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M20 88c2-14 12-22 28-22s26 8 28 22" class="fill-pine"/>
+        </svg>
+        <h3 class="font-display text-xl mt-5 text-pine">Priya</h3>
+        <p class="text-xs font-900 tracking-wide uppercase text-apricot mt-1">Dental Hygienist</p>
+        <p class="mt-3 text-sm text-pine/70 leading-relaxed">Widely agreed to have the gentlest hands in Travis County — ask any patient who used to dread the polish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="bg-sage/30 py-20 sm:py-28">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6">
+    <div class="text-center">
+      <p class="eyebrow justify-center">Questions</p>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 text-pine">Good to know before you come in.</h2>
+    </div>
+
+    <div class="mt-12" x-data="faqAccordion()">
+      <div class="faq-item">
+        <h3>
+          <button type="button" class="faq-trigger" @click="toggle(0)" :aria-expanded="open === 0" aria-controls="faq-panel-0" id="faq-btn-0">
+            <span>Do you take my insurance?</span>
+            <svg class="faq-icon" :class="open === 0 && 'rotate-45'" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </button>
+        </h3>
+        <div class="faq-collapse" :style="open === 0 ? '' : ''" :class="open === 0 && 'is-open'" id="faq-panel-0" role="region" aria-labelledby="faq-btn-0">
+          <div class="faq-inner">
+            <p>Most likely, yes. We're in-network with Delta Dental, Cigna, Aetna, MetLife, and Guardian. No insurance? Ask about our $29/mo membership plan — it covers two cleanings a year.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3>
+          <button type="button" class="faq-trigger" @click="toggle(1)" :aria-expanded="open === 1" aria-controls="faq-panel-1" id="faq-btn-1">
+            <span>What if I haven't been in years?</span>
+            <svg class="faq-icon" :class="open === 1 && 'rotate-45'" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </button>
+        </h3>
+        <div class="faq-collapse" :class="open === 1 && 'is-open'" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+          <div class="faq-inner">
+            <p>No lectures. We start where you are. Your first visit is just an exam and X-rays so we both know what's going on — then we'll map out next steps together, at your pace.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3>
+          <button type="button" class="faq-trigger" @click="toggle(2)" :aria-expanded="open === 2" aria-controls="faq-panel-2" id="faq-btn-2">
+            <span>Is the membership plan worth it?</span>
+            <svg class="faq-icon" :class="open === 2 && 'rotate-45'" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </button>
+        </h3>
+        <div class="faq-collapse" :class="open === 2 && 'is-open'" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+          <div class="faq-inner">
+            <p>If you don't have dental insurance, usually yes. $29/mo includes two cleanings and two exams a year, plus 15% off any other treatment — most members save more than they pay in.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3>
+          <button type="button" class="faq-trigger" @click="toggle(3)" :aria-expanded="open === 3" aria-controls="faq-panel-3" id="faq-btn-3">
+            <span>Do you see kids?</span>
+            <svg class="faq-icon" :class="open === 3 && 'rotate-45'" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </button>
+        </h3>
+        <div class="faq-collapse" :class="open === 3 && 'is-open'" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+          <div class="faq-inner">
+            <p>We do, starting around age 3. Kids' visits run a little slower and a lot friendlier — the goal is a first ten visits that don't need to be undone later.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <h3>
+          <button type="button" class="faq-trigger" @click="toggle(4)" :aria-expanded="open === 4" aria-controls="faq-panel-4" id="faq-btn-4">
+            <span>What about emergencies?</span>
+            <svg class="faq-icon" :class="open === 4 && 'rotate-45'" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>
+          </button>
+        </h3>
+        <div class="faq-collapse" :class="open === 4 && 'is-open'" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+          <div class="faq-inner">
+            <p>Call us — we hold same-day slots for exactly this. The $95 emergency visit fee is waived if we treat you the same day you call.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Booking -->
+<section id="booking" class="py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-14">
+    <div>
+      <p class="eyebrow">Visit us</p>
+      <h2 class="font-display text-4xl sm:text-5xl mt-3 text-pine">Come say hi.</h2>
+
+      <dl class="mt-10 space-y-7 text-pine">
+        <div class="flex gap-4">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="#17372C" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="#FF9E6D" stroke-width="2" stroke-linecap="round"/></svg>
+          <div>
+            <dt class="font-900 text-sm uppercase tracking-wide text-pine/60">Hours</dt>
+            <dd class="mt-1 text-lg">Mon–Fri 8am–6pm<br>Sat 9am–2pm</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-6.6 7-12a7 7 0 10-14 0c0 5.4 7 12 7 12z" stroke="#17372C" stroke-width="2"/><circle cx="12" cy="9" r="2.5" stroke="#FF9E6D" stroke-width="2"/></svg>
+          <div>
+            <dt class="font-900 text-sm uppercase tracking-wide text-pine/60">Address</dt>
+            <dd class="mt-1 text-lg">2408 Lakeline Mesa Dr<br>Austin, TX 78717</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4h3l2 5-2.5 1.5a12 12 0 006 6L16 14l5 2v3a2 2 0 01-2 2C10.5 21 3 13.5 3 5a2 2 0 012-2z" stroke="#17372C" stroke-width="2" stroke-linejoin="round"/></svg>
+          <div>
+            <dt class="font-900 text-sm uppercase tracking-wide text-pine/60">Phone</dt>
+            <dd class="mt-1 text-lg"><a href="tel:+15125550184" class="hover:text-apricot transition-colors">(512) 555-0184</a></dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <svg class="info-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2" stroke="#17372C" stroke-width="2"/><path d="M8 8V6a4 4 0 018 0v2" stroke="#FF9E6D" stroke-width="2"/></svg>
+          <div>
+            <dt class="font-900 text-sm uppercase tracking-wide text-pine/60">Parking</dt>
+            <dd class="mt-1 text-lg">Free lot parking right out front, no validation needed.</dd>
+          </div>
+        </div>
+      </dl>
+    </div>
+
+    <div x-data="bookingForm()" class="bg-white rounded-4xl shadow-sm border border-pine/5 p-6 sm:p-8">
+      <template x-if="!submitted">
+        <div>
+          <div class="flex items-center gap-2 mb-8" role="progressbar" :aria-valuenow="step" aria-valuemin="1" aria-valuemax="3" aria-label="Booking progress">
+            <span class="step-dot" :class="step >= 1 && 'is-active'"></span>
+            <span class="step-line" :class="step >= 2 && 'is-active'"></span>
+            <span class="step-dot" :class="step >= 2 && 'is-active'"></span>
+            <span class="step-line" :class="step >= 3 && 'is-active'"></span>
+            <span class="step-dot" :class="step >= 3 && 'is-active'"></span>
+          </div>
+
+          <form @submit.prevent="submit">
+            <!-- Step 1 -->
+            <div x-show="step === 1" x-cloak>
+              <h3 class="font-display text-2xl text-pine">New or returning patient?</h3>
+              <p class="text-sm text-pine/60 mt-1">Helps us pull up the right paperwork before you arrive.</p>
+              <div class="mt-6 grid grid-cols-2 gap-3">
+                <button type="button" @click="data.patientType = 'new'; error = ''" class="option-tile" :class="data.patientType === 'new' && 'is-selected'">New patient</button>
+                <button type="button" @click="data.patientType = 'returning'; error = ''" class="option-tile" :class="data.patientType === 'returning' && 'is-selected'">Returning patient</button>
+              </div>
+              <p class="form-error" x-show="error" x-text="error" x-cloak></p>
+              <div class="mt-8 flex justify-end">
+                <button type="button" @click="next" class="btn-primary">Continue</button>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div x-show="step === 2" x-cloak>
+              <h3 class="font-display text-2xl text-pine">What brings you in?</h3>
+              <div class="mt-6">
+                <label for="reason" class="field-label">Reason for visit</label>
+                <select id="reason" x-model="data.reason" @change="error = ''" class="field-select">
+                  <option value="" disabled selected>Select a reason</option>
+                  <option value="checkup">Checkup / cleaning</option>
+                  <option value="hurts">Something hurts</option>
+                  <option value="cosmetic">Cosmetic</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <fieldset class="mt-6">
+                <legend class="field-label">Preferred time</legend>
+                <div class="mt-2 grid grid-cols-3 gap-3">
+                  <label class="radio-tile">
+                    <input type="radio" name="time" value="morning" x-model="data.time" @change="error = ''" class="sr-only">
+                    <span>Morning</span>
+                  </label>
+                  <label class="radio-tile">
+                    <input type="radio" name="time" value="lunch" x-model="data.time" @change="error = ''" class="sr-only">
+                    <span>Lunch</span>
+                  </label>
+                  <label class="radio-tile">
+                    <input type="radio" name="time" value="afterwork" x-model="data.time" @change="error = ''" class="sr-only">
+                    <span>After work</span>
+                  </label>
+                </div>
+              </fieldset>
+              <p class="form-error" x-show="error" x-text="error" x-cloak></p>
+              <div class="mt-8 flex justify-between">
+                <button type="button" @click="back" class="btn-ghost">Back</button>
+                <button type="button" @click="next" class="btn-primary">Continue</button>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div x-show="step === 3" x-cloak>
+              <h3 class="font-display text-2xl text-pine">Your details</h3>
+              <div class="mt-6 space-y-5">
+                <div>
+                  <label for="name" class="field-label">Full name</label>
+                  <input id="name" type="text" x-model="data.name" @input="error = ''" autocomplete="name" class="field-input" placeholder="Jamie Rivera">
+                </div>
+                <div>
+                  <label for="email" class="field-label">Email</label>
+                  <input id="email" type="email" x-model="data.email" @input="error = ''" autocomplete="email" class="field-input" placeholder="jamie@email.com">
+                </div>
+                <div>
+                  <label for="phone" class="field-label">Phone</label>
+                  <input id="phone" type="tel" x-model="data.phone" @input="error = ''" autocomplete="tel" class="field-input" placeholder="(512) 555-0100">
+                </div>
+              </div>
+              <p class="form-error" x-show="error" x-text="error" x-cloak></p>
+              <div class="mt-8 flex justify-between">
+                <button type="button" @click="back" class="btn-ghost">Back</button>
+                <button type="submit" class="btn-primary">Request appointment</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </template>
+
+      <template x-if="submitted">
+        <div class="py-10 text-center" role="status">
+          <svg class="mx-auto" width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true"><circle cx="28" cy="28" r="28" class="fill-sage"/><path d="M17 29l7 7 15-15" stroke="#17372C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3 class="font-display text-2xl text-pine mt-5">Request received</h3>
+          <p class="text-pine/70 mt-2 max-w-xs mx-auto">We'll text you within the hour to confirm your appointment.</p>
+        </div>
+      </template>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="bg-pine text-cloud">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+    <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+      <div class="flex items-start gap-3">
+        <svg width="40" height="40" viewBox="0 0 44 44" fill="none" aria-hidden="true">
+          <circle cx="22" cy="22" r="22" class="fill-cloud"/>
+          <path d="M22 12c-2.6 0-4.2 1.1-5.4 1.1-1.1 0-2.3-.7-3.6-.7-2.5 0-4.5 2-4.5 5.4 0 4.1 2.9 10.2 5.3 10.2 1.3 0 1.7-.9 3.2-.9s1.9.9 3.2.9c2.5 0 5.6-6.4 5.6-10.4 0-3.2-2-5-4.4-5-1.3 0-2.4.4-3.4.4 0 0 1.3-1.1 4-1z" class="fill-pine"/>
+        </svg>
+        <div>
+          <p class="font-display text-xl">Lakeline Dental Studio</p>
+          <p class="text-sm text-cloud/60 mt-1">Austin, Texas</p>
+        </div>
+      </div>
+
+      <nav aria-label="Footer">
+        <ul class="flex flex-wrap gap-x-8 gap-y-3 text-sm font-bold">
+          <li><a href="#services" class="hover:text-apricot transition-colors">Services</a></li>
+          <li><a href="#pricing" class="hover:text-apricot transition-colors">Pricing</a></li>
+          <li><a href="#comfort" class="hover:text-apricot transition-colors">Comfort</a></li>
+          <li><a href="#team" class="hover:text-apricot transition-colors">Team</a></li>
+          <li><a href="#faq" class="hover:text-apricot transition-colors">FAQ</a></li>
+          <li><a href="#booking" class="hover:text-apricot transition-colors">Book online</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-cloud/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-cloud/50">
+      <p class="max-w-lg">We're committed to ADA-accessible care, both in our studio and on this website. If you need an accommodation, just call us — (512) 555-0184.</p>
+      <p>&copy; 2026 Lakeline Dental Studio &middot; Austin, TX</p>
+    </div>
+    <p class="mt-6 text-xs text-cloud/40">Site hand-coded — loads faster than your numbing kicks in.</p>
+  </div>
+</footer>
+
+</body>
+</html>

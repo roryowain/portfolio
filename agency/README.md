@@ -1,0 +1,5 @@
+# Studio Kilat — demo site
+
+This is a portfolio showpiece for a freelance web-development business: a fictional two-person brand-and-web studio in Kuala Lumpur called Studio Kilat ("kilat" is Malay for lightning, and slang for fast). It's a single, self-contained HTML page — no build step, no images, no dependencies beyond three CDN scripts (Tailwind's Play CDN, Alpine.js with its collapse plugin, and Google Fonts) — built to demonstrate a type-driven, Swiss-influenced design system: everything on the page is composed from Archivo/Archivo Black/Space Mono type, hairline rules, and inline SVG. The signature interaction is the "Selected Work" list, an accordion of four case studies that expand to reveal a hand-drawn SVG artifact per project.
+
+To view it locally, just open `index.html` in a browser — everything loads from CDNs, so an internet connection is required but no server or install step is. To deploy on Netlify, either drag the `agency` folder onto Netlify's "Deploy manually" drop zone in the dashboard, or connect the repo and set the publish directory to `demos/agency` with no build command (there's nothing to build).

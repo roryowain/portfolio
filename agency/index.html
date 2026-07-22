@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Kilat — Brand & Web, Kuala Lumpur</title>
+  <meta name="description" content="Studio Kilat is a two-person brand and web studio in Kuala Lumpur. We design brands and hand-code the websites that carry them. No page builders, no plugins, no six-week discovery phase." />
+  <meta name="theme-color" content="#FAFAF6" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Studio Kilat — Brand & Web, Kuala Lumpur" />
+  <meta property="og:description" content="Fast is a feature. We design brands and hand-code the websites that carry them." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/og.png" />
+
+  <!-- Fonts: Archivo Black (display), Archivo (body/weight contrast), Space Mono (labels/meta) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind (Play CDN) + design tokens -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#FAFAF6',
+            ink: '#101014',
+            kilat: '#2B2BEB',
+            storm: '#6B6B76',
+            hairline: 'rgba(16, 16, 20, 0.12)',
+          },
+          fontFamily: {
+            display: ['"Archivo Black"', 'Archivo', 'sans-serif'],
+            sans: ['Archivo', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          },
+          borderRadius: {
+            none: '0px',
+            DEFAULT: '0px',
+            full: '9999px',
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Alpine.js: collapse plugin, then our components, then Alpine core.
+       Alpine core must load LAST — with `defer`, its script starts Alpine
+       immediately on execution (readyState is already "interactive" by
+       then, not "loading"), so anything registering Alpine.data() has to
+       run first or the alpine:init listener attaches too late. -->
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <link rel="stylesheet" href="assets/css/custom.css" />
+</head>
+
+<body id="top" class="bg-paper text-ink font-sans antialiased selection:bg-kilat selection:text-paper">
+
+  <a href="#work" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:bg-kilat focus:text-paper focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:uppercase focus:tracking-widest">
+    Skip to Selected Work
+  </a>
+
+  <!-- =========================================================
+       NAV
+       ========================================================= -->
+  <header class="sticky top-0 z-50 bg-paper/95 backdrop-blur border-b border-hairline">
+    <nav class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 py-5 flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
+      <a href="#top" class="flex items-center gap-2 font-display text-base md:text-lg tracking-tight text-ink focus-visible:outline-none">
+        <span>STUDIO KILAT</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-kilat" aria-hidden="true">
+          <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+        </svg>
+      </a>
+
+      <div class="flex flex-wrap items-center gap-x-8 gap-y-3">
+        <ul class="flex items-center gap-6 md:gap-8 font-mono text-xs uppercase tracking-widest">
+          <li><a class="hover:text-kilat transition-colors" href="#work">Work</a></li>
+          <li><a class="hover:text-kilat transition-colors" href="#services">Services</a></li>
+          <li><a class="hover:text-kilat transition-colors" href="#about">About</a></li>
+          <li><a class="hover:text-kilat transition-colors" href="#contact">Contact</a></li>
+        </ul>
+
+        <div x-data="kilatClock" class="font-mono text-xs uppercase tracking-widest text-storm flex items-center gap-1" aria-label="Current time in Kuala Lumpur">
+          <span>KUL</span>
+          <span class="clock-pulse" aria-hidden="true">——</span>
+          <span x-text="time">--:--</span>
+          <span>MYT</span>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+    <section class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 pt-16 md:pt-24 pb-20 md:pb-28">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-storm mb-8 md:mb-12">
+        Brand &amp; Web — Kuala Lumpur / Remote
+      </p>
+
+      <h1 class="font-display text-[clamp(3rem,13vw,9.5rem)] leading-[0.92] tracking-tight text-ink">
+        <span class="block">Fast is a</span>
+        <span class="block text-kilat">feature.</span>
+      </h1>
+
+      <p class="mt-10 md:mt-14 max-w-2xl font-sans text-lg md:text-xl leading-relaxed text-ink/90">
+        We design brands and hand-code the websites that carry them. No page builders, no plugins, no six-week discovery phase. Kilat means lightning.
+      </p>
+
+      <div class="rule-draw mt-16 md:mt-20 h-px w-full bg-kilat" role="presentation"></div>
+    </section>
+
+    <!-- =========================================================
+         SELECTED WORK (signature element)
+         ========================================================= -->
+    <section id="work" class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 py-4 md:py-8">
+      <h2 class="font-mono text-xs uppercase tracking-widest text-storm mb-8 md:mb-10">
+        Selected Work
+      </h2>
+
+      <div x-data="workList">
+        <!-- ============================= Serai ============================= -->
+        <div class="border-t border-hairline">
+          <button
+            type="button"
+            class="group w-full text-left py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 md:items-baseline gap-2 md:gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kilat focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+            @click="toggle('serai')"
+            :aria-expanded="isOpen('serai')"
+            aria-controls="case-serai"
+          >
+            <span class="md:col-span-3 font-mono text-xs uppercase tracking-widest text-storm">2025 — Hospitality</span>
+            <span class="md:col-span-6 flex items-center gap-2 md:gap-3">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="bolt-flash w-6 h-6 md:w-8 md:h-8 text-kilat shrink-0" aria-hidden="true">
+                <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+              </svg>
+              <span class="work-row-text font-display text-4xl sm:text-5xl md:text-6xl leading-none text-ink">Serai</span>
+            </span>
+            <span class="md:col-span-3 font-sans text-sm md:text-base text-storm md:text-right">+38% online reservations, first quarter.</span>
+          </button>
+
+          <div id="case-serai" class="case-panel" :class="{ 'is-open': isOpen('serai') }">
+            <div class="pb-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+              <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Problem</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">Seven restaurants, one shared phone line, and a booking book that lived on a clipboard. Diners gave up before anyone picked up.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Built</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">One booking engine for all seven venues. Live table holds, SMS confirmations, and a menu editor the GM updates in minutes, not emails to us.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Result</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">+38% online reservations in the first quarter. Phone bookings fell by half — the line's free now for people who'd rather talk to a human.</p>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex items-center justify-center">
+                <!-- Artifact: booking calendar wireframe, one kilat cell -->
+                <svg viewBox="0 0 400 240" class="w-full max-w-md h-auto" role="img" aria-label="Wireframe of a seven-day booking grid with one highlighted, confirmed slot">
+                  <defs>
+                    <pattern id="serai-grid" width="50" height="55" patternUnits="userSpaceOnUse">
+                      <path d="M 50 0 L 0 0 0 55" fill="none" stroke="#101014" stroke-width="1" opacity="0.3" />
+                    </pattern>
+                  </defs>
+                  <rect x="20" y="15" width="350" height="220" fill="url(#serai-grid)" stroke="#101014" stroke-width="1.5" />
+                  <rect x="220" y="70" width="50" height="55" fill="#2B2BEB" />
+                  <path class="artifact-accent" d="M231 96 L242 108 L262 82" fill="none" stroke="#FAFAF6" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ========================= Harbour & Form ========================= -->
+        <div class="border-t border-hairline">
+          <button
+            type="button"
+            class="group w-full text-left py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 md:items-baseline gap-2 md:gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kilat focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+            @click="toggle('harbour')"
+            :aria-expanded="isOpen('harbour')"
+            aria-controls="case-harbour"
+          >
+            <span class="md:col-span-3 font-mono text-xs uppercase tracking-widest text-storm">2025 — Architecture</span>
+            <span class="md:col-span-6 flex items-center gap-2 md:gap-3">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="bolt-flash w-6 h-6 md:w-8 md:h-8 text-kilat shrink-0" aria-hidden="true">
+                <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+              </svg>
+              <span class="work-row-text font-display text-4xl sm:text-5xl md:text-6xl leading-none text-ink">Harbour &amp; Form</span>
+            </span>
+            <span class="md:col-span-3 font-sans text-sm md:text-base text-storm md:text-right">0.7s loads on a 40-image portfolio.</span>
+          </button>
+
+          <div id="case-harbour" class="case-panel" :class="{ 'is-open': isOpen('harbour') }">
+            <div class="pb-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+              <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Problem</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">Their old site took six seconds to show a single project photo. Clients judged the firm's craft by a site that couldn't get out of its own way.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Built</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">A hand-coded image pipeline, no CMS bloat, lazy everything. Forty projects, thousands of photos, served like the firm builds: precisely, with nothing extra.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Result</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">0.7s average load, full galleries included. Bounce rate down 41% — people now stay long enough to see the work.</p>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex items-center justify-center">
+                <!-- Artifact: browser frame with a fast, near-full load bar -->
+                <svg viewBox="0 0 400 240" class="w-full max-w-md h-auto" role="img" aria-label="Wireframe of a browser window with a load-progress bar reading 0.7 seconds">
+                  <rect x="30" y="30" width="340" height="180" fill="none" stroke="#101014" stroke-width="1.5" />
+                  <line x1="30" y1="62" x2="370" y2="62" stroke="#101014" stroke-width="1.5" />
+                  <circle cx="47" cy="46" r="3" fill="none" stroke="#101014" stroke-width="1.5" />
+                  <circle cx="60" cy="46" r="3" fill="none" stroke="#101014" stroke-width="1.5" />
+                  <circle cx="73" cy="46" r="3" fill="none" stroke="#101014" stroke-width="1.5" />
+                  <rect x="50" y="110" width="280" height="10" fill="none" stroke="#101014" stroke-width="1.5" />
+                  <line class="artifact-accent" x1="55" y1="115" x2="322" y2="115" stroke="#2B2BEB" stroke-width="8" />
+                  <text x="50" y="160" font-family="'Space Mono', monospace" font-size="22" fill="#101014">0.7s</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =============================== Lopak =============================== -->
+        <div class="border-t border-hairline">
+          <button
+            type="button"
+            class="group w-full text-left py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 md:items-baseline gap-2 md:gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kilat focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+            @click="toggle('lopak')"
+            :aria-expanded="isOpen('lopak')"
+            aria-controls="case-lopak"
+          >
+            <span class="md:col-span-3 font-mono text-xs uppercase tracking-widest text-storm">2025 — Marketplace</span>
+            <span class="md:col-span-6 flex items-center gap-2 md:gap-3">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="bolt-flash w-6 h-6 md:w-8 md:h-8 text-kilat shrink-0" aria-hidden="true">
+                <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+              </svg>
+              <span class="work-row-text font-display text-4xl sm:text-5xl md:text-6xl leading-none text-ink">Lopak</span>
+            </span>
+            <span class="md:col-span-3 font-sans text-sm md:text-base text-storm md:text-right">Signup conversion 4.1% → 9.8%.</span>
+          </button>
+
+          <div id="case-lopak" class="case-panel" :class="{ 'is-open': isOpen('lopak') }">
+            <div class="pb-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+              <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Problem</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">The old landing page explained the app. It never asked anyone to download it — one CTA, buried under three paragraphs nobody read.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Built</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">A page built around one decision: download or don't. Social proof up top, one form field, copy that says what the app does in six words.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Result</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">Signup conversion went from 4.1% to 9.8% in six weeks. Same traffic, more than double the downloads.</p>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex items-center justify-center">
+                <!-- Artifact: rising conversion line chart -->
+                <svg viewBox="0 0 400 240" class="w-full max-w-md h-auto" role="img" aria-label="Line chart rising from 4.1 percent to 9.8 percent">
+                  <line x1="40" y1="20" x2="40" y2="200" stroke="#101014" stroke-width="1.5" />
+                  <line x1="40" y1="200" x2="370" y2="200" stroke="#101014" stroke-width="1.5" />
+                  <path class="artifact-accent" d="M60 170 C 140 165, 220 130, 260 95 S 330 40, 350 35" fill="none" stroke="#2B2BEB" stroke-width="3" />
+                  <circle cx="60" cy="170" r="4" fill="#101014" />
+                  <circle cx="350" cy="35" r="4" fill="#2B2BEB" />
+                  <text x="30" y="190" font-family="'Space Mono', monospace" font-size="14" fill="#101014">4.1%</text>
+                  <text x="310" y="28" font-family="'Space Mono', monospace" font-size="14" fill="#2B2BEB">9.8%</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =========================== Kembara Gear =========================== -->
+        <div class="border-t border-b border-hairline">
+          <button
+            type="button"
+            class="group w-full text-left py-8 md:py-10 grid grid-cols-1 md:grid-cols-12 md:items-baseline gap-2 md:gap-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kilat focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+            @click="toggle('kembara')"
+            :aria-expanded="isOpen('kembara')"
+            aria-controls="case-kembara"
+          >
+            <span class="md:col-span-3 font-mono text-xs uppercase tracking-widest text-storm">2025 — E-commerce</span>
+            <span class="md:col-span-6 flex items-center gap-2 md:gap-3">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="bolt-flash w-6 h-6 md:w-8 md:h-8 text-kilat shrink-0" aria-hidden="true">
+                <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+              </svg>
+              <span class="work-row-text font-display text-4xl sm:text-5xl md:text-6xl leading-none text-ink">Kembara Gear</span>
+            </span>
+            <span class="md:col-span-3 font-sans text-sm md:text-base text-storm md:text-right">Lighthouse score 92 → 99.</span>
+          </button>
+
+          <div id="case-kembara" class="case-panel" :class="{ 'is-open': isOpen('kembara') }">
+            <div class="pb-12 md:pb-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14">
+              <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Problem</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">A theme with twelve apps bolted on, each one shaving off a Lighthouse point. Checkout took four taps too many on mobile.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Built</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">Stripped back to a hand-written checkout flow and three apps, not twelve. Every image budgeted, every script questioned before it shipped.</p>
+                </div>
+                <div>
+                  <p class="font-mono text-xs uppercase tracking-widest text-storm mb-3">Result</p>
+                  <p class="font-sans text-sm leading-relaxed text-ink/85">Lighthouse jumped from 92 to 99. Mobile checkout completion up 19% — turns out fast checkouts get finished.</p>
+                </div>
+              </div>
+              <div class="lg:col-span-5 flex items-center justify-center">
+                <!-- Artifact: Lighthouse-style gauge, needle at 99 -->
+                <svg viewBox="0 0 400 240" class="w-full max-w-md h-auto" role="img" aria-label="Speed gauge with the needle pointing near maximum, labelled 99">
+                  <path d="M60 190 A 140 140 0 0 1 340 190" fill="none" stroke="#101014" stroke-width="1.5" />
+                  <line x1="60" y1="190" x2="70" y2="175" stroke="#101014" stroke-width="1.5" />
+                  <line x1="200" y1="50" x2="200" y2="65" stroke="#101014" stroke-width="1.5" />
+                  <line x1="340" y1="190" x2="330" y2="175" stroke="#101014" stroke-width="1.5" />
+                  <line class="artifact-accent" x1="200" y1="190" x2="215" y2="62" stroke="#2B2BEB" stroke-width="3" stroke-linecap="square" />
+                  <circle cx="200" cy="190" r="6" fill="#FAFAF6" stroke="#101014" stroke-width="1.5" />
+                  <text x="170" y="220" font-family="Archivo Black, sans-serif" font-size="30" fill="#101014">99</text>
+                  <text x="150" y="238" font-family="'Space Mono', monospace" font-size="11" letter-spacing="2" fill="#6B6B76">LIGHTHOUSE</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         SERVICES
+         ========================================================= -->
+    <section id="services" class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 py-20 md:py-28 border-t border-hairline">
+      <h2 class="font-mono text-xs uppercase tracking-widest text-storm mb-12 md:mb-16">Services</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10">
+        <div>
+          <p class="font-mono text-xs uppercase tracking-widest text-storm mb-4">Identity</p>
+          <p class="font-sans text-xl md:text-2xl leading-snug text-ink mb-6">Logo, type system, colour, and the rules for using them without a designer in the room. A kit, not a PDF nobody opens.</p>
+          <p class="font-mono text-sm text-storm">from RM 4,500</p>
+        </div>
+        <div class="md:border-l md:border-hairline md:pl-10">
+          <p class="font-mono text-xs uppercase tracking-widest text-storm mb-4">Websites</p>
+          <p class="font-sans text-xl md:text-2xl leading-snug text-ink mb-6">Hand-coded, fast by default, built to outlast whichever page builder is trendy next year. You own the code, outright.</p>
+          <p class="font-mono text-sm text-storm">from RM 6,000</p>
+        </div>
+        <div class="md:border-l md:border-hairline md:pl-10">
+          <p class="font-mono text-xs uppercase tracking-widest text-storm mb-4">Ongoing</p>
+          <p class="font-sans text-xl md:text-2xl leading-snug text-ink mb-6">Small edits, new pages, the odd late-night typo fix. A retainer for studios who'd rather not relearn their own website.</p>
+          <p class="font-mono text-sm text-storm">RM 800/mo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         MANIFESTO STRIP
+         ========================================================= -->
+    <section class="bg-kilat text-paper py-24 md:py-36">
+      <div class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16">
+        <p class="font-display text-[clamp(2rem,6.5vw,4.75rem)] leading-[1.05] max-w-4xl">
+          Every site we ship scores 90+ on Lighthouse. Slow is broken.
+        </p>
+        <p class="font-mono text-xs uppercase tracking-widest mt-8 md:mt-10 text-paper/75">* we publish the reports.</p>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT
+         ========================================================= -->
+    <section id="about" class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 py-20 md:py-28">
+      <h2 class="font-mono text-xs uppercase tracking-widest text-storm mb-12 md:mb-16">About</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
+        <p class="font-sans text-lg md:text-xl leading-relaxed text-ink/90 max-w-xl">
+          Studio Kilat is two people. Amira leads design — brand systems built to hold up outside a deck. Wei writes every line of code by hand, obsessive about the milliseconds between click and paint. They share a desk, a coffee habit, and one rule: if it's slow, it's not done.
+        </p>
+
+        <dl class="font-mono text-sm">
+          <div class="flex justify-between items-center py-4 border-b border-hairline uppercase tracking-widest">
+            <dt class="text-storm">Founded</dt>
+            <dd class="text-ink">2024</dd>
+          </div>
+          <div class="flex justify-between items-center py-4 border-b border-hairline uppercase tracking-widest">
+            <dt class="text-storm">Sites shipped</dt>
+            <dd class="text-ink">23</dd>
+          </div>
+          <div class="flex justify-between items-center py-4 border-b border-hairline uppercase tracking-widest">
+            <dt class="text-storm">Median load</dt>
+            <dd class="text-ink">0.8s</dd>
+          </div>
+          <div class="flex justify-between items-center py-4 border-b border-hairline uppercase tracking-widest">
+            <dt class="text-storm">Coffee origin</dt>
+            <dd class="text-ink">Johor</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       CONTACT / FOOTER
+       ========================================================= -->
+  <footer id="contact" class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 pt-20 md:pt-28 pb-12 border-t border-hairline">
+    <a
+      href="mailto:hello@studiokilat.com?subject=New%20project"
+      class="group inline-flex items-center gap-3 md:gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kilat focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor" class="bolt-flash w-8 h-8 md:w-14 md:h-14 text-kilat shrink-0" aria-hidden="true">
+        <path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z" />
+      </svg>
+      <span class="work-row-text font-display text-[clamp(2.25rem,8vw,6rem)] leading-none text-ink">Start a project →</span>
+    </a>
+
+    <div class="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 font-mono text-sm text-storm">
+      <a href="mailto:hello@studiokilat.com" class="hover:text-kilat transition-colors">hello@studiokilat.com</a>
+      <p>12 Jalan Doraisamy, 50300 Kuala Lumpur</p>
+      <div class="flex flex-wrap gap-x-2">
+        <a href="https://instagram.com/studiokilat" class="hover:text-kilat transition-colors" target="_blank" rel="noopener">Instagram</a>
+        <span aria-hidden="true">—</span>
+        <a href="https://dribbble.com/studiokilat" class="hover:text-kilat transition-colors" target="_blank" rel="noopener">Dribbble</a>
+        <span aria-hidden="true">—</span>
+        <a href="https://linkedin.com/company/studiokilat" class="hover:text-kilat transition-colors" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <p class="mt-16 md:mt-20 font-mono text-xs text-storm">© 2026 Studio Kilat. Hand-coded, obviously.</p>
+  </footer>
+
+</body>
+</html>

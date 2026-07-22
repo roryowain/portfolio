@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ridge &amp; Beam — Heritage Roofing Specialists, York</title>
+<meta name="description" content="Family-run heritage roofing specialists in York since 1987. Slate and pantile re-roofing, leadwork, chimney repair and listed building consent — guaranteed for 50 years." />
+<meta name="theme-color" content="#EFEDE6" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ridge &amp; Beam — Heritage Roofing Specialists, York" />
+<meta property="og:description" content="Family-run heritage roofing specialists in York since 1987. Slate and pantile re-roofing, leadwork, chimney repair and listed building consent — guaranteed for 50 years." />
+<meta property="og:image" content="assets/img/og.png" />
+<meta property="og:locale" content="en_GB" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/css/custom.css" />
+
+<style>[x-cloak]{display:none!important;}</style>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          slate: '#242B33',
+          lead: '#5C6670',
+          limewash: '#EFEDE6',
+          oxide: '#9C3B2A',
+          brass: '#B08D57',
+        },
+        fontFamily: {
+          display: ['"Zilla Slab"', 'ui-serif', 'serif'],
+          body: ['"Source Sans 3"', 'ui-sans-serif', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+      },
+    },
+  };
+</script>
+</head>
+
+<body class="bg-limewash text-slate font-body antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[100] focus:bg-oxide focus:text-limewash focus:px-4 focus:py-2 font-mono text-sm">Skip to content</a>
+
+<!-- ==================== NAV ==================== -->
+<header x-data="mobileNav()" class="sticky top-0 z-50 bg-limewash/95 backdrop-blur border-b-2 border-slate">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="flex items-center justify-between h-20">
+      <a href="#top" class="flex items-center gap-3 group">
+        <svg width="30" height="22" viewBox="0 0 30 22" fill="none" aria-hidden="true" class="text-slate shrink-0">
+          <path d="M2,20 L15,3 L28,20" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"/>
+          <line x1="2" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="2.5"/>
+          <circle cx="15" cy="12" r="1.6" fill="currentColor"/>
+        </svg>
+        <span class="flex flex-col leading-none">
+          <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-slate">RIDGE &amp; BEAM</span>
+          <span class="font-mono text-[0.65rem] tracking-[0.2em] uppercase text-lead mt-1">Est. 1987 — York</span>
+        </span>
+      </a>
+
+      <nav aria-label="Primary" class="hidden md:flex items-center gap-9 font-mono text-xs uppercase tracking-[0.15em]">
+        <a href="#ledger" class="text-slate hover:text-oxide transition-colors">Work</a>
+        <a href="#craft" class="text-slate hover:text-oxide transition-colors">Craft</a>
+        <a href="#your-roof" class="text-slate hover:text-oxide transition-colors">Your Roof</a>
+        <a href="#quote" class="text-limewash bg-oxide hover:bg-slate transition-colors px-4 py-2.5">Quote</a>
+      </nav>
+
+      <button
+        type="button"
+        class="md:hidden flex flex-col justify-center items-center w-11 h-11 border-2 border-slate"
+        @click="toggle()"
+        :aria-expanded="open.toString()"
+        aria-controls="mobile-menu"
+        aria-label="Toggle menu"
+      >
+        <span class="block w-5 h-0.5 bg-slate mb-1.5" :class="open && 'translate-y-2 rotate-45'"></span>
+        <span class="block w-5 h-0.5 bg-slate mb-1.5" :class="open && 'opacity-0'"></span>
+        <span class="block w-5 h-0.5 bg-slate" :class="open && '-translate-y-2 -rotate-45'"></span>
+      </button>
+    </div>
+
+    <nav
+      id="mobile-menu"
+      x-show="open"
+      x-cloak
+      x-transition
+      aria-label="Mobile"
+      class="md:hidden mobile-nav-panel border-t-2 border-slate py-4 flex flex-col gap-4 font-mono text-sm uppercase tracking-[0.15em]"
+    >
+      <a href="#ledger" @click="close()" class="text-slate hover:text-oxide">Work</a>
+      <a href="#craft" @click="close()" class="text-slate hover:text-oxide">Craft</a>
+      <a href="#your-roof" @click="close()" class="text-slate hover:text-oxide">Your Roof</a>
+      <a href="#quote" @click="close()" class="text-oxide font-semibold">Quote</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ==================== HERO ==================== -->
+<section id="top" class="bg-limewash">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 pt-14 sm:pt-20 pb-10">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-end">
+      <div class="lg:col-span-7">
+        <p class="font-mono text-xs sm:text-sm tracking-[0.25em] uppercase text-oxide mb-6">
+          Heritage Roofing — Slate · Pantile · Lead
+        </p>
+        <h1 class="font-display font-bold text-slate text-[2.6rem] leading-[1.05] sm:text-6xl lg:text-[4.2rem] lg:leading-[1.03]">
+          Roofs that outlast the men who lay them.
+        </h1>
+        <p class="mt-7 text-lead text-lg sm:text-xl leading-relaxed max-w-xl">
+          Family-run since 1987. Listed buildings, period terraces and church roofs across Yorkshire — re-slated, re-leaded and guaranteed for 50 years.
+        </p>
+        <div class="mt-9 flex flex-wrap items-center gap-4">
+          <a href="#quote" class="inline-flex items-center bg-oxide text-limewash font-mono text-sm uppercase tracking-[0.1em] px-7 py-4 hover:bg-slate transition-colors">
+            Request a quote
+          </a>
+          <a href="#ledger" class="inline-flex items-center border-2 border-slate text-slate font-mono text-sm uppercase tracking-[0.1em] px-7 py-4 hover:border-oxide hover:text-oxide transition-colors">
+            See our work
+          </a>
+        </div>
+      </div>
+      <div class="lg:col-span-5 font-mono text-xs text-lead uppercase tracking-widest lg:pl-6 lg:border-l-2 lg:border-slate">
+        <p class="leading-relaxed">
+          Dan Beckwith, third generation.<br/>
+          Every roof surveyed before it's quoted.<br/>
+          No roof too old, no pitch too awkward.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero skyline: York rooftops in line-work -->
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 pb-4">
+    <svg viewBox="0 0 1200 320" class="w-full h-auto" role="img" aria-labelledby="skylineTitle" xmlns="http://www.w3.org/2000/svg">
+      <title id="skylineTitle">Line illustration of a York rooftop skyline: gable-end houses, chimney pots and a minster tower, with one roof shown re-covered in clay pantile.</title>
+
+      <line x1="0" y1="280" x2="1200" y2="280" stroke="#5C6670" stroke-width="2" />
+
+      <!-- Building 1 -->
+      <path d="M10,280 L10,210 L80,150 L150,210 L150,280" fill="none" stroke="#242B33" stroke-width="2.5" />
+      <rect x="40" y="118" width="14" height="45" fill="none" stroke="#242B33" stroke-width="2" />
+      <ellipse cx="47" cy="116" rx="8" ry="4" fill="none" stroke="#242B33" stroke-width="2" />
+      <path class="smoke-wisp" d="M47,110 q10,-14 -2,-26 q10,-10 2,-22" fill="none" stroke="#5C6670" stroke-width="2" stroke-linecap="round" />
+      <rect x="30" y="235" width="18" height="24" fill="none" stroke="#242B33" stroke-width="1.5" opacity="0.7" />
+
+      <!-- Building 2 -->
+      <path d="M150,280 L150,185 L220,110 L290,185 L290,280" fill="none" stroke="#242B33" stroke-width="2.5" />
+      <rect x="253" y="78" width="13" height="52" fill="none" stroke="#242B33" stroke-width="2" />
+      <ellipse cx="259.5" cy="76" rx="8" ry="4" fill="none" stroke="#242B33" stroke-width="2" />
+      <rect x="270" y="90" width="12" height="40" fill="none" stroke="#242B33" stroke-width="2" />
+      <ellipse cx="276" cy="88" rx="7.5" ry="4" fill="none" stroke="#242B33" stroke-width="2" />
+
+      <!-- Minster tower -->
+      <g stroke="#242B33" stroke-width="2.5" fill="none">
+        <path d="M290,280 L330,280 L330,40 L390,40 L390,280 L430,280" />
+        <path d="M330,40 L330,24 L342,24 L342,40 M354,40 L354,24 L366,24 L366,40 M378,40 L378,24 L390,24 L390,40" />
+        <path d="M322,40 L322,20 L330,8 L330,40 M390,40 L390,8 L398,20 L398,40" />
+        <path d="M348,230 q8,-24 16,0 l0,50 l-16,0 Z" stroke-width="2" />
+        <line x1="356" y1="230" x2="356" y2="280" stroke-width="1.5" />
+        <line x1="330" y1="140" x2="390" y2="140" stroke-width="1.5" />
+      </g>
+
+      <!-- Building 4: accent pantile roof -->
+      <path d="M430,280 L430,200 L505,135 L580,200 L580,280" fill="none" stroke="#242B33" stroke-width="2.5" />
+      <path d="M442,196 L505,144 L568,196 Z" fill="#9C3B2A" fill-opacity="0.92" stroke="#9C3B2A" stroke-width="1.5" stroke-linejoin="round" />
+      <path d="M446,196 q6,8 12,0 q6,8 12,0 q6,8 12,0 q6,8 12,0 q6,8 12,0" fill="none" stroke="#EFEDE6" stroke-width="1.5" opacity="0.65" />
+      <path d="M462,172 q6,7 12,0 q6,7 12,0 q6,7 12,0" fill="none" stroke="#EFEDE6" stroke-width="1.5" opacity="0.55" />
+      <rect x="540" y="103" width="13" height="45" fill="none" stroke="#242B33" stroke-width="2" />
+      <ellipse cx="546.5" cy="101" rx="8" ry="4" fill="none" stroke="#242B33" stroke-width="2" />
+
+      <!-- Building 5 -->
+      <path d="M580,280 L580,225 L650,180 L720,225 L720,280" fill="none" stroke="#242B33" stroke-width="2.5" />
+      <rect x="600" y="245" width="16" height="22" fill="none" stroke="#242B33" stroke-width="1.5" opacity="0.7" />
+
+      <!-- Building 6 -->
+      <path d="M730,280 L730,195 L800,125 L870,195 L870,280" fill="none" stroke="#242B33" stroke-width="2.5" />
+      <rect x="828" y="90" width="13" height="48" fill="none" stroke="#242B33" stroke-width="2" />
+      <ellipse cx="834.5" cy="88" rx="8" ry="4" fill="none" stroke="#242B33" stroke-width="2" />
+      <rect x="845" y="100" width="12" height="38" fill="none" stroke="#242B33" stroke-width="2" />
+      <ellipse cx="851" cy="98" rx="7.5" ry="4" fill="none" stroke="#242B33" stroke-width="2" />
+      <path class="smoke-wisp" d="M834,84 q12,-12 0,-24 q12,-10 0,-20" fill="none" stroke="#5C6670" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Building 7 -->
+      <path d="M890,280 L890,215 L960,165 L1030,215 L1030,280" fill="none" stroke="#242B33" stroke-width="2.5" />
+
+      <!-- Building 8 -->
+      <path d="M1040,280 L1040,190 L1110,110 L1180,190 L1180,280" fill="none" stroke="#242B33" stroke-width="2.5" />
+      <rect x="1148" y="78" width="13" height="50" fill="none" stroke="#242B33" stroke-width="2" />
+      <ellipse cx="1154.5" cy="76" rx="8" ry="4" fill="none" stroke="#242B33" stroke-width="2" />
+      <path class="smoke-wisp" d="M1154,72 q-10,-14 2,-26 q-10,-10 2,-22" fill="none" stroke="#5C6670" stroke-width="2" stroke-linecap="round" />
+    </svg>
+  </div>
+</section>
+
+<!-- ==================== TRUST STRIP ==================== -->
+<section class="bg-slate text-limewash py-4">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <p class="font-mono text-[0.68rem] sm:text-xs tracking-[0.15em] uppercase text-center leading-loose">
+      NFRC Member <span class="text-brass mx-2">·</span> Heritage Roofing Register <span class="text-brass mx-2">·</span> Fully Insured £5M <span class="text-brass mx-2">·</span> 50-Year Workmanship Guarantee
+    </p>
+  </div>
+</section>
+
+<!-- ==================== SERVICES ==================== -->
+<section class="border-b-2 border-slate">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+    <p class="font-mono text-xs tracking-[0.25em] uppercase text-oxide mb-3">What we do</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate mb-12 max-w-2xl">
+      Four trades, one standard.
+    </h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 border-t-2 border-slate divide-y-2 sm:divide-y-0 divide-slate lg:divide-x-2">
+      <div class="py-8 pr-0 lg:pr-8 sm:pr-8">
+        <h3 class="font-display font-semibold text-xl text-slate mb-3">Slate &amp; pantile re-roofing</h3>
+        <p class="text-lead leading-relaxed mb-5">Full strip and re-cover in Welsh slate or clay pantile, matched to what's either side of you and relaid to the traditional gauge.</p>
+        <p class="font-mono text-[0.7rem] uppercase tracking-wide text-lead">Typical terrace re-roof — from £9,500</p>
+      </div>
+      <div class="py-8 lg:pl-8 lg:pr-8 sm:pr-8">
+        <h3 class="font-display font-semibold text-xl text-slate mb-3">Leadwork &amp; flashings</h3>
+        <p class="text-lead leading-relaxed mb-5">Code 5 and 6 lead, hand-dressed on site to valleys, chimneys and abutments — the joints a roof can't overlap its own way out of.</p>
+        <p class="font-mono text-[0.7rem] uppercase tracking-wide text-lead">Chimney leadwork — from £1,200</p>
+      </div>
+      <div class="py-8 lg:pl-8 lg:pr-8 sm:pr-8">
+        <h3 class="font-display font-semibold text-xl text-slate mb-3">Chimney repair &amp; repointing</h3>
+        <p class="text-lead leading-relaxed mb-5">Repointing in lime mortar, stack rebuilds course by course, and pots reflaunched properly so the rain has nowhere to sit.</p>
+        <p class="font-mono text-[0.7rem] uppercase tracking-wide text-lead">Stack rebuild — from £2,400</p>
+      </div>
+      <div class="py-8 lg:pl-8">
+        <h3 class="font-display font-semibold text-xl text-slate mb-3">Listed building &amp; conservation</h3>
+        <p class="text-lead leading-relaxed mb-5">Work to Historic England guidance on listed buildings, churches and conservation areas. We handle the listed-building consent paperwork — you handle nothing.</p>
+        <p class="font-mono text-[0.7rem] uppercase tracking-wide text-lead">Conservation survey — from £350</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== KNOW YOUR ROOF ==================== -->
+<section id="your-roof" class="border-b-2 border-slate bg-limewash">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+    <p class="font-mono text-xs tracking-[0.25em] uppercase text-oxide mb-3">Know your roof</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate mb-4 max-w-2xl">
+      Six parts, and how each one fails.
+    </h2>
+    <p class="text-lead text-lg max-w-2xl mb-12">
+      Choose a part of the cross-section. Every roof we've ever fixed has failed in one of these six places first.
+    </p>
+
+    <div x-data="roofDiagram()" class="grid lg:grid-cols-5 gap-10 lg:gap-12 items-start">
+
+      <!-- Diagram + hotspots -->
+      <div class="lg:col-span-3 relative">
+        <svg viewBox="0 0 1000 640" class="w-full h-auto" role="img" aria-labelledby="roofDiagramTitle" xmlns="http://www.w3.org/2000/svg">
+          <title id="roofDiagramTitle">Cross-section of a period pitched roof showing the ridge, slate courses, lead flashing, valley, chimney and pots, and gutters and fascia</title>
+
+          <!-- ground -->
+          <line x1="20" y1="560" x2="980" y2="560" stroke="#5C6670" stroke-width="2" />
+          <line x1="162" y1="481" x2="162" y2="560" stroke="#5C6670" stroke-width="2" />
+          <line x1="889" y1="491" x2="889" y2="560" stroke="#5C6670" stroke-width="2" />
+          <line x1="50" y1="470" x2="50" y2="560" stroke="#5C6670" stroke-width="2" stroke-dasharray="4 4" opacity="0.6" />
+
+          <!-- roof band outlines (neutral, always visible) -->
+          <path d="M420,164 L150,470 M432,175 L162,481 M420,164 L432,175 M150,470 L162,481" stroke="#242B33" stroke-width="2" fill="none" />
+          <path d="M580,164 L900,480 M569,175 L889,491 M580,164 L569,175 M900,480 L889,491" stroke="#242B33" stroke-width="2" fill="none" />
+
+          <!-- decorative coursing ticks (neutral) -->
+          <g stroke="#5C6670" stroke-width="1.5" fill="none" opacity="0.55">
+            <line x1="379.5" y1="209.9" x2="391.5" y2="220.5" />
+            <line x1="344.4" y1="249.7" x2="356.4" y2="260.3" />
+            <line x1="309.3" y1="289.5" x2="321.3" y2="300.1" />
+            <line x1="274.2" y1="329.2" x2="286.2" y2="339.8" />
+            <line x1="239.1" y1="369" x2="251.1" y2="379.6" />
+            <line x1="605.6" y1="189.3" x2="594.6" y2="200.7" />
+            <line x1="650.4" y1="233.5" x2="639.4" y2="244.9" />
+            <line x1="695.2" y1="277.8" x2="684.2" y2="289.2" />
+            <line x1="740" y1="322" x2="729" y2="333.4" />
+            <line x1="874.4" y1="454.7" x2="863.4" y2="466.1" />
+          </g>
+
+          <!-- neutral left-eave gutter (decoration only) -->
+          <g stroke="#5C6670" stroke-width="2" fill="none" opacity="0.7">
+            <rect x="146" y="470" width="30" height="16" />
+            <path d="M146,486 q15,22 30,0" />
+          </g>
+
+          <!-- VALLEY -->
+          <g class="roof-part" :class="isActive('valley') && 'is-active'">
+            <path d="M120,330 L40,470" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M120,330 L200,413" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M200,413 L150,470" stroke="currentColor" stroke-width="3.5" fill="none" />
+            <path d="M208,408 L162,481" stroke="currentColor" stroke-width="1.5" fill="none" opacity="0.6" />
+          </g>
+
+          <!-- SLATE COURSES (cutaway detail) -->
+          <g class="roof-part" :class="isActive('slate') && 'is-active'">
+            <path d="M778,360 L767,371 M852,433 L841,444" stroke="currentColor" stroke-width="2" fill="none" />
+            <path d="M778,360 L852,433" stroke="currentColor" stroke-width="4" fill="none" stroke-linecap="round" />
+            <path d="M774,363 q9,7 18,0 q9,7 18,0 q9,7 19,0" stroke="currentColor" stroke-width="1.5" fill="none" />
+            <g stroke="currentColor" stroke-width="2">
+              <line x1="780" y1="378" x2="792" y2="382" />
+              <line x1="797" y1="392" x2="809" y2="396" />
+              <line x1="814" y1="406" x2="826" y2="410" />
+              <line x1="831" y1="420" x2="843" y2="424" />
+            </g>
+            <path d="M762,378 L856,450" stroke="currentColor" stroke-width="5" fill="none" stroke-linecap="round" />
+          </g>
+
+          <!-- RIDGE -->
+          <g class="roof-part" :class="isActive('ridge') && 'is-active'">
+            <rect x="420" y="150" width="160" height="14" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M424,150 q8,-8 16,0 q8,-8 16,0 q8,-8 16,0 q8,-8 16,0 q8,-8 16,0 q8,-8 16,0 q8,-8 16,0 q8,-8 16,0 q8,-8 16,0" fill="none" stroke="currentColor" stroke-width="2" />
+          </g>
+
+          <!-- CHIMNEY -->
+          <g class="roof-part" :class="isActive('chimney') && 'is-active'">
+            <rect x="615" y="60" width="70" height="160" fill="none" stroke="currentColor" stroke-width="2.5" />
+            <rect x="605" y="48" width="90" height="16" fill="none" stroke="currentColor" stroke-width="2" />
+            <rect x="628" y="20" width="16" height="30" fill="none" stroke="currentColor" stroke-width="2" />
+            <ellipse cx="636" cy="18" rx="11" ry="5" fill="none" stroke="currentColor" stroke-width="2" />
+            <rect x="656" y="26" width="16" height="24" fill="none" stroke="currentColor" stroke-width="2" />
+            <ellipse cx="664" cy="24" rx="11" ry="5" fill="none" stroke="currentColor" stroke-width="2" />
+          </g>
+
+          <!-- LEAD FLASHING -->
+          <g class="roof-part" :class="isActive('lead') && 'is-active'">
+            <path d="M600,220 L615,205 L640,220 L655,205 L680,220 L700,222 L695,238 L605,238 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          </g>
+
+          <!-- GUTTER & FASCIA -->
+          <g class="roof-part" :class="isActive('gutter') && 'is-active'">
+            <rect x="885" y="481" width="34" height="20" fill="none" stroke="currentColor" stroke-width="2" />
+            <path d="M885,501 q17,26 34,0" fill="none" stroke="currentColor" stroke-width="2.5" />
+          </g>
+        </svg>
+
+        <!-- Hotspot buttons, absolutely positioned over the SVG -->
+        <template x-for="(part, index) in parts" :key="part.id">
+          <button
+            type="button"
+            class="roof-hotspot"
+            :style="{ left: (({ridge:[50,24.5],slate:[81.5,65.6],lead:[65,36.25],valley:[17.5,68.75],chimney:[65,11.7],gutter:[90.5,78]})[part.id][0]) + '%', top: (({ridge:[50,24.5],slate:[81.5,65.6],lead:[65,36.25],valley:[17.5,68.75],chimney:[65,11.7],gutter:[90.5,78]})[part.id][1]) + '%' }"
+            :aria-pressed="isActive(part.id).toString()"
+            :aria-label="part.number + ' ' + part.label"
+            @click="select(part.id)"
+            @keydown="onKeyNav($event, index)"
+          >
+            <span x-text="part.number.replace('0','')" aria-hidden="true"></span>
+          </button>
+        </template>
+      </div>
+
+      <!-- Explainer card -->
+      <div class="lg:col-span-2 border-2 border-slate p-7 sm:p-8 bg-limewash min-h-[280px]" aria-live="polite">
+        <template x-for="part in [currentPart()]" :key="part.id">
+          <div>
+            <p class="font-mono text-xs text-brass tracking-widest mb-2">PART <span x-text="part.number"></span> / 06</p>
+            <h3 class="font-display font-bold text-2xl sm:text-3xl text-slate mb-3" x-text="part.label"></h3>
+            <p class="font-mono text-[0.7rem] uppercase tracking-wide text-oxide mb-5" x-text="part.spec"></p>
+            <p class="text-lead leading-relaxed" x-text="part.text"></p>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== THE LEDGER ==================== -->
+<section id="ledger" class="border-b-2 border-slate">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+    <p class="font-mono text-xs tracking-[0.25em] uppercase text-oxide mb-3">The ledger</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate mb-12 max-w-2xl">
+      Selected works.
+    </h2>
+
+    <div class="overflow-x-auto border-t-2 border-b-2 border-slate">
+      <table class="w-full min-w-[720px] border-collapse">
+        <thead>
+          <tr class="font-mono text-[0.7rem] uppercase tracking-wider text-lead text-left">
+            <th scope="col" class="py-4 pr-4 font-medium w-20">Year</th>
+            <th scope="col" class="py-4 pr-4 font-medium w-64">Building</th>
+            <th scope="col" class="py-4 pr-4 font-medium">Works</th>
+            <th scope="col" class="py-4 font-medium w-72">Outcome</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-lead/30">
+          <tr class="ledger-row">
+            <td class="py-5 pr-4 pl-3 font-mono text-sm text-slate align-top">2025</td>
+            <td class="py-5 pr-4 font-display font-semibold text-slate align-top">Grade II terrace, Bishophill, York</td>
+            <td class="py-5 pr-4 text-lead align-top">Full re-slate in reclaimed Welsh slate, new leadwork</td>
+            <td class="py-5 text-lead align-top">Watertight through Storm Kathleen</td>
+          </tr>
+          <tr class="ledger-row">
+            <td class="py-5 pr-4 pl-3 font-mono text-sm text-slate align-top">2024</td>
+            <td class="py-5 pr-4 font-display font-semibold text-slate align-top">St Oswald's Church, Fulford</td>
+            <td class="py-5 pr-4 text-lead align-top">Lead valley renewal, 40m²</td>
+            <td class="py-5 text-lead align-top">No further ingress, 50-yr guarantee</td>
+          </tr>
+          <tr class="ledger-row">
+            <td class="py-5 pr-4 pl-3 font-mono text-sm text-slate align-top">2023</td>
+            <td class="py-5 pr-4 font-display font-semibold text-slate align-top">Barn conversion, Nidderdale</td>
+            <td class="py-5 pr-4 text-lead align-top">Re-roof in reclaimed stone slate, two new conservation roof lights</td>
+            <td class="py-5 text-lead align-top">Listed building consent granted first submission</td>
+          </tr>
+          <tr class="ledger-row">
+            <td class="py-5 pr-4 pl-3 font-mono text-sm text-slate align-top">2023</td>
+            <td class="py-5 pr-4 font-display font-semibold text-slate align-top">Villa, Duchy Road, Harrogate</td>
+            <td class="py-5 pr-4 text-lead align-top">Chimney rebuild, repointing, four new pots</td>
+            <td class="py-5 text-lead align-top">Two stacks saved, one rebuilt to match</td>
+          </tr>
+          <tr class="ledger-row">
+            <td class="py-5 pr-4 pl-3 font-mono text-sm text-slate align-top">2022</td>
+            <td class="py-5 pr-4 font-display font-semibold text-slate align-top">Shopfront, Micklegate, York</td>
+            <td class="py-5 pr-4 text-lead align-top">Clay pantile re-roof, leadwork to parapet</td>
+            <td class="py-5 text-lead align-top">Approved by conservation officer, no revisions</td>
+          </tr>
+          <tr class="ledger-row">
+            <td class="py-5 pr-4 pl-3 font-mono text-sm text-slate align-top">2021</td>
+            <td class="py-5 pr-4 font-display font-semibold text-slate align-top">Farmhouse, near Malton</td>
+            <td class="py-5 pr-4 text-lead align-top">Full re-roof, oak gutters replaced, chimney repointed</td>
+            <td class="py-5 text-lead align-top">Dry through the wettest winter on record</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CRAFT MANIFESTO ==================== -->
+<section id="craft" class="bg-slate text-limewash">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+    <p class="font-mono text-xs tracking-[0.25em] uppercase text-brass mb-3">The craft</p>
+    <h2 class="font-display font-bold text-3xl sm:text-4xl mb-12 max-w-2xl">
+      Slower than the trade needs to be.
+    </h2>
+
+    <div class="grid lg:grid-cols-3 gap-12">
+      <div class="lg:col-span-2 space-y-6 text-limewash/90 text-lg leading-relaxed">
+        <p>Every street has its own roofscape — the pitch, the coursing, the colour of stone quietly agreed on by generations of roofers who came before us. When we take on a terrace we source reclaimed Welsh slate or handmade clay pantiles that match what's either side, not what's cheapest to get delivered. A roof that fights its neighbours was never worth doing.</p>
+        <p>Quarried slate doesn't arrive ready to lay. We dress each one by hand — trimming it square, working the edges, checking it rings true and isn't laminating inside. It's slower than working off a machine-cut batch, and it's the only way to know the roof going up will still be watertight when your grandchildren are paying for something else entirely.</p>
+        <p>We take on an apprentice every couple of years, always local, always taught the way Dan was taught by his father: on the roof, in the weather, starting with a hammer and a bag of nails and no shortcuts. Roofing this way doesn't scale. It's the only way we know to keep the trade, and the standard, alive past us.</p>
+      </div>
+
+      <div class="lg:col-span-1 lg:border-l-2 lg:border-brass/40 lg:pl-10">
+        <dl class="space-y-6 font-mono">
+          <div class="border-b border-limewash/20 pb-5">
+            <dt class="text-[0.7rem] uppercase tracking-widest text-limewash/60 mb-1">Roofs completed</dt>
+            <dd class="text-3xl font-semibold text-brass">400+</dd>
+          </div>
+          <div class="border-b border-limewash/20 pb-5">
+            <dt class="text-[0.7rem] uppercase tracking-widest text-limewash/60 mb-1">Oldest roof worked on</dt>
+            <dd class="text-3xl font-semibold text-brass">1723</dd>
+          </div>
+          <div class="border-b border-limewash/20 pb-5">
+            <dt class="text-[0.7rem] uppercase tracking-widest text-limewash/60 mb-1">Slates hand-dressed last year</dt>
+            <dd class="text-3xl font-semibold text-brass">14,000</dd>
+          </div>
+          <div>
+            <dt class="text-[0.7rem] uppercase tracking-widest text-limewash/60 mb-1">Rainiest job</dt>
+            <dd class="text-xl font-semibold text-brass">"All of them"</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== QUOTE FORM ==================== -->
+<section id="quote" class="border-b-2 border-slate">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-16 sm:py-20">
+    <div class="grid lg:grid-cols-5 gap-12">
+      <div class="lg:col-span-2">
+        <p class="font-mono text-xs tracking-[0.25em] uppercase text-oxide mb-3">Get a quote</p>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate mb-5">
+          Tell us about the roof.
+        </h2>
+        <p class="text-lead leading-relaxed mb-6">
+          Free quotes. Honest surveys — if it's a £150 repair, we won't sell you a £15,000 roof.
+        </p>
+        <p class="text-lead leading-relaxed">
+          Prefer to talk it through first? Ring <a href="tel:01904555210" class="text-oxide hover:underline font-semibold">01904 555 210</a> and ask for Dan.
+        </p>
+      </div>
+
+      <div class="lg:col-span-3" x-data="quoteForm()">
+        <form @submit.prevent="submit()" novalidate x-show="!submitted">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div class="sm:col-span-2">
+              <label for="qf-name" class="block font-mono text-[0.7rem] uppercase tracking-wide text-slate mb-2">Name</label>
+              <input id="qf-name" type="text" x-model="fields.name" autocomplete="name"
+                class="w-full border-2 border-slate bg-limewash px-4 py-3 text-slate focus:border-oxide"
+                :class="errors.name && 'border-oxide'" :aria-invalid="!!errors.name" aria-describedby="qf-name-err" />
+              <p id="qf-name-err" class="font-mono text-xs text-oxide mt-1.5" x-show="errors.name" x-text="errors.name"></p>
+            </div>
+
+            <div>
+              <label for="qf-phone" class="block font-mono text-[0.7rem] uppercase tracking-wide text-slate mb-2">Phone</label>
+              <input id="qf-phone" type="tel" x-model="fields.phone" autocomplete="tel" placeholder="01904 555 210"
+                class="w-full border-2 border-slate bg-limewash px-4 py-3 text-slate focus:border-oxide"
+                :class="errors.phone && 'border-oxide'" :aria-invalid="!!errors.phone" aria-describedby="qf-phone-err" />
+              <p id="qf-phone-err" class="font-mono text-xs text-oxide mt-1.5" x-show="errors.phone" x-text="errors.phone"></p>
+            </div>
+
+            <div>
+              <label for="qf-email" class="block font-mono text-[0.7rem] uppercase tracking-wide text-slate mb-2">Email</label>
+              <input id="qf-email" type="email" x-model="fields.email" autocomplete="email"
+                class="w-full border-2 border-slate bg-limewash px-4 py-3 text-slate focus:border-oxide"
+                :class="errors.email && 'border-oxide'" :aria-invalid="!!errors.email" aria-describedby="qf-email-err" />
+              <p id="qf-email-err" class="font-mono text-xs text-oxide mt-1.5" x-show="errors.email" x-text="errors.email"></p>
+            </div>
+
+            <div>
+              <label for="qf-postcode" class="block font-mono text-[0.7rem] uppercase tracking-wide text-slate mb-2">Property postcode</label>
+              <input id="qf-postcode" type="text" x-model="fields.postcode" autocomplete="postal-code" placeholder="e.g. YO1 7HH"
+                class="w-full border-2 border-slate bg-limewash px-4 py-3 text-slate focus:border-oxide uppercase"
+                :class="errors.postcode && 'border-oxide'" :aria-invalid="!!errors.postcode" aria-describedby="qf-postcode-err" />
+              <p id="qf-postcode-err" class="font-mono text-xs text-oxide mt-1.5" x-show="errors.postcode" x-text="errors.postcode"></p>
+            </div>
+
+            <div>
+              <label for="qf-type" class="block font-mono text-[0.7rem] uppercase tracking-wide text-slate mb-2">Property type</label>
+              <select id="qf-type" x-model="fields.propertyType"
+                class="w-full border-2 border-slate bg-limewash px-4 py-3 text-slate focus:border-oxide"
+                :class="errors.propertyType && 'border-oxide'" :aria-invalid="!!errors.propertyType" aria-describedby="qf-type-err">
+                <option value="" disabled selected>Choose one</option>
+                <option value="terrace">Terrace</option>
+                <option value="semi">Semi</option>
+                <option value="detached">Detached</option>
+                <option value="listed">Listed</option>
+                <option value="church">Church or public building</option>
+              </select>
+              <p id="qf-type-err" class="font-mono text-xs text-oxide mt-1.5" x-show="errors.propertyType" x-text="errors.propertyType"></p>
+            </div>
+
+            <div class="sm:col-span-2">
+              <label for="qf-desc" class="block font-mono text-[0.7rem] uppercase tracking-wide text-slate mb-2">What needs doing</label>
+              <textarea id="qf-desc" x-model="fields.description" rows="4"
+                class="w-full border-2 border-slate bg-limewash px-4 py-3 text-slate focus:border-oxide resize-y"
+                :class="errors.description && 'border-oxide'" :aria-invalid="!!errors.description" aria-describedby="qf-desc-err"></textarea>
+              <p id="qf-desc-err" class="font-mono text-xs text-oxide mt-1.5" x-show="errors.description" x-text="errors.description"></p>
+            </div>
+          </div>
+
+          <button type="submit" class="mt-8 inline-flex items-center bg-oxide text-limewash font-mono text-sm uppercase tracking-[0.1em] px-8 py-4 hover:bg-slate transition-colors disabled:opacity-60" :disabled="submitting">
+            <span x-show="!submitting">Send request</span>
+            <span x-show="submitting" x-cloak>Sending…</span>
+          </button>
+        </form>
+
+        <div x-show="submitted" x-cloak x-transition class="border-2 border-slate p-8 flex items-start gap-5">
+          <svg class="success-check shrink-0 mt-1" width="32" height="32" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <circle cx="16" cy="16" r="15" stroke="#9C3B2A" stroke-width="2" />
+            <path d="M9,17 L14,22 L23,11" stroke="#9C3B2A" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div>
+            <h3 class="font-display font-bold text-xl text-slate mb-2">Request received.</h3>
+            <p class="text-lead leading-relaxed">Dan will ring you within one working day.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="bg-slate text-limewash">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8 py-14">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="26" height="19" viewBox="0 0 30 22" fill="none" aria-hidden="true" class="text-limewash shrink-0">
+            <path d="M2,20 L15,3 L28,20" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" />
+            <line x1="2" y1="20" x2="28" y2="20" stroke="currentColor" stroke-width="2.5" />
+            <circle cx="15" cy="12" r="1.6" fill="currentColor" />
+          </svg>
+          <span class="font-display font-bold text-lg">RIDGE &amp; BEAM</span>
+        </div>
+        <p class="font-mono text-xs text-limewash/70 leading-relaxed">Heritage roofing specialists.<br />Est. 1987, York.</p>
+      </div>
+
+      <div class="font-mono text-xs text-limewash/80 space-y-2">
+        <p class="text-limewash/50 uppercase tracking-widest mb-3">Get in touch</p>
+        <p><a href="tel:01904555210" class="hover:text-oxide">01904 555 210</a></p>
+        <p><a href="mailto:enquiries@ridgeandbeam.co.uk" class="hover:text-oxide">enquiries@ridgeandbeam.co.uk</a></p>
+      </div>
+
+      <div class="font-mono text-xs text-limewash/80 space-y-2">
+        <p class="text-limewash/50 uppercase tracking-widest mb-3">Service area</p>
+        <p>York · Harrogate · Leeds · the Dales</p>
+      </div>
+
+      <div class="font-mono text-xs text-limewash/60 space-y-2 leading-relaxed">
+        <p class="text-limewash/50 uppercase tracking-widest mb-3">Registered</p>
+        <p>Ridge &amp; Beam Roofing Ltd — Registered in England &amp; Wales, No. 04521187.</p>
+      </div>
+    </div>
+
+    <div class="border-t border-limewash/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between gap-3 font-mono text-[0.68rem] text-limewash/50 tracking-wide">
+      <p>Site hand-coded — built to last, like the roofs.</p>
+      <p>© 2026 Ridge &amp; Beam Roofing Ltd.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+</body>
+</html>

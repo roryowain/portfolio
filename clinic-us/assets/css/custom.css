@@ -1,0 +1,337 @@
+/* Lakeline Dental Studio — custom CSS
+   Things Tailwind's Play CDN can't express cleanly: keyframes, the FAQ
+   collapse technique, focus-visible rings, and a few compound components. */
+
+[x-cloak] { display: none !important; }
+
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+body {
+  font-feature-settings: "ss01" on;
+}
+
+/* ---------- Skip link ---------- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: #FF9E6D;
+  color: #17372C;
+  font-weight: 900;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 0.75rem 0;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---------- Focus visibility ---------- */
+:focus-visible {
+  outline: 2px solid #17372C;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.bg-pine :focus-visible,
+section#comfort :focus-visible,
+footer :focus-visible {
+  outline-color: #FF9E6D;
+}
+
+/* ---------- Eyebrow labels ---------- */
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #FF9E6D;
+}
+.eyebrow::before {
+  content: "";
+  width: 1.5rem;
+  height: 2px;
+  background: currentColor;
+  display: inline-block;
+}
+
+/* ---------- Service & comfort cards ---------- */
+.service-card {
+  background: #FFFFFF;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  box-shadow: 0 1px 2px rgba(23, 55, 44, 0.06);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(23, 55, 44, 0.1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover { transform: none; }
+}
+.service-card .glyph {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.comfort-card {
+  background: rgba(243, 246, 244, 0.06);
+  border: 1px solid rgba(243, 246, 244, 0.14);
+  border-radius: 1.75rem;
+  padding: 2rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.comfort-card:hover {
+  background: rgba(243, 246, 244, 0.1);
+  border-color: rgba(255, 158, 109, 0.4);
+}
+.comfort-card .glyph {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.team-card {
+  background: #FFFFFF;
+  border-radius: 1.75rem;
+  padding: 2rem;
+  box-shadow: 0 1px 2px rgba(23, 55, 44, 0.06);
+}
+.team-card .avatar {
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+/* ---------- Pricing rows ---------- */
+.price-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 1.75rem;
+}
+@media (min-width: 640px) {
+  .price-row { padding: 1.5rem 2.5rem; }
+}
+.price-row-info {
+  max-width: 32rem;
+}
+.price-row-amount {
+  font-family: "Young Serif", serif;
+  font-size: 1.35rem;
+  color: #17372C;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(175, 200, 180, 0.35);
+  border: 1px solid rgba(23, 55, 44, 0.12);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: #17372C;
+}
+
+/* ---------- FAQ accordion (grid-template-rows collapse, no plugin) ---------- */
+.faq-item {
+  border-bottom: 1px solid rgba(23, 55, 44, 0.12);
+}
+.faq-item:first-child {
+  border-top: 1px solid rgba(23, 55, 44, 0.12);
+}
+.faq-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.4rem 0.25rem;
+  text-align: left;
+  font-family: "Young Serif", serif;
+  font-size: 1.15rem;
+  color: #17372C;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.faq-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  color: #FF9E6D;
+  transition: transform 0.25s ease;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-icon { transition: none; }
+}
+.faq-icon.rotate-45 {
+  transform: rotate(45deg);
+}
+
+.faq-collapse {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 300ms ease;
+}
+.faq-collapse.is-open {
+  grid-template-rows: 1fr;
+}
+@media (prefers-reduced-motion: reduce) {
+  .faq-collapse { transition: none; }
+}
+.faq-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+.faq-inner p {
+  padding: 0 0.25rem 1.4rem;
+  color: rgba(23, 55, 44, 0.72);
+  line-height: 1.6;
+  max-width: 40rem;
+}
+
+/* ---------- Booking form ---------- */
+.step-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 999px;
+  background: rgba(23, 55, 44, 0.15);
+  transition: background 0.2s ease;
+}
+.step-dot.is-active {
+  background: #FF9E6D;
+}
+.step-line {
+  flex: 1;
+  height: 2px;
+  background: rgba(23, 55, 44, 0.15);
+  transition: background 0.2s ease;
+}
+.step-line.is-active {
+  background: #FF9E6D;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(23, 55, 44, 0.6);
+  margin-bottom: 0.4rem;
+}
+.field-input,
+.field-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.9rem;
+  border: 2px solid rgba(23, 55, 44, 0.15);
+  background: #FFFFFF;
+  color: #17372C;
+  font-size: 1rem;
+  transition: border-color 0.15s ease;
+}
+.field-input:focus,
+.field-select:focus {
+  border-color: #17372C;
+  outline: none;
+}
+.field-input::placeholder {
+  color: rgba(23, 55, 44, 0.35);
+}
+
+.option-tile {
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  border: 2px solid rgba(23, 55, 44, 0.15);
+  font-weight: 700;
+  color: #17372C;
+  background: #FFFFFF;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.option-tile.is-selected {
+  border-color: #FF9E6D;
+  background: rgba(255, 158, 109, 0.12);
+}
+
+.radio-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.7rem 0.5rem;
+  border-radius: 0.9rem;
+  border: 2px solid rgba(23, 55, 44, 0.15);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #17372C;
+  cursor: pointer;
+  text-align: center;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.radio-tile:has(input:checked) {
+  border-color: #FF9E6D;
+  background: rgba(255, 158, 109, 0.12);
+}
+.radio-tile:has(input:focus-visible) {
+  outline: 2px solid #17372C;
+  outline-offset: 2px;
+}
+
+.form-error {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #b3491f;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: #FF9E6D;
+  color: #17372C;
+  font-weight: 900;
+  padding: 0.8rem 1.75rem;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.btn-primary:hover {
+  background: #17372C;
+  color: #F3F6F4;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary { transition: none; }
+}
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  background: transparent;
+  color: #17372C;
+  font-weight: 900;
+  padding: 0.8rem 1.25rem;
+  border: 2px solid rgba(23, 55, 44, 0.15);
+  transition: border-color 0.15s ease;
+}
+.btn-ghost:hover {
+  border-color: #17372C;
+}
+
+.info-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}

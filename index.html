@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio — Hand-Coded Websites by Rory</title>
+  <meta name="description" content="Three hand-coded demo websites — restaurant, studio, and e-commerce — built with Tailwind CSS and vanilla JavaScript. No templates, no page builders.">
+  <meta property="og:title" content="Portfolio — Hand-Coded Websites">
+  <meta property="og:description" content="Restaurant, studio, and e-commerce builds. Tailwind CSS + vanilla JS. 90+ PageSpeed.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#111114">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { ink: '#111114', paper: '#F6F5F1', dim: '#71717A', accent: '#2B2BEB' },
+          fontFamily: {
+            display: ['"Archivo"', 'sans-serif'],
+            mono: ['"Space Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;900&family=Space+Mono&display=swap" rel="stylesheet">
+  <style>
+    ::selection { background: #2B2BEB; color: #F6F5F1; }
+    .card { transition: transform 160ms ease, box-shadow 160ms ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(17,17,20,.12); }
+    a:focus-visible { outline: 2px solid #2B2BEB; outline-offset: 4px; }
+    @media (prefers-reduced-motion: reduce) { .card, .card:hover { transition: none; transform: none; } }
+  </style>
+</head>
+<body class="bg-paper text-ink font-display antialiased min-h-screen">
+  <main class="max-w-5xl mx-auto px-6 py-16 md:py-24">
+    <header class="mb-14 md:mb-20">
+      <p class="font-mono text-xs uppercase tracking-[0.2em] text-dim mb-5">Selected demos — five sectors, three countries, all hand-coded</p>
+      <h1 class="font-black text-4xl md:text-6xl leading-[1.05] tracking-tight max-w-3xl">
+        Five sites. Zero templates.<br>
+        <span class="text-accent">Sub-second loads.</span>
+      </h1>
+      <p class="mt-6 max-w-xl text-dim leading-relaxed">
+        Every build below is Tailwind CSS + vanilla JavaScript — no WordPress, no page
+        builders, no monthly platform fees. Open one, hit it with
+        <a class="underline decoration-accent underline-offset-4" href="https://pagespeed.web.dev/" rel="noopener" target="_blank">PageSpeed Insights</a>,
+        and compare it with any theme-built site.
+      </p>
+    </header>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <a href="clinic-us/index.html" class="card group block border border-ink/10 bg-white p-7">
+        <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-dim">01 — Healthcare · Austin, US</p>
+        <h2 class="mt-4 text-2xl font-black tracking-tight group-hover:text-accent">Lakeline Dental Studio</h2>
+        <p class="mt-2 text-sm text-dim leading-relaxed">Modern dental practice with published pricing, a multi-step booking flow, and a comfort-first brand.</p>
+        <p class="mt-5 font-mono text-xs text-accent">View demo →</p>
+      </a>
+      <a href="roofing-uk/index.html" class="card group block border border-ink/10 bg-white p-7">
+        <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-dim">02 — Trades · York, UK</p>
+        <h2 class="mt-4 text-2xl font-black tracking-tight group-hover:text-accent">Ridge &amp; Beam</h2>
+        <p class="mt-2 text-sm text-dim leading-relaxed">Heritage roofing specialists. Interactive roof-anatomy diagram, surveyor's-ledger portfolio, quote flow.</p>
+        <p class="mt-5 font-mono text-xs text-accent">View demo →</p>
+      </a>
+      <a href="restaurant/index.html" class="card group block border border-ink/10 bg-white p-7">
+        <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-dim">03 — Restaurant · Kuala Lumpur, MY</p>
+        <h2 class="mt-4 text-2xl font-black tracking-tight group-hover:text-accent">API API</h2>
+        <p class="mt-2 text-sm text-dim leading-relaxed">Modern-Malaysian wood-fire dining. Type-led dark design, animated fire menu, reservation flow.</p>
+        <p class="mt-5 font-mono text-xs text-accent">View demo →</p>
+      </a>
+      <a href="agency/index.html" class="card group block border border-ink/10 bg-white p-7">
+        <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-dim">04 — Studio · Kuala Lumpur, MY</p>
+        <h2 class="mt-4 text-2xl font-black tracking-tight group-hover:text-accent">Studio Kilat</h2>
+        <p class="mt-2 text-sm text-dim leading-relaxed">Brand &amp; web studio. Swiss-clean light layout, interactive case-study index, live local-time widget.</p>
+        <p class="mt-5 font-mono text-xs text-accent">View demo →</p>
+      </a>
+      <a href="ecommerce/index.html" class="card group block border border-ink/10 bg-white p-7">
+        <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-dim">05 — E-commerce · Johor, MY</p>
+        <h2 class="mt-4 text-2xl font-black tracking-tight group-hover:text-accent">TANAH Coffee</h2>
+        <p class="mt-2 text-sm text-dim leading-relaxed">Single-product store for rare liberica coffee. Working variant buy box, cart drawer, scroll-driven origin story.</p>
+        <p class="mt-5 font-mono text-xs text-accent">View demo →</p>
+      </a>
+    </div>
+
+    <footer class="mt-16 md:mt-24 pt-8 border-t border-ink/10 flex flex-wrap items-center justify-between gap-4">
+      <p class="font-mono text-xs text-dim">Built with Tailwind CSS · Vanilla JS · Alpine.js</p>
+      <p class="font-mono text-xs text-dim">Want one like these? Let's talk.</p>
+    </footer>
+  </main>
+</body>
+</html>
