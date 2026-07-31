@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ampere &amp; Sons — Instant Electrical Quote Calculator, Manchester</title>
+<meta name="description" content="Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more — no forms, no waiting." />
+<meta name="theme-color" content="#0B1220" />
+
+<link rel="canonical" href="https://roryphillips.dev/calculator/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ampere &amp; Sons — Instant Electrical Quote Calculator" />
+<meta property="og:description" content="Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more — no forms, no waiting." />
+<meta property="og:url" content="https://roryphillips.dev/calculator/" />
+<meta property="og:image" content="https://roryphillips.dev/og.png" />
+<meta property="og:locale" content="en_GB" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1220'/%3E%3Cpath d='M18 4 8 18h7l-2 10 11-16h-8z' fill='%23FFC53D'/%3E%3C/svg%3E" />
+
+<style>
+:root {
+  --navy: #0B1220;
+  --navy-2: #10192C;
+  --panel: #141F36;
+  --charcoal: #1B2438;
+  --line: rgba(255,255,255,0.09);
+  --line-strong: rgba(255,255,255,0.16);
+  --amber: #FFC53D;
+  --amber-2: #FFB000;
+  --ink: #EDF1F9;
+  --muted: #93A0BE;
+  --muted-2: #6E7A97;
+  --ok: #4ADE80;
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  background: var(--amber);
+  color: #0B1220;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 4px;
+  z-index: 200;
+  transition: top .15s ease;
+  text-decoration: none;
+}
+.skip-link:focus { top: 12px; }
+
+:focus-visible {
+  outline: 3px solid var(--amber);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ---------- header ---------- */
+header.site {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11,18,32,0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.site-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 74px;
+  gap: 16px;
+}
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-mark { flex-shrink: 0; }
+.brand-text { display: flex; flex-direction: column; line-height: 1.15; }
+.brand-name {
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+  margin-top: 2px;
+}
+.header-cta {
+  background: var(--amber);
+  color: #0B1220;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 10px 18px;
+  border-radius: 4px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.header-cta:hover { background: var(--amber-2); }
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse 700px 400px at 85% -10%, rgba(255,197,61,0.14), transparent 60%),
+    var(--navy);
+}
+.hero-inner {
+  padding: 64px 0 44px;
+  display: grid;
+  gap: 28px;
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: var(--amber);
+  display: inline-block;
+}
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  line-height: 1.06;
+  margin: 14px 0 0;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  max-width: 16ch;
+}
+.hero h1 .accent { color: var(--amber); }
+.hero p.lede {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 52ch;
+}
+.hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding: 14px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn-primary { background: var(--amber); color: #0B1220; }
+.btn-primary:hover { background: var(--amber-2); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.btn-ghost:hover { border-color: var(--amber); color: var(--amber); }
+
+.circuit-art { width: 100%; height: auto; opacity: 0.9; }
+
+/* ---------- trust strip ---------- */
+.trust {
+  background: var(--navy-2);
+  border-bottom: 1px solid var(--line);
+}
+.trust-inner {
+  padding: 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 34px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+}
+.trust-inner strong { color: var(--amber); font-weight: 700; }
+
+/* ---------- calculator ---------- */
+.calc-section { padding: 56px 0 72px; border-bottom: 1px solid var(--line); }
+.section-head { max-width: 60ch; margin-bottom: 34px; }
+.section-head .eyebrow { margin-bottom: 10px; }
+.section-head h2 {
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  margin: 0 0 10px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+.section-head p { color: var(--muted); margin: 0; font-size: 1.02rem; }
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (min-width: 960px) {
+  .calc-grid { grid-template-columns: 1.5fr 1fr; }
+}
+
+fieldset {
+  border: none;
+  margin: 0 0 30px;
+  padding: 0;
+}
+fieldset:last-of-type { margin-bottom: 0; }
+legend {
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--ink);
+  padding: 0 0 12px;
+  width: 100%;
+}
+.legend-sub {
+  display: block;
+  font-weight: 400;
+  color: var(--muted-2);
+  font-size: 0.82rem;
+  margin-top: 3px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+}
+.opt-card {
+  position: relative;
+  display: block;
+  border: 1.5px solid var(--line-strong);
+  background: var(--panel);
+  border-radius: 8px;
+  padding: 14px 14px 14px 42px;
+  cursor: pointer;
+  transition: border-color .12s ease, background-color .12s ease;
+}
+.opt-card:hover { border-color: var(--muted-2); }
+.opt-card.is-selected {
+  border-color: var(--amber);
+  background: rgba(255,197,61,0.08);
+}
+.opt-card input {
+  position: absolute;
+  left: 14px;
+  top: 16px;
+  accent-color: var(--amber);
+  width: 17px;
+  height: 17px;
+  margin: 0;
+}
+.opt-card .opt-title { font-weight: 700; font-size: 0.94rem; display: block; }
+.opt-card .opt-desc { font-size: 0.8rem; color: var(--muted); margin-top: 4px; display: block; line-height: 1.4; }
+
+.segmented {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.seg-opt {
+  border: 1.5px solid var(--line-strong);
+  background: var(--panel);
+  border-radius: 7px;
+  min-width: 56px;
+  text-align: center;
+  padding: 12px 10px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.92rem;
+  position: relative;
+}
+.seg-opt input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  margin: 0;
+}
+.seg-opt:hover { border-color: var(--muted-2); }
+.seg-opt.is-selected { border-color: var(--amber); background: rgba(255,197,61,0.1); color: var(--amber); }
+
+.check-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+.opt-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  border: 1.5px solid var(--line-strong);
+  background: var(--panel);
+  border-radius: 8px;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+.opt-check:hover { border-color: var(--muted-2); }
+.opt-check.is-selected { border-color: var(--amber); background: rgba(255,197,61,0.08); }
+.opt-check input { accent-color: var(--amber); width: 17px; height: 17px; margin-top: 1px; flex-shrink: 0; }
+.opt-check .oc-title { font-weight: 600; font-size: 0.9rem; display: block; }
+.opt-check .oc-price { font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+
+.field-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.98rem;
+  margin-bottom: 10px;
+}
+select.select-input {
+  width: 100%;
+  max-width: 340px;
+  background: var(--panel);
+  border: 1.5px solid var(--line-strong);
+  color: var(--ink);
+  padding: 12px 14px;
+  border-radius: 7px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+select.select-input:hover { border-color: var(--muted-2); }
+.urgent-note {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: var(--amber);
+  font-family: var(--font-mono);
+}
+
+/* ---------- output panel ---------- */
+.output-panel {
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 26px 24px;
+}
+@media (min-width: 960px) {
+  .output-panel { position: sticky; top: 96px; }
+}
+.output-panel h3 {
+  margin: 0 0 4px;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.output-sub { color: var(--muted-2); font-size: 0.78rem; margin: 0 0 18px; font-family: var(--font-mono); }
+
+.line-items { list-style: none; margin: 0 0 16px; padding: 0; border-top: 1px solid var(--line); }
+.line-items li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 0.88rem;
+}
+.line-items li .li-label { color: var(--muted); }
+.line-items li .li-amount { font-family: var(--font-mono); color: var(--ink); flex-shrink: 0; }
+.line-items li.li-surcharge .li-label { color: var(--amber); }
+
+.subtotal-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.88rem;
+  padding: 8px 0;
+  color: var(--muted);
+}
+.subtotal-row .li-amount { font-family: var(--font-mono); color: var(--ink); }
+
+.total-block {
+  margin-top: 14px;
+  padding-top: 18px;
+  border-top: 2px solid var(--line-strong);
+}
+.total-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+}
+.total-value {
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  font-weight: 800;
+  color: var(--amber);
+  margin: 6px 0 2px;
+  letter-spacing: -0.01em;
+}
+.total-caveat { font-size: 0.75rem; color: var(--muted-2); margin: 0; }
+.duration-line {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 0.86rem;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+.duration-line strong { color: var(--ink); }
+
+.email-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+  text-align: center;
+}
+.output-foot {
+  margin-top: 12px;
+  font-size: 0.74rem;
+  color: var(--muted-2);
+  text-align: center;
+}
+
+/* ---------- footer ---------- */
+footer.site {
+  background: var(--navy-2);
+  padding: 40px 0 28px;
+}
+.footer-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 720px) {
+  .footer-grid { grid-template-columns: 1.3fr 1fr 1fr; }
+}
+.footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.footer-brand span { font-weight: 800; }
+.footer-col p { color: var(--muted-2); font-size: 0.82rem; line-height: 1.6; margin: 0 0 6px; }
+.footer-col h4 {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--muted-2);
+  margin: 0 0 10px;
+}
+.footer-col a { color: var(--muted); text-decoration: none; }
+.footer-col a:hover { color: var(--amber); }
+.disclaimer {
+  margin-top: 20px;
+  padding: 14px 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 8px;
+  font-size: 0.78rem;
+  color: var(--muted-2);
+  line-height: 1.6;
+}
+.credit-line {
+  margin-top: 18px;
+  text-align: center;
+  font-size: 0.76rem;
+  color: var(--muted-2);
+}
+.credit-line a { color: var(--amber); text-decoration: none; }
+.credit-line a:hover { text-decoration: underline; }
+
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px; }
+  .output-panel { padding: 20px 18px; }
+}
+</style>
+</head>
+
+<body>
+
+<a href="#calculator" class="skip-link">Skip to quote calculator</a>
+
+<header class="site">
+  <div class="wrap site-bar">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+        <rect width="34" height="34" rx="7" fill="#141F36" stroke="#2A3654" stroke-width="1"/>
+        <path d="M19 7 10 19h6.5l-2 8L23 15h-6.5z" fill="#FFC53D"/>
+      </svg>
+      <span class="brand-text">
+        <span class="brand-name">AMPERE &amp; SONS</span>
+        <span class="brand-sub">Electricians · Manchester · Est. 1987</span>
+      </span>
+    </a>
+    <a href="#calculator" class="header-cta">Get instant quote</a>
+  </div>
+</header>
+
+<main id="main">
+
+<section id="top" class="hero">
+  <div class="wrap hero-inner">
+    <div>
+      <p class="eyebrow">Domestic &amp; Rewire Specialists</p>
+      <h1>Know the cost <span class="accent">before</span> you pick up the phone.</h1>
+      <p class="lede">Three generations of Manchester electricians, and one calculator that gives you a real, itemised estimate in seconds — not a callback.</p>
+      <div class="hero-ctas">
+        <a href="#calculator" class="btn btn-primary">Build my quote ↓</a>
+        <a href="#trust" class="btn btn-ghost">Why Ampere &amp; Sons</a>
+      </div>
+    </div>
+
+    <svg class="circuit-art" viewBox="0 0 1000 130" role="img" aria-labelledby="circuitTitle" xmlns="http://www.w3.org/2000/svg">
+      <title id="circuitTitle">Decorative circuit board line art with amber connection nodes</title>
+      <g fill="none" stroke="#2A3654" stroke-width="2">
+        <path d="M0,65 H140 V25 H320 V105 H480 V65 H620 V25 H760 V105 H1000" />
+        <path d="M90,65 V115" />
+        <path d="M240,25 V0" />
+        <path d="M400,105 V130" />
+        <path d="M560,65 V0" />
+        <path d="M700,25 V0" />
+        <path d="M880,105 V130" />
+      </g>
+      <g fill="#FFC53D">
+        <circle cx="140" cy="65" r="5"/>
+        <circle cx="320" cy="25" r="5"/>
+        <circle cx="480" cy="105" r="5"/>
+        <circle cx="620" cy="65" r="5"/>
+        <circle cx="760" cy="25" r="5"/>
+        <circle cx="90" cy="65" r="4" opacity="0.7"/>
+        <circle cx="400" cy="105" r="4" opacity="0.7"/>
+        <circle cx="700" cy="25" r="4" opacity="0.7"/>
+      </g>
+    </svg>
+  </div>
+</section>
+
+<section id="trust" class="trust">
+  <div class="wrap trust-inner">
+    <span><strong>Est. 1987</strong> — family-run, three generations</span>
+    <span><strong>Fully certified</strong> electricians on every job</span>
+    <span><strong>Fixed written quotes</strong> — no surprise invoices</span>
+  </div>
+</section>
+
+<section id="calculator" class="calc-section">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Instant Estimate</p>
+      <h2>Build your quote.</h2>
+      <p>Answer a few questions about the job — the estimate on the right updates as you go. No submit button, no waiting.</p>
+    </div>
+
+    <div class="calc-grid">
+      <form id="quote-form" aria-label="Electrical work quote calculator">
+
+        <fieldset>
+          <legend>What do you need doing?</legend>
+          <div class="card-grid" id="job-type-group">
+            <!-- job type cards injected by JS -->
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Property type</legend>
+          <div class="card-grid" id="property-type-group">
+            <!-- property type cards injected by JS -->
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Bedrooms
+            <span class="legend-sub">Roughly how many bedrooms does the property have?</span>
+          </legend>
+          <div class="segmented" id="bedrooms-group" role="group" aria-label="Number of bedrooms">
+            <!-- bedroom segments injected by JS -->
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Extras
+            <span class="legend-sub">Add anything else you'd like included</span>
+          </legend>
+          <div class="check-grid" id="extras-group">
+            <!-- extras injected by JS -->
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>How soon do you need this?</legend>
+          <label class="field-label" for="urgency-select" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;">How soon do you need this?</label>
+          <select id="urgency-select" class="select-input">
+            <option value="flexible">I'm flexible</option>
+            <option value="this_month">This month</option>
+            <option value="urgent">Urgent — within a week</option>
+          </select>
+          <p class="urgent-note" id="urgent-note" hidden>Urgent bookings carry a small surcharge for priority scheduling — shown as a separate line below.</p>
+        </fieldset>
+      </form>
+
+      <aside class="output-panel" aria-labelledby="estimate-heading">
+        <h3 id="estimate-heading">Your estimate</h3>
+        <p class="output-sub">Updates instantly as you choose options</p>
+
+        <ul class="line-items" id="line-items"></ul>
+
+        <div class="subtotal-row">
+          <span>Subtotal (ex. VAT)</span>
+          <span class="li-amount" id="subtotal-amount">£0</span>
+        </div>
+        <div class="subtotal-row">
+          <span>VAT (20%)</span>
+          <span class="li-amount" id="vat-amount">£0</span>
+        </div>
+
+        <div class="total-block" aria-live="polite">
+          <span class="total-label">Estimated total, inc. VAT</span>
+          <p class="total-value" id="total-value">£0 – £0</p>
+          <p class="total-caveat">Estimate range (±10%). Final price confirmed after a free survey.</p>
+        </div>
+
+        <div class="duration-line">
+          <span>Typical duration</span>
+          <strong id="duration-value">—</strong>
+        </div>
+
+        <a href="#" id="email-quote-btn" class="btn btn-primary email-btn">Email me this quote</a>
+        <p class="output-foot">Opens your email app with the itemised estimate ready to send.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <svg width="26" height="26" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+            <rect width="34" height="34" rx="7" fill="#1B2438" stroke="#2A3654" stroke-width="1"/>
+            <path d="M19 7 10 19h6.5l-2 8L23 15h-6.5z" fill="#FFC53D"/>
+          </svg>
+          <span>AMPERE &amp; SONS</span>
+        </div>
+        <p>Family electricians serving Greater Manchester since 1987. Domestic rewires, consumer units, EV chargers and general electrical work.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <p><a href="mailto:quotes@ampereandsons.example">quotes@ampereandsons.example</a></p>
+        <p><a href="tel:01615550142">0161 555 0142</a></p>
+      </div>
+      <div class="footer-col">
+        <h4>Service area</h4>
+        <p>Manchester · Salford · Stockport · Trafford</p>
+      </div>
+    </div>
+
+    <p class="disclaimer">Demo site — fictional business and pricing. Built to demonstrate a working instant-quote tool.</p>
+
+    <p class="credit-line">Concept build by <a href="https://roryphillips.dev/">Rory Phillips</a> — hand-coded demo site. Want one like it? <a href="https://roryphillips.dev/#contact">Get a quote</a>.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ---------------- pricing model ---------------- */
+
+  var JOB_TYPES = {
+    full_rewire: {
+      label: "Full rewire",
+      desc: "Complete replacement of wiring, consumer unit and accessories throughout the property.",
+      labourBase: 2400, materialsBase: 1900, bedroomWeight: 1, propertyWeight: 1
+    },
+    partial_rewire: {
+      label: "Partial rewire",
+      desc: "Rewiring specific circuits or rooms — kitchens, extensions, upstairs floors.",
+      labourBase: 1350, materialsBase: 1050, bedroomWeight: 1, propertyWeight: 1
+    },
+    consumer_unit: {
+      label: "Consumer unit replacement",
+      desc: "Swap an old fuse box for a modern RCBO consumer unit to current regs.",
+      labourBase: 280, materialsBase: 190, bedroomWeight: 0.4, propertyWeight: 0.3
+    },
+    ev_charger: {
+      label: "EV charger install",
+      desc: "Dedicated circuit and wall-mounted charge point, fitted and certified.",
+      labourBase: 300, materialsBase: 460, bedroomWeight: 0.2, propertyWeight: 0.5
+    },
+    extra_sockets: {
+      label: "Extra sockets & lights",
+      desc: "Additional sockets, switches and light fittings added to existing circuits.",
+      labourBase: 180, materialsBase: 140, bedroomWeight: 0.6, propertyWeight: 0.4
+    }
+  };
+  var JOB_ORDER = ["full_rewire", "partial_rewire", "consumer_unit", "ev_charger", "extra_sockets"];
+
+  var PROPERTY_TYPES = {
+    flat: { label: "Flat", factor: 0.85 },
+    terraced: { label: "Terraced", factor: 1.0 },
+    semi: { label: "Semi-detached", factor: 1.08 },
+    detached: { label: "Detached", factor: 1.25 }
+  };
+  var PROPERTY_ORDER = ["flat", "terraced", "semi", "detached"];
+
+  var BEDROOM_FACTORS = { 1: 0.6, 2: 0.8, 3: 1.0, 4: 1.25, 5: 1.5 };
+
+  var DURATION_DAYS = {
+    full_rewire:   { 1: 3, 2: 4, 3: 5, 4: 6, 5: 7 },
+    partial_rewire:{ 1: 2, 2: 2, 3: 3, 4: 3, 5: 4 },
+    consumer_unit: { 1: 1, 2: 1, 3: 1, 4: 1, 5: 2 },
+    ev_charger:    { 1: 1, 2: 1, 3: 1, 4: 1, 5: 1 },
+    extra_sockets: { 1: 1, 2: 1, 3: 1, 4: 2, 5: 2 }
+  };
+
+  var EXTRAS = {
+    eicr: { label: "EICR safety certificate", price: 120 },
+    outdoor: { label: "Outdoor socket", price: 160 },
+    garden: { label: "Garden / shed power run", price: 380 },
+    thermostat: { label: "Smart thermostat wiring", price: 140 }
+  };
+  var EXTRAS_ORDER = ["eicr", "outdoor", "garden", "thermostat"];
+
+  var URGENCY = {
+    flexible: { label: "I'm flexible", surchargePct: 0 },
+    this_month: { label: "This month", surchargePct: 0 },
+    urgent: { label: "Urgent — within a week", surchargePct: 0.12 }
+  };
+
+  var VAT_RATE = 0.20;
+  var RANGE_PCT = 0.10;
+  var STORAGE_KEY = "ampereQuoteState";
+
+  var DEFAULT_STATE = {
+    jobType: "full_rewire",
+    propertyType: "semi",
+    bedrooms: 3,
+    extras: { eicr: false, outdoor: false, garden: false, thermostat: false },
+    urgency: "flexible"
+  };
+
+  var state = cloneState(DEFAULT_STATE);
+
+  function cloneState(s) {
+    return {
+      jobType: s.jobType,
+      propertyType: s.propertyType,
+      bedrooms: s.bedrooms,
+      extras: {
+        eicr: !!s.extras.eicr,
+        outdoor: !!s.extras.outdoor,
+        garden: !!s.extras.garden,
+        thermostat: !!s.extras.thermostat
+      },
+      urgency: s.urgency
+    };
+  }
+
+  function loadState() {
+    try {
+      var raw = window.localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== "object") return;
+      if (JOB_TYPES[parsed.jobType]) state.jobType = parsed.jobType;
+      if (PROPERTY_TYPES[parsed.propertyType]) state.propertyType = parsed.propertyType;
+      if (BEDROOM_FACTORS[parsed.bedrooms]) state.bedrooms = parsed.bedrooms;
+      if (parsed.extras && typeof parsed.extras === "object") {
+        EXTRAS_ORDER.forEach(function (k) {
+          state.extras[k] = !!parsed.extras[k];
+        });
+      }
+      if (URGENCY[parsed.urgency]) state.urgency = parsed.urgency;
+    } catch (e) {
+      /* localStorage unavailable (private browsing etc) — fall back to defaults */
+    }
+  }
+
+  function saveState() {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+      /* ignore — nothing we can do if storage is unavailable */
+    }
+  }
+
+  function formatGBP(n) {
+    var rounded = Math.round(n);
+    try {
+      return new Intl.NumberFormat("en-GB", {
+        style: "currency", currency: "GBP", maximumFractionDigits: 0
+      }).format(rounded);
+    } catch (e) {
+      return "£" + rounded.toLocaleString();
+    }
+  }
+
+  function calculate() {
+    var job = JOB_TYPES[state.jobType];
+    var propFactorFull = PROPERTY_TYPES[state.propertyType].factor;
+    var bedFactorFull = BEDROOM_FACTORS[state.bedrooms];
+
+    var effBedFactor = 1 + (bedFactorFull - 1) * job.bedroomWeight;
+    var effPropFactor = 1 + (propFactorFull - 1) * job.propertyWeight;
+
+    var labour = job.labourBase * effBedFactor * effPropFactor;
+    var materials = job.materialsBase * effBedFactor * effPropFactor;
+
+    var extraLines = [];
+    var extrasTotal = 0;
+    EXTRAS_ORDER.forEach(function (key) {
+      if (state.extras[key]) {
+        var ex = EXTRAS[key];
+        extraLines.push({ label: ex.label, amount: ex.price });
+        extrasTotal += ex.price;
+      }
+    });
+
+    var preSurcharge = labour + materials + extrasTotal;
+    var urgency = URGENCY[state.urgency];
+    var surcharge = preSurcharge * urgency.surchargePct;
+
+    var subtotal = preSurcharge + surcharge;
+    var vat = subtotal * VAT_RATE;
+    var total = subtotal + vat;
+
+    var lowTotal = total * (1 - RANGE_PCT);
+    var highTotal = total * (1 + RANGE_PCT);
+
+    var duration = DURATION_DAYS[state.jobType][state.bedrooms];
+
+    return {
+      labour: labour,
+      materials: materials,
+      extraLines: extraLines,
+      surcharge: surcharge,
+      subtotal: subtotal,
+      vat: vat,
+      total: total,
+      lowTotal: lowTotal,
+      highTotal: highTotal,
+      duration: duration
+    };
+  }
+
+  /* ---------------- rendering ---------------- */
+
+  var lineItemsEl = document.getElementById("line-items");
+  var subtotalEl = document.getElementById("subtotal-amount");
+  var vatEl = document.getElementById("vat-amount");
+  var totalEl = document.getElementById("total-value");
+  var durationEl = document.getElementById("duration-value");
+  var urgentNoteEl = document.getElementById("urgent-note");
+  var emailBtn = document.getElementById("email-quote-btn");
+
+  function render() {
+    var r = calculate();
+
+    lineItemsEl.innerHTML = "";
+    addLine("Labour", r.labour);
+    addLine("Materials", r.materials);
+    r.extraLines.forEach(function (l) { addLine(l.label, l.amount); });
+    if (r.surcharge > 0) {
+      addLine("Urgency surcharge (priority booking)", r.surcharge, true);
+    }
+
+    subtotalEl.textContent = formatGBP(r.subtotal);
+    vatEl.textContent = formatGBP(r.vat);
+    totalEl.textContent = formatGBP(r.lowTotal) + " – " + formatGBP(r.highTotal);
+    durationEl.textContent = r.duration + (r.duration === 1 ? " working day" : " working days");
+
+    urgentNoteEl.hidden = state.urgency !== "urgent";
+
+    updateEmailHref(r);
+    saveState();
+  }
+
+  function addLine(label, amount, isSurcharge) {
+    var li = document.createElement("li");
+    if (isSurcharge) li.className = "li-surcharge";
+    var labelSpan = document.createElement("span");
+    labelSpan.className = "li-label";
+    labelSpan.textContent = label;
+    var amountSpan = document.createElement("span");
+    amountSpan.className = "li-amount";
+    amountSpan.textContent = formatGBP(amount);
+    li.appendChild(labelSpan);
+    li.appendChild(amountSpan);
+    lineItemsEl.appendChild(li);
+  }
+
+  function updateEmailHref(r) {
+    var job = JOB_TYPES[state.jobType];
+    var prop = PROPERTY_TYPES[state.propertyType];
+    var urgency = URGENCY[state.urgency];
+
+    var lines = [];
+    lines.push("Instant quote from Ampere & Sons");
+    lines.push("");
+    lines.push("Job: " + job.label);
+    lines.push("Property: " + prop.label + ", " + state.bedrooms + (state.bedrooms === 5 ? "+" : "") + " bedroom(s)");
+    lines.push("How soon: " + urgency.label);
+    lines.push("");
+    lines.push("Labour: " + formatGBP(r.labour));
+    lines.push("Materials: " + formatGBP(r.materials));
+    r.extraLines.forEach(function (l) {
+      lines.push(l.label + ": " + formatGBP(l.amount));
+    });
+    if (r.surcharge > 0) {
+      lines.push("Urgency surcharge: " + formatGBP(r.surcharge));
+    }
+    lines.push("");
+    lines.push("Subtotal (ex. VAT): " + formatGBP(r.subtotal));
+    lines.push("VAT (20%): " + formatGBP(r.vat));
+    lines.push("Estimated total (inc. VAT): " + formatGBP(r.lowTotal) + " - " + formatGBP(r.highTotal));
+    lines.push("Typical duration: " + r.duration + " working day(s)");
+    lines.push("");
+    lines.push("(This is an automated estimate from the Ampere & Sons instant quote calculator. Final price confirmed after a free survey.)");
+
+    var subject = encodeURIComponent("My Ampere & Sons instant quote — " + job.label);
+    var body = encodeURIComponent(lines.join("\n"));
+    emailBtn.href = "mailto:quotes@ampereandsons.example?subject=" + subject + "&body=" + body;
+  }
+
+  /* ---------------- UI construction ---------------- */
+
+  function buildJobTypeCards() {
+    var container = document.getElementById("job-type-group");
+    JOB_ORDER.forEach(function (key, i) {
+      var job = JOB_TYPES[key];
+      var label = document.createElement("label");
+      label.className = "opt-card";
+      label.innerHTML =
+        '<input type="radio" name="jobType" value="' + key + '"' + (key === state.jobType ? " checked" : "") + ' />' +
+        '<span class="opt-title">' + job.label + '</span>' +
+        '<span class="opt-desc">' + job.desc + '</span>';
+      container.appendChild(label);
+    });
+  }
+
+  function buildPropertyCards() {
+    var container = document.getElementById("property-type-group");
+    PROPERTY_ORDER.forEach(function (key) {
+      var prop = PROPERTY_TYPES[key];
+      var label = document.createElement("label");
+      label.className = "opt-card";
+      label.innerHTML =
+        '<input type="radio" name="propertyType" value="' + key + '"' + (key === state.propertyType ? " checked" : "") + ' />' +
+        '<span class="opt-title">' + prop.label + '</span>';
+      container.appendChild(label);
+    });
+  }
+
+  function buildBedroomSegments() {
+    var container = document.getElementById("bedrooms-group");
+    [1, 2, 3, 4, 5].forEach(function (n) {
+      var label = document.createElement("label");
+      label.className = "seg-opt";
+      var text = n === 5 ? "5+" : String(n);
+      label.innerHTML =
+        '<input type="radio" name="bedrooms" value="' + n + '"' + (n === state.bedrooms ? " checked" : "") + ' aria-label="' + text + ' bedrooms" />' +
+        text;
+      container.appendChild(label);
+    });
+  }
+
+  function buildExtrasChecks() {
+    var container = document.getElementById("extras-group");
+    EXTRAS_ORDER.forEach(function (key) {
+      var ex = EXTRAS[key];
+      var label = document.createElement("label");
+      label.className = "opt-check";
+      label.innerHTML =
+        '<input type="checkbox" name="extras" value="' + key + '"' + (state.extras[key] ? " checked" : "") + ' />' +
+        '<span><span class="oc-title">' + ex.label + '</span><br/><span class="oc-price">+' + formatGBP(ex.price) + '</span></span>';
+      container.appendChild(label);
+    });
+  }
+
+  function syncSelectedClasses() {
+    document.querySelectorAll(".opt-card").forEach(function (card) {
+      var input = card.querySelector("input");
+      card.classList.toggle("is-selected", input.checked);
+    });
+    document.querySelectorAll(".seg-opt").forEach(function (seg) {
+      var input = seg.querySelector("input");
+      seg.classList.toggle("is-selected", input.checked);
+    });
+    document.querySelectorAll(".opt-check").forEach(function (chk) {
+      var input = chk.querySelector("input");
+      chk.classList.toggle("is-selected", input.checked);
+    });
+  }
+
+  function applyStateToForm() {
+    var jobInput = document.querySelector('input[name="jobType"][value="' + state.jobType + '"]');
+    if (jobInput) jobInput.checked = true;
+    var propInput = document.querySelector('input[name="propertyType"][value="' + state.propertyType + '"]');
+    if (propInput) propInput.checked = true;
+    var bedInput = document.querySelector('input[name="bedrooms"][value="' + state.bedrooms + '"]');
+    if (bedInput) bedInput.checked = true;
+    EXTRAS_ORDER.forEach(function (key) {
+      var chk = document.querySelector('input[name="extras"][value="' + key + '"]');
+      if (chk) chk.checked = state.extras[key];
+    });
+    var urgencySelect = document.getElementById("urgency-select");
+    urgencySelect.value = state.urgency;
+    syncSelectedClasses();
+  }
+
+  function handleFormChange(evt) {
+    var target = evt.target;
+    if (target.name === "jobType") {
+      state.jobType = target.value;
+    } else if (target.name === "propertyType") {
+      state.propertyType = target.value;
+    } else if (target.name === "bedrooms") {
+      state.bedrooms = parseInt(target.value, 10);
+    } else if (target.name === "extras") {
+      state.extras[target.value] = target.checked;
+    }
+    syncSelectedClasses();
+    render();
+  }
+
+  function init() {
+    loadState();
+    buildJobTypeCards();
+    buildPropertyCards();
+    buildBedroomSegments();
+    buildExtrasChecks();
+    applyStateToForm();
+
+    var form = document.getElementById("quote-form");
+    form.addEventListener("change", handleFormChange);
+
+    var urgencySelect = document.getElementById("urgency-select");
+    urgencySelect.addEventListener("change", function () {
+      state.urgency = urgencySelect.value;
+      render();
+    });
+
+    render();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
+
+</body>
+</html>

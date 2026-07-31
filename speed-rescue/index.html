@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Speed Rescue — a real speed-audit sample | Rory Phillips</title>
+<meta name="description" content="In July 2026 I audited 50+ UK trades websites on mobile. A third scored under 60/100. See the real numbers, a real sample breakdown, and get yours free.">
+<link rel="canonical" href="https://roryphillips.dev/speed-rescue/">
+<meta property="og:title" content="Speed Rescue — a real speed-audit sample">
+<meta property="og:description" content="In July 2026 I audited 50+ UK trades websites on mobile. A third scored under 60/100. See the real numbers and get a free breakdown of your own site.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roryphillips.dev/speed-rescue/">
+<meta property="og:site_name" content="roryphillips.dev">
+<meta property="og:image" content="https://roryphillips.dev/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141412'/%3E%3Ctext x='16' y='22' font-family='ui-monospace,monospace' font-size='15' font-weight='700' fill='%2360d394' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg: oklch(0.985 0.003 95);
+    --card: oklch(1 0 0);
+    --fg: oklch(0.24 0.012 90);
+    --muted: oklch(0.52 0.012 90);
+    --line: oklch(0.9 0.005 90);
+    --accent: oklch(0.52 0.13 152);
+    --accent-soft: oklch(0.94 0.04 152);
+    --bad: oklch(0.55 0.19 25);
+    --shadow: 0 1px 2px oklch(0.24 0.012 90 / 0.06), 0 8px 24px oklch(0.24 0.012 90 / 0.05);
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: oklch(0.18 0.006 95);
+      --card: oklch(0.225 0.007 95);
+      --fg: oklch(0.945 0.004 95);
+      --muted: oklch(0.7 0.008 95);
+      --line: oklch(0.3 0.008 95);
+      --accent: oklch(0.82 0.16 152);
+      --accent-soft: oklch(0.3 0.05 152);
+      --bad: oklch(0.72 0.17 25);
+      --shadow: 0 1px 2px oklch(0 0 0 / 0.4), 0 10px 30px oklch(0 0 0 / 0.35);
+    }
+  }
+
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+  *, *::before, *::after{ box-sizing:border-box; }
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  h1,h2,h3,p,ul,dl,figure,table{ margin:0; }
+  ul{ padding:0; }
+  img,svg{ max-width:100%; }
+
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 24px; }
+  .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+
+  section{ padding:64px 0; border-bottom:1px solid var(--line); overflow-wrap:break-word; }
+  #contact{ border-bottom:none; }
+
+  .eyebrow{ font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.09em; color:var(--muted); }
+  .mono-label{ font-family:var(--mono); font-size:13px; color:var(--muted); }
+  h2{ font-size:clamp(26px,3.2vw,34px); letter-spacing:-0.025em; font-weight:700; }
+  .section-lead{ max-width:62ch; font-size:16.5px; line-height:1.55; color:var(--muted); margin-top:14px; }
+
+  /* Header */
+  header{ padding:22px 0; }
+  header .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+  .logo{ display:flex; align-items:center; gap:10px; color:var(--fg); }
+  .logo .mark{ width:26px; height:26px; border-radius:6px; background:var(--fg); color:var(--bg); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:12px; flex:none; }
+  .logo .name{ font-family:var(--mono); font-size:14px; font-weight:700; letter-spacing:0.02em; color:var(--fg); }
+  .logo:hover{ text-decoration:none; }
+  nav{ display:flex; flex-wrap:wrap; align-items:center; gap:22px; font-family:var(--mono); font-size:13px; }
+  nav a.navlink{ color:var(--muted); }
+  nav a.navlink:hover{ color:var(--fg); }
+  .pill{ background:var(--fg); color:var(--bg); padding:8px 14px; border-radius:7px; font-weight:600; }
+  .pill:hover{ text-decoration:none; }
+
+  /* Buttons */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; font-size:15px; font-weight:600; padding:14px 24px; border-radius:9px; }
+  .btn:hover{ text-decoration:none; }
+  .btn-primary{ background:var(--fg); color:var(--bg); }
+  .btn-secondary{ background:transparent; color:var(--fg); border:1px solid var(--line); }
+  .btn-secondary:hover{ border-color:var(--fg); }
+
+  /* Hero */
+  #top{ padding:52px 0 64px; }
+  .hero-inner{ display:flex; flex-wrap:wrap; align-items:flex-start; gap:40px 56px; }
+  .hero-main{ flex:1 1 420px; min-width:0; }
+  h1{ font-size:clamp(34px,5.4vw,56px); line-height:1.06; letter-spacing:-0.03em; font-weight:700; text-wrap:balance; margin-top:16px; }
+  .hero-lead{ font-size:18px; line-height:1.55; color:var(--muted); max-width:52ch; margin-top:20px; }
+  .hero-actions{ display:flex; flex-wrap:wrap; gap:12px; margin-top:30px; }
+  .hero-footnote{ font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:24px; }
+
+  /* Proof-style panel */
+  .proof{ flex:1 1 270px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:24px; box-shadow:var(--shadow); }
+  .proof-label{ font-family:var(--mono); font-size:11.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted); }
+  .proof-top{ display:flex; align-items:center; gap:18px; margin-top:16px; }
+  .ring-wrap{ position:relative; width:92px; height:92px; flex:none; }
+  .ring-wrap svg{ transform:rotate(-90deg); }
+  .ring-wrap .ring-score{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:24px; font-weight:700; color:var(--accent); }
+  .ring-track{ stroke:var(--line); }
+  .ring-progress{ stroke:var(--accent); stroke-linecap:round; }
+  .proof-copy p{ font-size:15px; font-weight:650; }
+  .proof-copy .sub{ font-size:14px; color:var(--muted); font-weight:400; margin-top:4px; }
+  .proof-metrics{ border-top:1px solid var(--line); margin-top:20px; padding-top:18px; display:flex; flex-direction:column; gap:12px; }
+  .metric-row{ display:flex; align-items:baseline; justify-content:space-between; gap:10px; font-family:var(--mono); font-size:13px; }
+  .metric-row .label{ color:var(--muted); }
+  .metric-row .value{ font-weight:700; text-align:right; }
+  .proof-close{ font-family:var(--mono); font-size:12px; color:var(--muted); margin-top:18px; }
+
+  /* Tables */
+  .table-scroll{ overflow-x:auto; margin-top:30px; border-radius:14px; }
+  table.data{ width:100%; min-width:560px; border-collapse:separate; border-spacing:0; border:1px solid var(--line); border-radius:14px; overflow:hidden; background:var(--card); }
+  table.data th, table.data td{ text-align:left; padding:14px 16px; font-size:14.5px; vertical-align:top; }
+  table.data thead th{ background:var(--bg); border-bottom:1px solid var(--line); font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:0.06em; color:var(--muted); font-weight:600; white-space:nowrap; }
+  table.data tbody th{ font-weight:600; white-space:nowrap; }
+  table.data tbody td.score{ font-family:var(--mono); font-weight:700; white-space:nowrap; }
+  table.data tbody td.score.low{ color:var(--bad); }
+  table.data tbody td.score.na{ color:var(--muted); font-weight:600; }
+  table.data tbody td.time{ font-family:var(--mono); white-space:nowrap; }
+  table.data tbody tr:not(:last-child) th, table.data tbody tr:not(:last-child) td{ border-bottom:1px solid var(--line); }
+  table.data tbody tr:last-child th, table.data tbody tr:last-child td{ background:var(--accent-soft); }
+
+  .table-note{ font-family:var(--mono); font-size:12.5px; color:var(--muted); margin-top:14px; max-width:70ch; }
+  .context-line{ font-size:16px; margin-top:22px; max-width:60ch; }
+
+  table.diag col.c1{ width:22%; } table.diag col.c2{ width:34%; } table.diag col.c3{ width:26%; } table.diag col.c4{ width:18%; }
+  table.diag tbody td.gain{ color:var(--accent); font-weight:600; }
+
+  .breakdown-frame{ font-size:16.5px; line-height:1.55; max-width:66ch; margin-top:14px; }
+  .breakdown-frame strong{ font-weight:700; }
+
+  .terms-card{ margin-top:26px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:22px 24px; max-width:70ch; }
+  .terms-card p{ font-size:15px; line-height:1.55; }
+  .terms-card p + p{ margin-top:10px; }
+  .terms-card .cost-row{ display:flex; flex-wrap:wrap; gap:24px; font-family:var(--mono); font-size:14px; margin-bottom:10px; }
+  .terms-card .cost-row span{ color:var(--muted); }
+  .terms-card .cost-row b{ color:var(--fg); }
+
+  /* Build section */
+  .build-inner{ display:flex; flex-wrap:wrap; gap:40px 56px; align-items:flex-start; margin-top:30px; }
+  .build-copy{ flex:1 1 340px; min-width:0; }
+  .build-copy p{ font-size:16.5px; line-height:1.6; max-width:56ch; color:var(--fg); }
+  .build-copy p.hon{ color:var(--muted); font-size:15px; margin-top:16px; }
+  .build-copy .work-link-row{ margin-top:22px; }
+  .build-proof{ flex:1 1 280px; max-width:340px; }
+
+  /* CTA */
+  .cta-inner{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:26px; margin-top:30px; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:32px; box-shadow:var(--shadow); }
+  .cta-copy{ flex:1 1 320px; }
+  .cta-copy h3{ font-size:22px; font-weight:700; letter-spacing:-0.02em; }
+  .cta-copy p{ font-size:15px; color:var(--muted); margin-top:8px; }
+  .cta-actions{ display:flex; flex-wrap:wrap; gap:12px; }
+
+  /* Footer */
+  footer{ border-top:1px solid var(--line); padding:28px 0 40px; }
+  footer .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; font-family:var(--mono); font-size:12.5px; color:var(--muted); }
+  .footer-right{ display:flex; align-items:center; gap:18px; flex-wrap:wrap; }
+
+  @media (max-width:640px){
+    section{ padding:48px 0; }
+    .cta-inner{ padding:24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="/">
+      <span class="mark" aria-hidden="true">RP</span>
+      <span class="name">roryphillips.dev</span>
+    </a>
+    <nav aria-label="Primary">
+      <a class="navlink" href="/">Home</a>
+      <a class="navlink" href="#what-i-found">What I found</a>
+      <a class="navlink" href="#sample-breakdown">Sample breakdown</a>
+      <a class="pill" href="mailto:rory.owain@gmail.com?subject=Free%20speed%20breakdown%20for%20%5Byour%20website%5D">Get my breakdown</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <section aria-label="Hero" style="border-bottom:1px solid var(--line);">
+    <div class="wrap hero-inner">
+      <div class="hero-main">
+        <p class="eyebrow">Speed audit · July 2026</p>
+        <h1>Most trades websites fail the phone test.</h1>
+        <p class="hero-lead">In July 2026 I ran mobile speed audits (Google Lighthouse, mobile preset) on more than 50 UK trades websites — electricians, plumbers, builders, roofers, landscapers. Roughly a third scored under 60/100. The worst took 31.6 seconds to show its main content.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="mailto:rory.owain@gmail.com?subject=Free%20speed%20breakdown%20for%20%5Byour%20website%5D">Get my free breakdown</a>
+          <a class="btn btn-secondary" href="#sample-breakdown">See a sample breakdown</a>
+        </div>
+        <p class="hero-footnote">Real audits below. No names — just the numbers.</p>
+      </div>
+
+      <div class="proof" aria-label="Audit summary">
+        <p class="proof-label">July 2026 · 50+ UK trades sites</p>
+        <div class="proof-top">
+          <div class="ring-wrap">
+            <svg viewBox="0 0 100 100" width="92" height="92" aria-hidden="true">
+              <circle class="ring-track" cx="50" cy="50" r="42" fill="none" stroke-width="7"></circle>
+              <circle class="ring-progress" cx="50" cy="50" r="42" fill="none" stroke-width="7" stroke-dasharray="264" stroke-dashoffset="176"></circle>
+            </svg>
+            <span class="ring-score" aria-hidden="true">⅓</span>
+          </div>
+          <div class="proof-copy">
+            <p>Scored under 60/100</p>
+            <p class="sub">On Google Lighthouse, mobile preset.</p>
+          </div>
+        </div>
+        <div class="proof-metrics">
+          <div class="metric-row"><span class="label">Sites audited</span><span class="value">50+</span></div>
+          <div class="metric-row"><span class="label">Slowest main content</span><span class="value">31.6 s</span></div>
+          <div class="metric-row"><span class="label">Visitor patience, roughly</span><span class="value">~3 s</span></div>
+        </div>
+        <p class="proof-close">No trackers. No cookie banner. Just the audit results.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="what-i-found">
+    <div class="wrap">
+      <p class="eyebrow">What I found</p>
+      <h2>Seven audits, picked to show the range</h2>
+      <p class="section-lead">Trade and region only. No business names, no domains — the point isn't to embarrass anyone, it's to show what's normal out there.</p>
+
+      <div class="table-scroll">
+        <table class="data">
+          <caption class="sr-only">Sample of July 2026 mobile speed audits: trade, region, mobile score, and time to show main content</caption>
+          <thead>
+            <tr>
+              <th scope="col">Trade &amp; region</th>
+              <th scope="col">Mobile score</th>
+              <th scope="col">Main content shown at</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Electrician — Merseyside</th><td class="score low">58/100</td><td class="time">8.6 s</td></tr>
+            <tr><th scope="row">Electrician — Greater Manchester</th><td class="score low">55/100</td><td class="time">21.6 s</td></tr>
+            <tr><th scope="row">Plumbing &amp; heating — East Midlands</th><td class="score low">39/100</td><td class="time">14.1 s</td></tr>
+            <tr><th scope="row">Builder — Nottinghamshire</th><td class="score low">58/100</td><td class="time">12.1 s</td></tr>
+            <tr><th scope="row">Landscaper — Merseyside</th><td class="score low">33/100</td><td class="time">24.1 s</td></tr>
+            <tr><th scope="row">Landscaper — West Midlands</th><td class="score low">45/100</td><td class="time">26.0 s</td></tr>
+            <tr><th scope="row">Builder — Greater Manchester*</th><td class="score na">n/a*</td><td class="time">31.6 s</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Real audits, July 2026. Names withheld — the point isn't to embarrass anyone. *Score not computable at this load time; first paint on this site landed at 14.4 s, main content at 31.6 s.</p>
+      <p class="context-line">A mobile visitor typically gives up within about 3 seconds. Every row above is several times slower than that.</p>
+    </div>
+  </section>
+
+  <section id="sample-breakdown">
+    <div class="wrap">
+      <p class="eyebrow">The sample breakdown</p>
+      <h2>What the free report actually looks like</h2>
+      <p class="breakdown-frame">Here's the one-page breakdown I send, worked through on one of the sites above — the plumbing &amp; heating firm scoring <strong>39/100</strong>.</p>
+
+      <div class="table-scroll">
+        <table class="data diag">
+          <caption class="sr-only">Sample diagnosis: issue, what it means, the fix, and expected gain</caption>
+          <colgroup><col class="c1"><col class="c2"><col class="c3"><col class="c4"></colgroup>
+          <thead>
+            <tr>
+              <th scope="col">Issue</th>
+              <th scope="col">What it means</th>
+              <th scope="col">The fix</th>
+              <th scope="col">Expected gain</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Multi-megabyte photos, scaled down in the browser</th>
+              <td>The site sends a huge original photo and lets your phone squash it into a small box — you pay to download pixels you never see.</td>
+              <td>Resize and compress images to the size they're actually shown at.</td>
+              <td class="gain">Often halves load time on its own</td>
+            </tr>
+            <tr>
+              <th scope="row">15–30 plugins, each loading scripts on every page</th>
+              <td>Every plugin adds its own file to download and run — even ones doing nothing on the page you're looking at.</td>
+              <td>Remove what's unused; load the rest only where it's needed.</td>
+              <td class="gain">Typically 1–3 s off</td>
+            </tr>
+            <tr>
+              <th scope="row">Render-blocking theme &amp; page-builder CSS/JS</th>
+              <td>The browser has to fully load the page-builder's styling code before it draws anything — visitors stare at a blank screen meanwhile.</td>
+              <td>Strip it to the CSS actually used; load the rest after the page shows.</td>
+              <td class="gain">Usually a second or more off first paint</td>
+            </tr>
+            <tr>
+              <th scope="row">No caching headers</th>
+              <td>Every repeat visit re-downloads the whole site from scratch, as if it were the first time.</td>
+              <td>Set the server to tell the browser what to keep.</td>
+              <td class="gain">Return visits load close to instantly</td>
+            </tr>
+            <tr>
+              <th scope="row">Third-party embeds loading before the content</th>
+              <td>Maps, review widgets, chat pop-ups and video sit in the queue ahead of your actual words and photos.</td>
+              <td>Defer or lazy-load them so content shows first.</td>
+              <td class="gain">Content typically appears 1–2 s sooner</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="terms-card">
+        <div class="cost-row"><span>What it costs: <b>nothing</b></span><span>What it commits you to: <b>nothing</b></span></div>
+        <p>Some of what's above is a 30-minute job. Some justifies a rebuild rather than a patch. The report says which — for your site specifically, not a guess.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="build">
+    <div class="wrap">
+      <p class="eyebrow">What I build instead</p>
+      <h2>The standard a fix or rebuild ships at</h2>
+      <div class="build-inner">
+        <div class="build-copy">
+          <p>The "before" numbers above are other people's sites, measured this month. These "after" numbers are my own live builds, measured the same way — Google Lighthouse, mobile preset, on a mid-range phone.</p>
+          <p class="hon">That's the standard a fix or rebuild from me ships at. Not a promise — the same test, run on my own work.</p>
+          <p class="work-link-row"><a href="/#work">See the five live builds →</a></p>
+        </div>
+        <div class="proof build-proof" aria-label="This site, measured">
+          <p class="proof-label">This site · mobile · 4G</p>
+          <div class="proof-top">
+            <div class="ring-wrap">
+              <svg viewBox="0 0 100 100" width="92" height="92" aria-hidden="true">
+                <circle class="ring-track" cx="50" cy="50" r="42" fill="none" stroke-width="7"></circle>
+                <circle class="ring-progress" cx="50" cy="50" r="42" fill="none" stroke-width="7" stroke-dasharray="264" stroke-dashoffset="2.6"></circle>
+              </svg>
+              <span class="ring-score">100</span>
+            </div>
+            <div class="proof-copy">
+              <p>PageSpeed performance</p>
+              <p class="sub">Measured on a mid-range phone.</p>
+            </div>
+          </div>
+          <div class="proof-metrics">
+            <div class="metric-row"><span class="label">Main content shown</span><span class="value">1.0 s</span></div>
+            <div class="metric-row"><span class="label">Page weight</span><span class="value">8 KB</span></div>
+          </div>
+          <p class="proof-close">No trackers. No cookie banner. Nothing to consent to.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="cta-inner">
+        <div class="cta-copy">
+          <h3>Want this breakdown for your site?</h3>
+          <p>Free. One page. Within 48 hours. No obligation.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="mailto:rory.owain@gmail.com?subject=Free%20speed%20breakdown%20for%20%5Byour%20website%5D">Email me for my free breakdown</a>
+          <a class="btn btn-secondary" href="/#services">See what fixes cost →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Rory Phillips · rory.owain@gmail.com</p>
+    <div class="footer-right">
+      <a href="/">Back to roryphillips.dev</a>
+      <a href="mailto:rory.owain@gmail.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
