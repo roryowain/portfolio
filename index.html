@@ -518,7 +518,7 @@
           <p>I'm Rory Phillips, an MEng-trained engineer who builds websites the way engineers build anything: by hand, with a reason for every part. I work with clients in the United States, the United Kingdom and Malaysia, across time zones and without agency overhead. Every project ships with its full source code and a set of plain-English handover notes, so nothing about your own site is a mystery to you.</p>
         </div>
         <div class="about-side">
-          <div class="about-row"><span class="label">Based</span><span class="value">Malaysia (GMT+8)</span></div>
+          <div class="about-row"><span class="label">Based</span><span class="value">United Kingdom (GMT+1)</span></div>
           <div class="about-row"><span class="label">Stack</span><span class="value">HTML · CSS · JS · PHP</span></div>
           <div class="about-row"><span class="label">Frameworks</span><span class="value">Only when earned</span></div>
           <div class="about-row"><span class="label">Reply time</span><span class="value">Within 24 hours</span></div>
@@ -545,16 +545,6 @@
           <div class="field">
             <label for="need">What do you need</label>
             <textarea id="need" name="need" rows="4" required placeholder="e.g. My roofing site takes 7 seconds to load on a phone."></textarea>
-          </div>
-          <div class="field">
-            <label for="budget">Budget range</label>
-            <select id="budget" name="budget">
-              <option value="under-100">Under $100</option>
-              <option value="100-300">$100 – $300</option>
-              <option value="300-800">$300 – $800</option>
-              <option value="800-plus">$800+</option>
-              <option value="unsure">Not sure yet</option>
-            </select>
           </div>
           <div class="submit-row">
             <button type="submit" class="btn btn-primary">Send enquiry (opens your email)</button>
@@ -587,13 +577,10 @@
     var name = (form.name.value || '').trim();
     var email = (form.email.value || '').trim();
     var need = (form.need.value || '').trim();
-    var budgetEl = form.budget;
-    var budget = budgetEl.options[budgetEl.selectedIndex] ? budgetEl.options[budgetEl.selectedIndex].text : '';
 
     var subject = 'Website enquiry from ' + (name || 'website visitor');
     var body = need +
-      '\n\nBudget range: ' + budget +
-      '\nReply to: ' + email;
+      '\n\nReply to: ' + email;
 
     var mailto = 'mailto:rory.owain@gmail.com' +
       '?subject=' + encodeURIComponent(subject) +
