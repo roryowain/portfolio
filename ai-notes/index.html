@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI field notes — Rory Phillips</title>
+<meta name="description" content="Weekly working notes from helping owner-managed UK businesses put AI to work: automations built, hours saved, honest numbers, and the occasional dead end.">
+<link rel="canonical" href="https://roryphillips.dev/ai-notes/">
+<meta property="og:title" content="AI field notes — Rory Phillips">
+<meta property="og:description" content="Automations built, hours saved, honest numbers, and the occasional dead end.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roryphillips.dev/ai-notes/">
+<meta name="theme-color" content="#fbfbf9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141412'/%3E%3Ctext x='16' y='22' font-family='ui-monospace,monospace' font-size='15' font-weight='700' fill='%2360d394' text-anchor='middle'%3ERP%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg: oklch(0.985 0.003 95);
+    --card: oklch(1 0 0);
+    --fg: oklch(0.24 0.012 90);
+    --muted: oklch(0.52 0.012 90);
+    --line: oklch(0.9 0.005 90);
+    --accent: oklch(0.52 0.13 152);
+    --accent-soft: oklch(0.94 0.04 152);
+    --shadow: 0 1px 2px oklch(0.24 0.012 90 / 0.06), 0 8px 24px oklch(0.24 0.012 90 / 0.05);
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg: oklch(0.18 0.006 95);
+      --card: oklch(0.225 0.007 95);
+      --fg: oklch(0.945 0.004 95);
+      --muted: oklch(0.7 0.008 95);
+      --line: oklch(0.3 0.008 95);
+      --accent: oklch(0.82 0.16 152);
+      --accent-soft: oklch(0.3 0.05 152);
+      --shadow: 0 1px 2px oklch(0 0 0 / 0.4), 0 10px 30px oklch(0 0 0 / 0.35);
+    }
+  }
+
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; background:var(--bg); color:var(--fg); font-family:var(--sans); -webkit-font-smoothing:antialiased; }
+  *, *::before, *::after{ box-sizing:border-box; }
+  a{ color:var(--accent); text-decoration:none; }
+  a:hover{ text-decoration:underline; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:3px; }
+  h1,h2,h3,p,ul{ margin:0; }
+
+  .wrap{ max-width:760px; margin:0 auto; padding:0 24px; }
+
+  .eyebrow{ font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.09em; color:var(--muted); }
+
+  header{ padding:22px 0; }
+  header .wrap{ max-width:1120px; display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
+  .logo{ display:flex; align-items:center; gap:10px; color:var(--fg); }
+  .logo .mark{ width:26px; height:26px; border-radius:6px; background:var(--fg); color:var(--bg); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-weight:700; font-size:12px; }
+  .logo .name{ font-family:var(--mono); font-size:14px; font-weight:700; letter-spacing:0.02em; color:var(--fg); }
+  .logo:hover{ text-decoration:none; }
+  nav{ display:flex; flex-wrap:wrap; align-items:center; gap:22px; font-family:var(--mono); font-size:13px; }
+  nav a.navlink{ color:var(--muted); }
+  nav a.navlink:hover{ color:var(--fg); }
+  .pill{ background:var(--fg); color:var(--bg); padding:8px 14px; border-radius:7px; font-weight:600; transition: transform .15s ease, box-shadow .15s ease; }
+  .pill:hover{ text-decoration:none; transform:translateY(-2px); box-shadow:var(--shadow); }
+
+  .page-head{ padding:56px 0 40px; border-bottom:1px solid var(--line); }
+  h1{ font-size:clamp(34px,5vw,52px); line-height:1.05; letter-spacing:-0.03em; font-weight:700; margin-top:18px; text-wrap:balance; }
+  .page-lead{ font-size:17px; line-height:1.6; color:var(--muted); max-width:56ch; margin-top:18px; }
+
+  .entries{ padding:14px 0 40px; }
+  .entry{ padding:44px 0; border-bottom:1px solid var(--line); }
+  .entry:last-of-type{ border-bottom:none; }
+  .entry-date{ font-family:var(--mono); font-size:13px; color:var(--muted); }
+  .entry h2{ font-size:clamp(22px,2.8vw,28px); letter-spacing:-0.02em; font-weight:700; margin-top:10px; }
+  .entry p{ font-size:16px; line-height:1.65; margin-top:16px; max-width:62ch; }
+  .entry ul{ list-style:none; padding:0; margin-top:16px; display:flex; flex-direction:column; gap:10px; max-width:62ch; }
+  .entry li{ display:grid; grid-template-columns:14px 1fr; gap:10px; font-size:15.5px; line-height:1.55; }
+  .entry li::before{ content:"·"; font-family:var(--mono); color:var(--accent); font-weight:700; }
+  .entry .figures{ font-family:var(--mono); font-size:13.5px; color:var(--muted); margin-top:16px; }
+
+  .cta{ margin:24px 0 76px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:28px; box-shadow:var(--shadow); }
+  .cta h2{ font-size:20px; font-weight:680; letter-spacing:-0.017em; }
+  .cta p{ font-size:15px; color:var(--muted); margin-top:10px; max-width:56ch; line-height:1.55; }
+  .btn{ display:inline-flex; align-items:center; justify-content:center; font-size:15px; font-weight:600; padding:13px 22px; border-radius:9px; background:var(--fg); color:var(--bg); margin-top:18px; transition: transform .15s ease, box-shadow .15s ease; }
+  .btn:hover{ text-decoration:none; transform:translateY(-2px); box-shadow:var(--shadow); }
+
+  footer{ border-top:1px solid var(--line); padding:26px 0; }
+  footer .wrap{ max-width:1120px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; font-family:var(--mono); font-size:13px; color:var(--muted); }
+  footer a{ color:var(--muted); }
+  footer a:hover{ color:var(--fg); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="/">
+      <span class="mark" aria-hidden="true">RP</span>
+      <span class="name">roryphillips.dev</span>
+    </a>
+    <nav aria-label="Primary">
+      <a class="navlink" href="/#work">Work</a>
+      <a class="navlink" href="/#services">Services</a>
+      <a class="pill" href="/assessment/">4-min readiness check</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="page-head">
+      <p class="eyebrow">Field notes</p>
+      <h1>AI, put to work in real businesses.</h1>
+      <p class="page-lead">Working notes from helping owner-managed UK companies automate the
+      unglamorous parts — quoting, reporting, invoice-chasing, re-keying. One short entry a
+      week: what got built, what it saved, what didn't work. Real numbers, no keynote slides.</p>
+    </div>
+
+    <div class="entries">
+      <!-- ADD NEW ENTRIES DIRECTLY BELOW THIS LINE (newest first) -->
+
+      <article class="entry">
+        <p class="entry-date">1 August 2026</p>
+        <h2>A readiness assessment, built and shipped in a day</h2>
+        <p>First artefact of the new practice: a 12-question AI readiness assessment for
+        business owners, scored across leadership, operations, data and people. Built with
+        AI-assisted coding in a working day; a decade ago the same thing would have been a
+        two-week job and an invoice most owners wouldn't sign.</p>
+        <ul>
+          <li>One self-contained page — no framework, no tracking, no cookie banner. Your answers never leave your browser.</li>
+          <li>Scores against what UK businesses actually report, not a vendor's fantasy benchmark.</li>
+          <li>Shipped the same day, live at <a href="/assessment/">roryphillips.dev/assessment</a>.</li>
+        </ul>
+        <p>The point isn't the tool. The point is that software this cheap changes what's
+        worth automating: a job that used to need a development budget now needs an
+        afternoon. Most of the businesses I talk to haven't priced that shift in yet.</p>
+        <p class="figures">~1,100 lines · built in a day · £0 to run</p>
+      </article>
+
+      <article class="entry">
+        <p class="entry-date">1 August 2026</p>
+        <h2>Why this page exists</h2>
+        <p>The official numbers are stark. Roughly half of UK businesses now say they "use
+        AI" — but only about one in ten automate anything real. In construction, 88% have
+        no AI plans at all. The companies with the most repetitive manual work, and so the
+        most to gain, are precisely the ones with nobody whose job it is to look.</p>
+        <p>That's the job I've taken on: fractional AI officer for owner-managed UK
+        companies — strategy with the owner, systems built alongside the team, and training
+        so the capability stays in the building when I leave.</p>
+        <p>This page is the working log. I'd rather show the receipts than write the
+        brochure: each week, one note on something built or learned, with the numbers
+        attached — including the ideas that didn't survive contact with a real business.</p>
+      </article>
+
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="cta">
+      <h2>Where does your business stand?</h2>
+      <p>Twelve questions, about four minutes, no signup. You'll get a scored breakdown
+      across leadership, operations, data and people — and three concrete things worth
+      fixing first.</p>
+      <a class="btn" href="/assessment/">Take the readiness check</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 Rory Phillips</p>
+    <a href="mailto:rory.owain@gmail.com">Email</a>
+  </div>
+</footer>
+
+</body>
+</html>
