@@ -1,4 +1,69 @@
 User-agent: *
 Allow: /
 
+# ─────────────────────────────────────────────────────────────────────────────
+# AI crawler policy — set 2026-08-19. Identical across all six sites.
+#
+# THE DISTINCTION THAT MATTERS: retrieval crawlers (which fetch a page in order
+# to answer a question and cite the source) are ALLOWED. Bulk training and
+# scraping crawlers that take content and return nothing are DISALLOWED.
+#
+# ALLOWED, deliberately — these are how the sites get cited in AI answers:
+#   OAI-SearchBot, ChatGPT-User   (ChatGPT search + user-triggered fetches)
+#   PerplexityBot, Perplexity-User
+#   Claude-User, Claude-SearchBot
+#   Googlebot                     (also powers AI Overviews)
+#   Google-Extended               (unblocked 2026-08-19 — restores Gemini
+#                                  grounding; the cost is Gemini training use,
+#                                  judged worth it for the citation reach)
+#   Bingbot                       (powers Copilot)
+#
+# DISALLOWED — bulk scrape/training with no citation path back:
+#   CCBot           Common Crawl — feeds countless downstream datasets
+#   Bytespider      ByteDance; widely reported to ignore robots.txt anyway
+#   Amazonbot       no citation surface
+#   meta-externalagent  Meta AI training
+#   Applebot-Extended   Apple Intelligence training (plain Applebot, which
+#                       powers Siri/Spotlight results, stays allowed)
+#
+# NOTE FOR THE FOUR CLOUDFLARE-PROXIED SITES: Cloudflare's managed robots.txt
+# is PREPENDED to this file at the edge and currently blocks Google-Extended,
+# GPTBot and ClaudeBot. This file cannot remove those lines. Turn the managed
+# block off at Cloudflare → the zone → AI Crawl Control for this policy to be
+# the whole truth.
+# ─────────────────────────────────────────────────────────────────────────────
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: meta-externalagent
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
 Sitemap: https://roryphillips.dev/sitemap.xml
