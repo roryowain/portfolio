@@ -1,6 +1,8 @@
 User-agent: *
-Allow: /
-
+# NOTE: no blanket "Allow: /" in this group. It is redundant (everything is
+# allowed unless disallowed) and it makes the Disallow rules below ambiguous:
+# Google resolves by longest-match so they win, but stricter parsers take the
+# first match and ignore them. Omitting it is correct under every parser.
 # ─────────────────────────────────────────────────────────────────────────────
 # AI crawler policy — set 2026-08-19. Identical across all six sites.
 #
