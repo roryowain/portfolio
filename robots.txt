@@ -4,24 +4,24 @@ User-agent: *
 # Google resolves by longest-match so they win, but stricter parsers take the
 # first match and ignore them. Omitting it is correct under every parser.
 # ─────────────────────────────────────────────────────────────────────────────
-# AI crawler policy — set 2026-08-19. Identical across all six sites.
+# AI crawler policy: set 2026-08-19. Identical across all six sites.
 #
 # THE DISTINCTION THAT MATTERS: retrieval crawlers (which fetch a page in order
 # to answer a question and cite the source) are ALLOWED. Bulk training and
 # scraping crawlers that take content and return nothing are DISALLOWED.
 #
-# ALLOWED, deliberately — these are how the sites get cited in AI answers:
+# ALLOWED, deliberately: these are how the sites get cited in AI answers:
 #   OAI-SearchBot, ChatGPT-User   (ChatGPT search + user-triggered fetches)
 #   PerplexityBot, Perplexity-User
 #   Claude-User, Claude-SearchBot
 #   Googlebot                     (also powers AI Overviews)
-#   Google-Extended               (unblocked 2026-08-19 — restores Gemini
+#   Google-Extended               (unblocked 2026-08-19: restores Gemini
 #                                  grounding; the cost is Gemini training use,
 #                                  judged worth it for the citation reach)
 #   Bingbot                       (powers Copilot)
 #
-# DISALLOWED — bulk scrape/training with no citation path back:
-#   CCBot           Common Crawl — feeds countless downstream datasets
+# DISALLOWED: bulk scrape/training with no citation path back:
+#   CCBot           Common Crawl: feeds countless downstream datasets
 #   Bytespider      ByteDance; widely reported to ignore robots.txt anyway
 #   Amazonbot       no citation surface
 #   meta-externalagent  Meta AI training
