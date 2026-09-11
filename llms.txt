@@ -1,0 +1,25 @@
+# Rory Phillips, AI for owner-managed businesses
+
+> Practical AI implementation for UK owner-managed businesses: a free AI readiness assessment, fixed-price audits, team training and a fractional AI officer retainer, with sector pages for construction, manufacturing, clinics, roofing, restaurants, agencies and ecommerce.
+
+Pages describe services and typical outcomes in general terms. No client results are guaranteed.
+
+## Services
+
+- [Rory Phillips: hand-coded websites that load in under a second](https://roryphillips.dev/): Hand-coded websites for small businesses, and fractional AI officer services for established UK companies. Sub-second loads, no templates, automations priced in £/month saved.
+- [Fractional AI Officer for UK businesses: Rory Phillips](https://roryphillips.dev/fractional-ai-officer/): Fractional AI officer for owner-managed UK businesses. I automate quoting, reporting and invoice-chasing, and train your team to run it: priced in £/month saved.
+- [AI Readiness Audit](https://roryphillips.dev/assessment/)
+- [AI field notes: Rory Phillips](https://roryphillips.dev/ai-notes/): Weekly working notes from helping owner-managed UK businesses put AI to work: automations built, hours saved, honest numbers, and the occasional dead end.
+- [Speed Rescue: a real speed-audit sample](https://roryphillips.dev/speed-rescue/): In July 2026 I audited 50+ UK trades websites on mobile. A third scored under 60/100. See the real numbers, a real sample breakdown, and get yours free.
+- [Ampere & Sons: Instant Electrical Quote Calculator, Manchester](https://roryphillips.dev/calculator/): Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more: no forms, no waiting.
+
+## Sector pages
+
+- [AI for construction firms in the UK: Rory Phillips](https://roryphillips.dev/ai-for-construction/): Fractional AI officer for UK construction and civils firms. I automate tender assembly, valuations, RAMS and site reporting: priced in £/month saved.
+- [AI for UK manufacturers: Made Smarter ready, Rory Phillips](https://roryphillips.dev/ai-for-manufacturing/): Fractional AI officer for UK manufacturers: automating quoting, purchase orders, production reporting and stock paperwork, audits Made Smarter grant-ready.
+- [AI for UK wholesalers, distributors and hauliers: Rory Phillips](https://roryphillips.dev/ai-for-distribution/): Fractional AI officer for UK wholesalers, distributors and hauliers: automating order processing, supplier invoices and POD paperwork, priced in £/month saved.
+- [Lakeline Dental Studio: Modern Dentistry in Austin, TX](https://roryphillips.dev/clinic-us/): Lakeline Dental Studio is a modern dental practice in Austin, Texas with published prices, gentle hands, and same-day emergency appointments. Dentistry, minus the dread.
+- [Ridge & Beam: Heritage Roofing Specialists, York](https://roryphillips.dev/roofing-uk/): Family-run heritage roofing specialists in York since 1987. Slate and pantile re-roofing, leadwork, chimney repair and listed building consent: guaranteed for 50 years.
+- [API API: Modern Malaysian Wood-Fire](https://roryphillips.dev/restaurant/): API API is a modern-Malaysian wood-fire restaurant in Bukit Bintang, Kuala Lumpur. No gas: everything is cooked over api-api wood and charcoal.
+- [Studio Kilat: Brand & Web, Kuala Lumpur](https://roryphillips.dev/agency/): Studio Kilat is a two-person brand and web studio in Kuala Lumpur. We design brands and hand-code the websites that carry them. No page builders, no plugins, no six-week discovery phase.
+- [TANAH: Rare Liberica Coffee from Johor, Malaysia](https://roryphillips.dev/ecommerce/): Single-origin Liberica coffee grown on volcanic-adjacent soil in Kluang, Johor. Notes of jackfruit, dark cocoa and woodsmoke. Roasted every Monday, shipped fresh.
