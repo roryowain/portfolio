@@ -25,3 +25,9 @@ is not repeated: never validate robots.txt with urllib.robotparser.
 
 **Also checked.** expatclub.co.za flagged 1 URL blocked: `/api/me`, under the
 deliberate `/api/` Disallow. Correct, left alone.
+
+## 2026-09-11: answer-first pass on roryphillips.dev
+All 16 real pages: "Updated September 2026" line, 266 em dashes removed, FAQ + FAQPage schema
+on the three sector pages, assessment and fractional-ai-officer (minimal inline .faq styles
+added), FAQPage schema added to services, dateModified on Service JSON-LD. llms.txt live.
+Sitemap lastmod bumped. GitHub Pages auto-deploys on push.

@@ -491,6 +491,8 @@
     a { color: #000; text-decoration: none; }
   }
 </style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does the assessment take?","acceptedAnswer":{"@type":"Answer","text":"About four minutes for twelve questions, with no signup required."}},{"@type":"Question","name":"Is my data private?","acceptedAnswer":{"@type":"Answer","text":"Yes. Your answers stay in your browser and are not sent anywhere unless you choose to book a walkthrough."}},{"@type":"Question","name":"What do I get at the end?","acceptedAnswer":{"@type":"Answer","text":"A scored breakdown across leadership, operations, data and people, three concrete things worth fixing first, and the option to book a free 30-minute walkthrough of your results."}}]}</script>
+<style>.faq{margin:1.5rem 0}.faq details{border:1px solid rgba(128,128,128,.3);border-radius:8px;padding:.75rem 1rem;margin:.5rem 0}.faq summary{cursor:pointer;font-weight:600}.faq details p{margin:.6rem 0 0}</style>
 </head>
 <body>
 
@@ -504,11 +506,12 @@
   <!-- ================= LANDING SCREEN ================= -->
   <section id="screen-landing">
     <h1>How AI-ready is your business?</h1>
-    <p class="landing-sub">A 12-question audit built for owners of established businesses — not techies. Answer honestly and you'll get a clear picture of where you stand.</p>
+    <p style="font-size:13px;color:var(--text-muted);margin:6px 0 0;">Updated September 2026</p>
+    <p class="landing-sub">A 12-question audit built for owners of established businesses, not techies. Answer honestly and you'll get a clear picture of where you stand.</p>
 
     <ul class="value-props">
-      <li><span class="check">✓</span><span>See exactly where your business stands across leadership, operations, data, and people — in plain English.</span></li>
-      <li><span class="check">✓</span><span>Get a scored breakdown, not a sales pitch — no jargon, no exaggeration.</span></li>
+      <li><span class="check">✓</span><span>See exactly where your business stands across leadership, operations, data, and people, in plain English.</span></li>
+      <li><span class="check">✓</span><span>Get a scored breakdown, not a sales pitch: no jargon, no exaggeration.</span></li>
       <li><span class="check">✓</span><span>Leave with three concrete things worth fixing first, based on where you actually are.</span></li>
     </ul>
 
@@ -516,6 +519,12 @@
 
     <button class="btn btn-primary btn-block" id="btn-start">Start assessment</button>
     <p class="fine-print">No signup required. Your answers stay in your browser.</p>
+    <h2 style="font-size:19px;margin-top:36px;">Frequently asked questions</h2>
+    <div class="faq">
+      <details><summary>How long does the assessment take?</summary><p>About four minutes for twelve questions, with no signup required.</p></details>
+      <details><summary>Is my data private?</summary><p>Yes. Your answers stay in your browser and aren't sent anywhere unless you choose to book a walkthrough.</p></details>
+      <details><summary>What do I get at the end?</summary><p>A scored breakdown across leadership, operations, data and people, three concrete things worth fixing first, and the option to book a free 30-minute walkthrough of your results.</p></details>
+    </div>
   </section>
 
   <!-- ================= QUIZ SCREEN ================= -->
@@ -569,7 +578,7 @@
 
     <div class="cta-block" id="cta-block">
       <h3>Want the full picture?</h3>
-      <p>Book a 30-minute walkthrough of your results — no charge.</p>
+      <p>Book a 30-minute walkthrough of your results: no charge.</p>
       <button class="btn btn-primary" id="btn-book">Book a walkthrough</button>
       <a class="cta-email no-print" id="cta-email-link" href="#"></a>
     </div>
@@ -587,7 +596,7 @@
   "use strict";
 
   /* ============================================================
-     CONFIG — edit these to rebrand the assessment
+     CONFIG: edit these to rebrand the assessment
      ============================================================ */
   const CONFIG = {
     brandName: "AI Readiness Audit",
@@ -598,7 +607,7 @@
   };
 
   /* ============================================================
-     QUESTION BANK — 4 dimensions x 3 questions, each option 0-3
+     QUESTION BANK: 4 dimensions x 3 questions, each option 0-3
      ============================================================ */
   const DIMENSIONS = [
     { key: "leadership", name: "Leadership & Strategy" },
@@ -633,7 +642,7 @@
       dim: "leadership",
       text: "How would you describe your sense of urgency about AI compared to your competitors?",
       options: [
-        { text: "We're actively moving — I don't want to be left behind", score: 3 },
+        { text: "We're actively moving, I don't want to be left behind", score: 3 },
         { text: "I think about it, but we haven't acted much yet", score: 2 },
         { text: "I assume we have time, no rush", score: 1 },
         { text: "I haven't really compared us to competitors on this", score: 0 }
@@ -644,27 +653,27 @@
       dim: "operations",
       text: "When a customer asks for a quote, how long does it typically take to get one back to them?",
       options: [
-        { text: "Minutes — it's mostly automatic", score: 3 },
+        { text: "Minutes, it's mostly automatic", score: 3 },
         { text: "A few hours", score: 2 },
-        { text: "A day or two — someone has to build it manually", score: 1 },
+        { text: "A day or two, someone has to build it manually", score: 1 },
         { text: "Several days or more, with a lot of back-and-forth", score: 0 }
       ]
     },
     {
       dim: "operations",
-      text: "How much of your team's week goes to repetitive work — data entry, filing, copying information between systems?",
+      text: "How much of your team's week goes to repetitive work: data entry, filing, copying information between systems?",
       options: [
-        { text: "Very little — most of that is automated", score: 3 },
+        { text: "Very little, most of that is automated", score: 3 },
         { text: "Some, but it's manageable", score: 2 },
         { text: "A significant chunk of most days", score: 1 },
-        { text: "A lot — it feels like a constant grind", score: 0 }
+        { text: "A lot, it feels like a constant grind", score: 0 }
       ]
     },
     {
       dim: "operations",
       text: "How do you chase overdue invoices or payments?",
       options: [
-        { text: "Automatic reminders — minimal manual chasing", score: 3 },
+        { text: "Automatic reminders, minimal manual chasing", score: 3 },
         { text: "A person follows a set process, fairly consistently", score: 2 },
         { text: "Someone gets to it when they have time", score: 1 },
         { text: "It usually only gets attention once it's a real problem", score: 0 }
@@ -675,15 +684,15 @@
       dim: "data",
       text: "When you need to know last month's numbers, how long does it take to get them?",
       options: [
-        { text: "Minutes — it's on a dashboard I can check anytime", score: 3 },
-        { text: "About a day — someone pulls a report for me", score: 2 },
-        { text: "A few days — it takes some digging", score: 1 },
+        { text: "Minutes, it's on a dashboard I can check anytime", score: 3 },
+        { text: "About a day, someone pulls a report for me", score: 2 },
+        { text: "A few days, it takes some digging", score: 1 },
         { text: "I'm often not sure until much later", score: 0 }
       ]
     },
     {
       dim: "data",
-      text: "Where does most of your business information live — customers, orders, inventory?",
+      text: "Where does most of your business information live: customers, orders, inventory?",
       options: [
         { text: "In proper systems built for the job", score: 3 },
         { text: "Mostly in spreadsheets, reasonably organised", score: 2 },
@@ -695,10 +704,10 @@
       dim: "data",
       text: "If your best ops or admin person left tomorrow, how much business knowledge would leave with them?",
       options: [
-        { text: "Very little — it's documented and systemised", score: 3 },
-        { text: "Some — we'd manage after a rough patch", score: 2 },
-        { text: "A lot — we'd struggle for weeks", score: 1 },
-        { text: "Most of it — a great deal only lives in their head", score: 0 }
+        { text: "Very little, it's documented and systemised", score: 3 },
+        { text: "Some, we'd manage after a rough patch", score: 2 },
+        { text: "A lot, we'd struggle for weeks", score: 1 },
+        { text: "Most of it, a great deal only lives in their head", score: 0 }
       ]
     },
     // ---- People & Skills ----
@@ -718,8 +727,8 @@
       options: [
         { text: "Curious, and keen to learn it", score: 3 },
         { text: "Open to it, with a bit of encouragement", score: 2 },
-        { text: "Hesitant — they'd need convincing", score: 1 },
-        { text: "Resistant — change doesn't go down well here", score: 0 }
+        { text: "Hesitant, they'd need convincing", score: 1 },
+        { text: "Resistant, change doesn't go down well here", score: 0 }
       ]
     },
     {
@@ -729,7 +738,7 @@
         { text: "Someone capable in-house, or a trusted external partner", score: 3 },
         { text: "One person handles it, but it's not really their job", score: 2 },
         { text: "Whoever's kid or nephew knows computers", score: 1 },
-        { text: "No one — we muddle through or avoid it", score: 0 }
+        { text: "No one, we muddle through or avoid it", score: 0 }
       ]
     }
   ];
@@ -744,27 +753,27 @@
     {
       key: "at-risk", label: "At Risk", min: 0, max: 25,
       color: "band-red", bg: "band-red-bg",
-      verdict: "Right now, AI isn't a live option for your business — the basics that would make it work well aren't in place yet. That's true of a huge number of established SMEs, and it's entirely fixable. It just means AI itself isn't the first move; getting the foundations in order is.",
+      verdict: "Right now, AI isn't a live option for your business: the basics that would make it work well aren't in place yet. That's true of a huge number of established SMEs, and it's entirely fixable. It just means AI itself isn't the first move; getting the foundations in order is.",
       examples: [
-        "Getting core records — customers, orders, inventory — out of paper and email threads and into one shared system.",
+        "Getting core records (customers, orders, inventory) out of paper and email threads and into one shared system.",
         "Writing down the handful of processes that only live in someone's head, so the business isn't dependent on one person's memory.",
-        "Picking one repetitive task — like invoice chasing or quote drafting — and fixing that single thing before spending your first {CUR} on new software."
+        "Picking one repetitive task (like invoice chasing or quote drafting) and fixing that single thing before spending your first {CUR} on new software."
       ]
     },
     {
       key: "early-days", label: "Early Days", min: 26, max: 50,
       color: "band-amber", bg: "band-amber-bg",
-      verdict: "You've got some of the pieces — a system here, a good habit there — but they're not joined up yet, and no one owns making that happen. That's a completely normal stage to be at, and a good place to get deliberate: a little structure now goes a long way.",
+      verdict: "You've got some of the pieces (a system here, a good habit there) but they're not joined up yet, and no one owns making that happen. That's a completely normal stage to be at, and a good place to get deliberate: a little structure now goes a long way.",
       examples: [
         "Connecting the systems you already have so numbers don't need re-typing between them.",
         "Giving one person clear ownership of \"improving how we work with technology,\" even part-time.",
-        "Piloting one AI tool on a single process — like drafting quotes or replying to routine emails — before any bigger rollout."
+        "Piloting one AI tool on a single process (like drafting quotes or replying to routine emails) before any bigger rollout."
       ]
     },
     {
       key: "momentum", label: "Building Momentum", min: 51, max: 75,
       color: "band-blue", bg: "band-blue-bg",
-      verdict: "You're ahead of most businesses your size — the basics are solid, and pockets of your team are already experimenting. The gap now isn't capability, it's coordination: turning scattered wins into a plan the whole business can rely on.",
+      verdict: "You're ahead of most businesses your size: the basics are solid, and pockets of your team are already experimenting. The gap now isn't capability, it's coordination: turning scattered wins into a plan the whole business can rely on.",
       examples: [
         "Standardising the AI tools already in informal use, so the whole team benefits, not just the early adopters.",
         "Building a simple dashboard so leadership can see the numbers that matter without asking anyone to pull a report.",
@@ -774,9 +783,9 @@
     {
       key: "ahead", label: "Ahead of the Pack", min: 76, max: 100,
       color: "band-green", bg: "band-green-bg",
-      verdict: "You're in a strong position — most businesses your size aren't close to where you are on data, process, and team readiness. The opportunity now is to move from useful experiments to a genuine competitive edge.",
+      verdict: "You're in a strong position: most businesses your size aren't close to where you are on data, process, and team readiness. The opportunity now is to move from useful experiments to a genuine competitive edge.",
       examples: [
-        "Using AI to reshape a core part of how you compete — pricing, forecasting, or response time — not just back-office admin.",
+        "Using AI to reshape a core part of how you compete (pricing, forecasting, or response time) not just back-office admin.",
         "Formalising governance around data access, tool approval, and quality checks before AI use scales further.",
         "Treating AI fluency as a hiring and training criterion, not a nice-to-have."
       ]
@@ -785,9 +794,9 @@
 
   const DIM_NOTES = {
     leadership: {
-      "at-risk": "There's no clear plan or urgency yet — AI is still an afterthought at the leadership level.",
+      "at-risk": "There's no clear plan or urgency yet: AI is still an afterthought at the leadership level.",
       "early-days": "Leadership has started thinking about this, but nothing is committed to paper or budget.",
-      "momentum": "There's real intent and some resourcing — it needs a clearer plan to convert into results.",
+      "momentum": "There's real intent and some resourcing: it needs a clearer plan to convert into results.",
       "ahead": "Leadership is actively driving this, with a plan, budget, and genuine urgency behind it."
     },
     operations: {
@@ -798,14 +807,14 @@
     },
     data: {
       "at-risk": "Getting a straight answer about the business likely takes days, if it's possible at all.",
-      "early-days": "Information exists, but it's scattered — pulling a clear picture takes real effort.",
+      "early-days": "Information exists, but it's scattered: pulling a clear picture takes real effort.",
       "momentum": "Your data is mostly organised and accessible, with a few gaps still to close.",
       "ahead": "You can get accurate numbers on the business quickly, from systems built for the job."
     },
     people: {
       "at-risk": "AI tools aren't in use yet, and there's no clear technical go-to person.",
       "early-days": "A few people are experimenting, but it's informal and unsupported.",
-      "momentum": "There's real appetite and some hands-on use — it needs structure to spread further.",
+      "momentum": "There's real appetite and some hands-on use: it needs structure to spread further.",
       "ahead": "Your team is already comfortable with AI tools, and open to using more."
     }
   };
@@ -845,18 +854,18 @@
   const btnBack = document.getElementById("btn-back");
 
   /* ============================================================
-     INIT — apply CONFIG to static text
+     INIT: apply CONFIG to static text
      ============================================================ */
   function applyConfig() {
     document.title = CONFIG.brandName;
     document.getElementById("brand-name-el").textContent = CONFIG.brandName;
 
     document.getElementById("btn-book").addEventListener("click", function () {
-      // no booking link configured yet — fall back to a pre-filled email
+      // no booking link configured yet, fall back to a pre-filled email
       if (!CONFIG.bookingUrl || CONFIG.bookingUrl === "#") {
         window.location.href =
           "mailto:" + CONFIG.contactEmail +
-          "?subject=" + encodeURIComponent("AI Readiness Audit — walkthrough request");
+          "?subject=" + encodeURIComponent("AI Readiness Audit: walkthrough request");
         return;
       }
       window.open(CONFIG.bookingUrl, "_blank", "noopener");
@@ -868,7 +877,7 @@
 
     document.getElementById("cta-block").setAttribute(
       "data-print-contact",
-      "Contact " + CONFIG.consultantName + " — " + CONFIG.contactEmail
+      "Contact " + CONFIG.consultantName + ", " + CONFIG.contactEmail
     );
   }
 
@@ -1021,7 +1030,7 @@
     // Set the correct final state synchronously first. requestAnimationFrame
     // is paused by browsers when the tab/pane isn't visible (e.g. results
     // computed in a background tab), so the count-up below is a best-effort
-    // visual enhancement layered on top — if it never gets a chance to run,
+    // visual enhancement layered on top, if it never gets a chance to run,
     // the score must still be correct and visible immediately.
     const finalOffset = CIRC - (scores.overall / 100) * CIRC;
     gaugeNumber.textContent = scores.overall;

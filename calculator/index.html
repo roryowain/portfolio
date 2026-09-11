@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Ampere &amp; Sons — Instant Electrical Quote Calculator, Manchester</title>
-<meta name="description" content="Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more — no forms, no waiting." />
+<title>Ampere &amp; Sons: Instant Electrical Quote Calculator, Manchester</title>
+<meta name="description" content="Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more: no forms, no waiting." />
 <meta name="theme-color" content="#0B1220" />
 
 <link rel="canonical" href="https://roryphillips.dev/calculator/" />
 
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Ampere &amp; Sons — Instant Electrical Quote Calculator" />
-<meta property="og:description" content="Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more — no forms, no waiting." />
+<meta property="og:title" content="Ampere &amp; Sons: Instant Electrical Quote Calculator" />
+<meta property="og:description" content="Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more: no forms, no waiting." />
 <meta property="og:url" content="https://roryphillips.dev/calculator/" />
 <meta property="og:image" content="https://roryphillips.dev/og.png" />
 <meta property="og:locale" content="en_GB" />
@@ -516,7 +516,8 @@ footer.site {
     <div>
       <p class="eyebrow">Domestic &amp; Rewire Specialists</p>
       <h1>Know the cost <span class="accent">before</span> you pick up the phone.</h1>
-      <p class="lede">Three generations of Manchester electricians, and one calculator that gives you a real, itemised estimate in seconds — not a callback.</p>
+      <p class="eyebrow" style="margin-top:6px;">Updated September 2026</p>
+      <p class="lede">Three generations of Manchester electricians, and one calculator that gives you a real, itemised estimate in seconds, not a callback.</p>
       <div class="hero-ctas">
         <a href="#calculator" class="btn btn-primary">Build my quote ↓</a>
         <a href="#trust" class="btn btn-ghost">Why Ampere &amp; Sons</a>
@@ -550,9 +551,9 @@ footer.site {
 
 <section id="trust" class="trust">
   <div class="wrap trust-inner">
-    <span><strong>Est. 1987</strong> — family-run, three generations</span>
+    <span><strong>Est. 1987</strong>, family-run, three generations</span>
     <span><strong>Fully certified</strong> electricians on every job</span>
-    <span><strong>Fixed written quotes</strong> — no surprise invoices</span>
+    <span><strong>Fixed written quotes</strong>: no surprise invoices</span>
   </div>
 </section>
 
@@ -561,7 +562,7 @@ footer.site {
     <div class="section-head">
       <p class="eyebrow">Instant Estimate</p>
       <h2>Build your quote.</h2>
-      <p>Answer a few questions about the job — the estimate on the right updates as you go. No submit button, no waiting.</p>
+      <p>Answer a few questions about the job: the estimate on the right updates as you go. No submit button, no waiting.</p>
     </div>
 
     <div class="calc-grid">
@@ -605,9 +606,9 @@ footer.site {
           <select id="urgency-select" class="select-input">
             <option value="flexible">I'm flexible</option>
             <option value="this_month">This month</option>
-            <option value="urgent">Urgent — within a week</option>
+            <option value="urgent">Urgent, within a week</option>
           </select>
-          <p class="urgent-note" id="urgent-note" hidden>Urgent bookings carry a small surcharge for priority scheduling — shown as a separate line below.</p>
+          <p class="urgent-note" id="urgent-note" hidden>Urgent bookings carry a small surcharge for priority scheduling, shown as a separate line below.</p>
         </fieldset>
       </form>
 
@@ -634,7 +635,7 @@ footer.site {
 
         <div class="duration-line">
           <span>Typical duration</span>
-          <strong id="duration-value">—</strong>
+          <strong id="duration-value">-</strong>
         </div>
 
         <a href="#" id="email-quote-btn" class="btn btn-primary email-btn">Email me this quote</a>
@@ -670,9 +671,9 @@ footer.site {
       </div>
     </div>
 
-    <p class="disclaimer">Demo site — fictional business and pricing. Built to demonstrate a working instant-quote tool.</p>
+    <p class="disclaimer">Demo site: fictional business and pricing. Built to demonstrate a working instant-quote tool.</p>
 
-    <p class="credit-line">Concept build by <a href="https://roryphillips.dev/">Rory Phillips</a> — hand-coded demo site. Want one like it? <a href="https://roryphillips.dev/#contact">Get a quote</a>.</p>
+    <p class="credit-line">Concept build by <a href="https://roryphillips.dev/">Rory Phillips</a>, hand-coded demo site. Want one like it? <a href="https://roryphillips.dev/#contact">Get a quote</a>.</p>
   </div>
 </footer>
 
@@ -690,7 +691,7 @@ footer.site {
     },
     partial_rewire: {
       label: "Partial rewire",
-      desc: "Rewiring specific circuits or rooms — kitchens, extensions, upstairs floors.",
+      desc: "Rewiring specific circuits or rooms: kitchens, extensions, upstairs floors.",
       labourBase: 1350, materialsBase: 1050, bedroomWeight: 1, propertyWeight: 1
     },
     consumer_unit: {
@@ -740,7 +741,7 @@ footer.site {
   var URGENCY = {
     flexible: { label: "I'm flexible", surchargePct: 0 },
     this_month: { label: "This month", surchargePct: 0 },
-    urgent: { label: "Urgent — within a week", surchargePct: 0.12 }
+    urgent: { label: "Urgent, within a week", surchargePct: 0.12 }
   };
 
   var VAT_RATE = 0.20;
@@ -788,7 +789,7 @@ footer.site {
       }
       if (URGENCY[parsed.urgency]) state.urgency = parsed.urgency;
     } catch (e) {
-      /* localStorage unavailable (private browsing etc) — fall back to defaults */
+      /* localStorage unavailable (private browsing etc), fall back to defaults */
     }
   }
 
@@ -796,7 +797,7 @@ footer.site {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     } catch (e) {
-      /* ignore — nothing we can do if storage is unavailable */
+      /* ignore, nothing we can do if storage is unavailable */
     }
   }
 
@@ -933,7 +934,7 @@ footer.site {
     lines.push("");
     lines.push("(This is an automated estimate from the Ampere & Sons instant quote calculator. Final price confirmed after a free survey.)");
 
-    var subject = encodeURIComponent("My Ampere & Sons instant quote — " + job.label);
+    var subject = encodeURIComponent("My Ampere & Sons instant quote: " + job.label);
     var body = encodeURIComponent(lines.join("\n"));
     emailBtn.href = "mailto:quotes@ampereandsons.example?subject=" + subject + "&body=" + body;
   }
