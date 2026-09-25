@@ -78,6 +78,21 @@
   h2{ font-size:clamp(28px,3.4vw,38px); letter-spacing:-0.025em; font-weight:700; }
   .section-lead{ max-width:60ch; font-size:16.5px; line-height:1.55; color:var(--muted); margin-top:14px; }
 
+
+  /* Client proof */
+  .client{ display:grid; grid-template-columns: 1.15fr 0.85fr; gap:34px; margin-top:32px; align-items:start; }
+  @media (max-width:820px){ .client{ grid-template-columns:1fr; gap:26px; } }
+  .client-quote{ background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent); border-radius:14px; padding:26px 28px; }
+  .client-quote blockquote{ margin:0; font-size:17.5px; line-height:1.6; letter-spacing:-0.008em; }
+  .client-cite{ margin-top:18px; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; font-family:var(--mono); font-size:13px; color:var(--muted); }
+  .client-cite strong{ font-family:var(--sans); font-size:14.5px; font-weight:650; color:var(--fg); letter-spacing:-0.01em; }
+  .client-result{ display:flex; flex-direction:column; gap:16px; }
+  .result-stat{ border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:var(--card); }
+  .result-stat .num{ font-size:26px; font-weight:700; letter-spacing:-0.03em; color:var(--accent); display:block; }
+  .result-stat .what{ font-size:14px; color:var(--muted); margin-top:4px; display:block; line-height:1.45; }
+  .client-built{ font-size:14.5px; color:var(--muted); line-height:1.6; }
+  .client-built strong{ color:var(--fg); font-weight:620; }
+
   /* Header */
   header{ padding:22px 0; }
   header .wrap{ display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px; }
@@ -456,6 +471,35 @@
           <a href="#contact">Start a project →</a>
         </div>
 
+      </div>
+    </div>
+  </section>
+
+  <section id="client">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>A real client, and what it produced</h2>
+        <p class="mono-label">Named · verifiable · ongoing</p>
+      </div>
+      <p class="section-lead">The builds above are mine, made to show how I work. This one is someone else's business, with their name on it and their results.</p>
+
+      <div class="client">
+        <div class="client-quote">
+          <blockquote>&ldquo;Before Rory got involved I had a reputation and no system &mdash; bookings came from whoever happened to email. In a couple of weeks he sorted out the website so it actually turns up in searches, built me a booking tracker I use every day, and ran an outreach campaign to venues that landed two confirmed concert dates within the first fortnight. He explains everything in plain English and just gets on with it.&rdquo;</blockquote>
+          <p class="client-cite"><strong>Anna Phillips</strong> <span>Harpist &middot; <a href="https://www.annaphillipsmusic.com" rel="noopener">annaphillipsmusic.com</a></span></p>
+        </div>
+
+        <div class="client-result">
+          <div class="result-stat">
+            <span class="num">2 concerts</span>
+            <span class="what">Confirmed in writing within the first fortnight of outreach</span>
+          </div>
+          <div class="result-stat">
+            <span class="num">14 days</span>
+            <span class="what">From no booking system to a working pipeline of venues</span>
+          </div>
+          <p class="client-built"><strong>What I built:</strong> search setup and structured data on the site, a booking CRM tracking every venue conversation, a venue and hotel outreach campaign with verified contacts and personalised emails, and a welcome email sequence.</p>
+        </div>
       </div>
     </div>
   </section>
