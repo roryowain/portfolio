@@ -1,0 +1,9 @@
+# This repo is PUBLIC and GitHub Pages serves every tracked file (.nojekyll is
+# set, so dotfolders are served too). Never track working notes or outreach
+# research here: on 2026-10-02 /.claude/PROGRESS.md and /outreach/*, including
+# named contacts' work emails, were found live on roryphillips.dev.
+.claude/
+outreach/
+CLAUDE.md
+*.local.md
+.DS_Store
