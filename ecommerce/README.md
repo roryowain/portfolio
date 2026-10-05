@@ -12,8 +12,7 @@ fallback for `prefers-reduced-motion`.
 
 To view it, just open `index.html` in a browser — nothing to install or compile. To deploy,
 upload the `demos/ecommerce/` folder as-is to any static host (Netlify, Vercel, GitHub
-Pages, S3, etc.); all assets are relative paths. The one piece that needs a real value
-before launch is checkout: the cart drawer's "Checkout" button currently points at
-`https://buy.stripe.com/PLACEHOLDER` (see the comment above it in `index.html`) — swap
-that for the client's actual Stripe Payment Link and the buy flow is live. The cart itself
+Pages, S3, etc.); all assets are relative paths. The one piece that needs a real value before launch is checkout: the cart drawer's "Checkout (demo)" button
+is demo-only and is not linked to any payment page. To go live, swap it (see the comment above it in
+`index.html`) for a link to the client's actual Stripe Payment Link. The cart itself
 persists to `localStorage`, so items survive a refresh even before that link is wired up.

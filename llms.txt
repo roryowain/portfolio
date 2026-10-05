@@ -8,6 +8,7 @@ Pages describe services and typical outcomes in general terms. No client results
 
 - [Rory Phillips: hand-coded websites that load in under a second](https://roryphillips.dev/): Hand-coded websites for small businesses, and fractional AI officer services for established UK companies. Sub-second loads, no templates, automations priced in £/month saved.
 - [Fractional AI Officer for UK businesses: Rory Phillips](https://roryphillips.dev/fractional-ai-officer/): Fractional AI officer for owner-managed UK businesses. I automate quoting, reporting and invoice-chasing, and train your team to run it: priced in £/month saved.
+- [AI systems for owner-managed UK businesses: Rory Phillips](https://roryphillips.dev/services/): I find the manual work inside your business, price it in £/month, and install the systems that remove it. Free readiness check, £3,500 audit, fractional AI officer retainers from £4,500/mo.
 - [AI Readiness Audit](https://roryphillips.dev/assessment/)
 - [AI field notes: Rory Phillips](https://roryphillips.dev/ai-notes/): Weekly working notes from helping owner-managed UK businesses put AI to work: automations built, hours saved, honest numbers, and the occasional dead end.
 - [Speed Rescue: a real speed-audit sample](https://roryphillips.dev/speed-rescue/): In July 2026 I audited 50+ UK trades websites on mobile. A third scored under 60/100. See the real numbers, a real sample breakdown, and get yours free.

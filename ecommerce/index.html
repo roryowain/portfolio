@@ -622,14 +622,21 @@
             <span class="font-display text-gold" x-text="'RM ' + $store.cart.subtotal.toFixed(2)"></span>
           </div>
           <!--
-            Stripe Payment Link placeholder. Replace with the client's real
-            link, e.g. https://buy.stripe.com/live_xxxxxxxxxxxx
+            Demo-only checkout. This portfolio build takes no payments, so the
+            button is not a link. For a real client, swap it for an <a> that
+            points at their own payment link.
           -->
-          <a href="https://buy.stripe.com/PLACEHOLDER"
-             :class="$store.cart.items.length === 0 ? 'pointer-events-none opacity-40' : ''"
-             class="block text-center rounded-full bg-gold text-espresso font-body font-bold px-6 py-4 hover:bg-gold/90 transition-colors">
-            Checkout
-          </a>
+          <div x-data="{ note: false }">
+            <button type="button" @click="if ($store.cart.items.length) note = true"
+                    :aria-disabled="$store.cart.items.length === 0 ? 'true' : 'false'"
+                    :class="$store.cart.items.length === 0 ? 'pointer-events-none opacity-40' : ''"
+                    class="block w-full text-center rounded-full bg-gold text-espresso font-body font-bold px-6 py-4 hover:bg-gold/90 transition-colors">
+              Checkout (demo)
+            </button>
+            <p x-show="note" x-cloak role="status" class="mt-3 text-center font-body text-xs text-crema/60">
+              Demo checkout, not live. This is a concept build, so no payment is taken.
+            </p>
+          </div>
         </div>
       </div>
     </div>
