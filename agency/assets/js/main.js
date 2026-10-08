@@ -1,5 +1,5 @@
 /**
- * Studio Kilat — main.js
+ * Studio Kilat: main.js
  * Two Alpine components: a live Kuala Lumpur clock for the nav, and the
  * Selected Work accordion (one row open at a time). Registered before
  * Alpine boots via alpine:init, per Alpine's documented pattern.

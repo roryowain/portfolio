@@ -1,5 +1,5 @@
 /*
-  TANAH — main.js
+  TANAH: main.js
   Alpine store for cart + buy box, plus the vanilla-JS scroll-progress
   driver for the "From Tanah to Cup" journey line. No build step, no
   framework beyond Alpine (loaded via CDN in index.html).
@@ -7,7 +7,7 @@
 
 document.addEventListener('alpine:init', () => {
   /* ---------------------------------------------------------------
-     Cart store — shared by the nav badge, the buy box and the drawer.
+     Cart store: shared by the nav badge, the buy box and the drawer.
      Persisted to localStorage so a refresh doesn't lose the cart.
   --------------------------------------------------------------- */
   Alpine.store('cart', {
@@ -59,7 +59,7 @@ document.addEventListener('alpine:init', () => {
   });
 
   /* ---------------------------------------------------------------
-     Buy box component — grind + size + quantity + subscription.
+     Buy box component: grind + size + quantity + subscription.
   --------------------------------------------------------------- */
   Alpine.data('tanahBuyBox', () => ({
     grinds: ['Whole bean', 'Espresso', 'V60', 'French press'],
@@ -144,7 +144,7 @@ document.addEventListener('alpine:init', () => {
    Drives a CSS custom property (--journey-progress) on the track
    element as the section scrolls through the viewport, and reveals
    each station via IntersectionObserver. Both are skipped entirely
-   under prefers-reduced-motion — the CSS fallback shows a full line
+   under prefers-reduced-motion; the CSS fallback shows a full line
    and fully visible stations with no observers attached.
 --------------------------------------------------------------- */
 (function initJourney() {

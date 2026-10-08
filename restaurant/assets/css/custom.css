@@ -1,5 +1,5 @@
 /* ==========================================================================
-   API API — custom.css
+   API API: custom.css
    Only what Tailwind utilities can't do: keyframes, textures, ::selection,
    scrollbar, native form-control resets. Everything else lives in index.html
    as Tailwind classes.

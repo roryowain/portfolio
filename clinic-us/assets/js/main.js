@@ -1,7 +1,7 @@
-// Lakeline Dental Studio — Alpine components
+// Lakeline Dental Studio: Alpine components
 // IMPORTANT: this file is loaded BEFORE the Alpine CDN script in index.html.
 // Components register on 'alpine:init' so they exist before Alpine's
-// deferred boot scans the DOM — registering any later would be missed.
+// deferred boot scans the DOM, so registering any later would be missed.
 
 document.addEventListener('alpine:init', () => {
 
@@ -10,7 +10,7 @@ document.addEventListener('alpine:init', () => {
     open: false,
   }));
 
-  // FAQ accordion — single-open, CSS grid-template-rows collapse (no plugin)
+  // FAQ accordion: single-open, CSS grid-template-rows collapse (no plugin)
   Alpine.data('faqAccordion', () => ({
     open: null,
     toggle(index) {

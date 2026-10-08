@@ -1,5 +1,5 @@
 /**
- * API API — main.js
+ * API API: main.js
  * Vanilla JS: renders the fire-rating icons from data attributes so the
  * menu markup in index.html stays readable. Alpine.js (loaded via CDN in
  * index.html) owns the nav scroll state, mobile menu, and reservation form.
@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('[data-fire-rating]').forEach((el) => {
     const rating = el.getAttribute('data-fire-rating');
 
-    // Desserts: one snowflake, no flames — the joke is the point.
+    // Desserts: one snowflake, no flames. The joke is the point.
     if (rating === 'snow') {
       el.innerHTML =
         '<svg class="w-5 h-5 text-heat" viewBox="0 0 24 24" fill="none" aria-hidden="true">' +
         '<use href="#icon-snowflake"></use></svg>';
       el.setAttribute('role', 'img');
-      el.setAttribute('aria-label', 'Served chilled — no flame');
+      el.setAttribute('aria-label', 'Served chilled, no flame');
       return;
     }
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /**
  * Alpine component: reservation form.
- * Client-side only — no backend. Validates required fields and email
+ * Client-side only, no backend. Validates required fields and email
  * format, then swaps the form for an inline confirmation message.
  *
  * Registered on the `alpine:init` event (rather than relying on script

@@ -1,5 +1,5 @@
 /*
-  TANAH — custom.css
+  TANAH: custom.css
   Only things Tailwind's utility classes can't express cleanly:
   keyframes, the grain texture overlay, the scroll-driven journey line,
   and global focus/motion rules. Everything else lives in Tailwind
@@ -11,7 +11,7 @@
    via scrollIntoView(), not with global `html { scroll-behavior: smooth }`.
    A blanket CSS smooth-scroll hijacks *every* scroll on the page (wheel,
    keyboard, browser find-in-page), which is surprising for users and can
-   fight with normal wheel scrolling — a plain JS handler on anchor clicks
+   fight with normal wheel scrolling, so a plain JS handler on anchor clicks
    keeps the effect scoped to the one interaction it's meant for. */
 
 ::selection {

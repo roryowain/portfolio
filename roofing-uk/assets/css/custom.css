@@ -1,4 +1,4 @@
-/* Ridge & Beam — custom.css
+/* Ridge & Beam: custom.css
    Keyframes, fine-grained selectors and anything Tailwind's utility
    classes can't express cleanly. Design tokens (colour/type) are set
    in the Tailwind config inline in index.html; this file only adds
@@ -24,7 +24,7 @@ body {
 }
 
 /* ------------------------------------------------------------------
-   Focus visibility — oxide outline everywhere, offset so it reads
+   Focus visibility: oxide outline everywhere, offset so it reads
    against both limewash and slate backgrounds. Suppress the default
    mouse-click outline but keep it for keyboard users.
    ------------------------------------------------------------------ */
@@ -48,7 +48,7 @@ textarea {
 }
 
 /* ------------------------------------------------------------------
-   Hero rooftop skyline — a slow, extremely subtle parallax drift on
+   Hero rooftop skyline: a slow, extremely subtle parallax drift on
    the chimney smoke wisps only. Everything else in the SVG is static
    line art; motion is spent in exactly one place.
    ------------------------------------------------------------------ */
@@ -135,7 +135,7 @@ textarea {
 }
 
 /* ------------------------------------------------------------------
-   Ledger table — brass rule sweeps in on hover, a small nod to a
+   Ledger table: brass rule sweeps in on hover, a small nod to a
    surveyor drawing a line under a completed entry.
    ------------------------------------------------------------------ */
 .ledger-row {
@@ -151,7 +151,7 @@ textarea {
 }
 
 /* ------------------------------------------------------------------
-   Form success state — a quiet check mark draw-in, once.
+   Form success state: a quiet check mark draw-in, once.
    ------------------------------------------------------------------ */
 @keyframes draw-check {
   from {
@@ -169,7 +169,7 @@ textarea {
 }
 
 /* ------------------------------------------------------------------
-   Reduced motion — kill everything above.
+   Reduced motion: kill everything above.
    ------------------------------------------------------------------ */
 @media (prefers-reduced-motion: reduce) {
   html {

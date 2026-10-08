@@ -1,4 +1,4 @@
-/* Studio Kilat — custom.css
+/* Studio Kilat: custom.css
    Only what Tailwind's utility classes can't do: keyframes, ::selection,
    focus rings, and the accordion / bolt-flash micro-interactions. */
 
@@ -22,7 +22,7 @@ html {
 
 /* ---------------------------------------------------------------
    Case-study accordion: pure-CSS collapse via grid-template-rows.
-   No JS height measurement — the row animates 0fr -> 1fr, the inner
+   No JS height measurement: the row animates 0fr -> 1fr, the inner
    wrapper clips. visibility swaps keep closed panels out of the
    accessibility tree and tab order.
    --------------------------------------------------------------- */
@@ -59,7 +59,7 @@ body {
   color: var(--ink);
 }
 
-/* Keyboard focus only — never on mouse click. Kilat outline, offset,
+/* Keyboard focus only, never on mouse click. Kilat outline, offset,
    square (radius 0 is the whole point of this site). */
 :focus {
   outline: none;
@@ -87,7 +87,7 @@ body {
 /* ---------------------------------------------------------------
    Bolt flash: the small lightning glyph that snaps in from the left
    of a work-row project name, or the footer CTA, on hover/focus.
-   120ms, no easing softness — it should feel instant, not smooth.
+   120ms, no easing softness: it should feel instant, not smooth.
    --------------------------------------------------------------- */
 .bolt-flash {
   opacity: 0;
@@ -110,7 +110,7 @@ body {
   color: var(--kilat);
 }
 
-/* Case-study artifact strokes should feel drawn, not pasted — a short
+/* Case-study artifact strokes should feel drawn, not pasted: a short
    stagger on the kilat accent path when a row opens. */
 .artifact-accent {
   stroke-dasharray: 400;
