@@ -42,7 +42,7 @@ document.addEventListener('alpine:init', () => {
         label: 'Valley',
         spec: 'LEAD-LINED VALLEY GUTTER: 450MM WIDE',
         text:
-          'Where two roof slopes meet at an angle, the valley channels their combined water down to the gutter, which is far more volume than either slope carries alone. It is the first place we check on any survey, because debris collects there and can back water up under sound slates.',
+          'Where two roof slopes meet at an angle, the valley channels their combined water down to the gutter, so the gutter carries far more water than either slope alone. It is the first place we check on any survey, because debris collects there and can back water up under sound slates.',
       },
       {
         id: 'chimney',
