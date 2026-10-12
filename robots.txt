@@ -5,51 +5,26 @@ Allow: /
 # Google resolves by longest-match so they win, but stricter parsers take the
 # first match and ignore them. Omitting it is correct under every parser.
 # ─────────────────────────────────────────────────────────────────────────────
-# AI crawler policy: set 2026-08-19. Identical across all six sites.
+# AI crawler policy: set 2026-10-12. Replaces the 2026-08-19 policy.
 #
-# THE DISTINCTION THAT MATTERS: retrieval crawlers (which fetch a page in order
-# to answer a question and cite the source) are ALLOWED. Bulk training and
-# scraping crawlers that take content and return nothing are DISALLOWED.
+# ALL AI crawlers are welcome, retrieval and training alike. Owner's decision,
+# 12 Oct 2026: the aim is for this site to be known to AI models from their
+# training data as well as cited from live lookups.
 #
-# ALLOWED, deliberately: these are how the sites get cited in AI answers:
-#   OAI-SearchBot, ChatGPT-User   (ChatGPT search + user-triggered fetches)
-#   PerplexityBot, Perplexity-User
-#   Claude-User, Claude-SearchBot
-#   Googlebot                     (also powers AI Overviews)
-#   Google-Extended               (unblocked 2026-08-19: restores Gemini
-#                                  grounding; the cost is Gemini training use,
-#                                  judged worth it for the citation reach)
-#   Bingbot                       (powers Copilot)
+# What changed: the five Disallow groups set on 19 Aug (CCBot, Bytespider,
+# Amazonbot, meta-externalagent, Applebot-Extended) were removed. Those
+# crawlers, along with GPTBot and ClaudeBot, now fall under the * group, so
+# they may fetch everything except the paths that group disallows.
+# Do not re-add the blocks without asking the owner.
 #
-# DISALLOWED: bulk scrape/training with no citation path back:
-#   CCBot           Common Crawl: feeds countless downstream datasets
-#   Bytespider      ByteDance; widely reported to ignore robots.txt anyway
-#   Amazonbot       no citation surface
-#   meta-externalagent  Meta AI training
-#   Applebot-Extended   Apple Intelligence training (plain Applebot, which
-#                       powers Siri/Spotlight results, stays allowed)
+# The named Allow groups below are the retrieval agents, unchanged.
 #
-# NOTE FOR THE FOUR CLOUDFLARE-PROXIED SITES: Cloudflare's managed robots.txt
-# is PREPENDED to this file at the edge and currently blocks Google-Extended,
-# GPTBot and ClaudeBot. This file cannot remove those lines. Turn the managed
-# block off at Cloudflare → the zone → AI Crawl Control for this policy to be
-# the whole truth.
+# EDGE NOTE: robots.txt cannot override a CDN. Where a site sits behind
+# Cloudflare, the zone setting Security > Settings > Bot traffic >
+# "Configure AI bot policies" > Training must be "Allow (do not block)", or
+# these crawlers get a 403 before they read this file. Test with a GPTBot
+# user agent after any Cloudflare change.
 # ─────────────────────────────────────────────────────────────────────────────
-
-User-agent: CCBot
-Disallow: /
-
-User-agent: Bytespider
-Disallow: /
-
-User-agent: Amazonbot
-Disallow: /
-
-User-agent: meta-externalagent
-Disallow: /
-
-User-agent: Applebot-Extended
-Disallow: /
 
 User-agent: Google-Extended
 Allow: /
