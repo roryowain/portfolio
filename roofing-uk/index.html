@@ -24,27 +24,7 @@
 
 <style>[x-cloak]{display:none!important;}</style>
 
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          slate: '#242B33',
-          lead: '#5C6670',
-          limewash: '#EFEDE6',
-          oxide: '#9C3B2A',
-          brass: '#B08D57',
-        },
-        fontFamily: {
-          display: ['"Zilla Slab"', 'ui-serif', 'serif'],
-          body: ['"Source Sans 3"', 'ui-sans-serif', 'sans-serif'],
-          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
-        },
-      },
-    },
-  };
-</script>
+<link rel="stylesheet" href="assets/css/tailwind.css" />
 </head>
 
 <body class="bg-limewash text-slate font-body antialiased">
@@ -487,7 +467,7 @@
           Free quotes. Honest surveys: if it's a £150 repair, we won't sell you a £15,000 roof.
         </p>
         <p class="text-lead leading-relaxed">
-          Prefer to talk it through first? Ring <a href="tel:01904555210" class="text-oxide hover:underline font-semibold">01904 555 210</a> and ask for Dan.
+          Prefer to talk it through first? Ring <a href="tel:01632960210" class="text-oxide hover:underline font-semibold">01632 960 210</a> and ask for Dan.
         </p>
       </div>
 
@@ -504,7 +484,7 @@
 
             <div>
               <label for="qf-phone" class="block font-mono text-[0.7rem] uppercase tracking-wide text-slate mb-2">Phone</label>
-              <input id="qf-phone" type="tel" x-model="fields.phone" autocomplete="tel" placeholder="01904 555 210"
+              <input id="qf-phone" type="tel" x-model="fields.phone" autocomplete="tel" placeholder="01632 960 210"
                 class="w-full border-2 border-slate bg-limewash px-4 py-3 text-slate focus:border-oxide"
                 :class="errors.phone && 'border-oxide'" :aria-invalid="!!errors.phone" aria-describedby="qf-phone-err" />
               <p id="qf-phone-err" class="font-mono text-xs text-oxide mt-1.5" x-show="errors.phone" x-text="errors.phone"></p>
@@ -591,8 +571,8 @@
 
       <div class="font-mono text-xs text-limewash/80 space-y-2">
         <p class="text-limewash/50 uppercase tracking-widest mb-3">Get in touch</p>
-        <p><a href="tel:01904555210" class="hover:text-oxide">01904 555 210</a></p>
-        <p><a href="mailto:enquiries@ridgeandbeam.co.uk" class="hover:text-oxide">enquiries@ridgeandbeam.co.uk</a></p>
+        <p><a href="tel:01632960210" class="hover:text-oxide">01632 960 210</a></p>
+        <p><a href="mailto:enquiries@ridgeandbeam.example" class="hover:text-oxide">enquiries@ridgeandbeam.example</a></p>
       </div>
 
       <div class="font-mono text-xs text-limewash/80 space-y-2">

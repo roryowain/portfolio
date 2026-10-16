@@ -21,35 +21,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Black&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind (Play CDN) + design tokens -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            paper: '#FAFAF6',
-            ink: '#101014',
-            kilat: '#2B2BEB',
-            storm: '#6B6B76',
-            hairline: 'rgba(16, 16, 20, 0.12)',
-          },
-          fontFamily: {
-            display: ['"Archivo Black"', 'Archivo', 'sans-serif'],
-            sans: ['Archivo', 'sans-serif'],
-            mono: ['"Space Mono"', 'monospace'],
-          },
-          borderRadius: {
-            none: '0px',
-            DEFAULT: '0px',
-            full: '9999px',
-          },
-        },
-      },
-    };
-  </script>
-
-  <!-- Alpine.js: collapse plugin, then our components, then Alpine core.
+  <!-- Alpine.js: our components first, then Alpine core.
        Alpine core must load LAST, with `defer`, its script starts Alpine
        immediately on execution (readyState is already "interactive" by
        then, not "loading"), so anything registering Alpine.data() has to
@@ -58,6 +30,7 @@
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.17.4/dist/cdn.min.js" integrity="sha384-5/joNqFnRyVWzXp99bHot6RHG+EksGp+USSgZwPar7T9SD9PKKER37n/8bXBAZGd" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
 </head>
 
 <body id="top" class="bg-paper text-ink font-sans antialiased selection:bg-kilat selection:text-paper">
@@ -412,7 +385,7 @@
        ========================================================= -->
   <footer id="contact" class="mx-auto max-w-[1400px] px-6 md:px-10 lg:px-16 pt-20 md:pt-28 pb-12 border-t border-hairline">
     <a
-      href="mailto:hello@studiokilat.com?subject=New%20project"
+      href="mailto:hello@studiokilat.example?subject=New%20project"
       class="group inline-flex items-center gap-3 md:gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-kilat focus-visible:ring-offset-4 focus-visible:ring-offset-paper"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" class="bolt-flash w-8 h-8 md:w-14 md:h-14 text-kilat shrink-0" aria-hidden="true">
@@ -422,14 +395,14 @@
     </a>
 
     <div class="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 font-mono text-sm text-storm">
-      <a href="mailto:hello@studiokilat.com" class="hover:text-kilat transition-colors">hello@studiokilat.com</a>
+      <a href="mailto:hello@studiokilat.example" class="hover:text-kilat transition-colors">hello@studiokilat.example</a>
       <p>12 Jalan Doraisamy, 50300 Kuala Lumpur</p>
       <div class="flex flex-wrap gap-x-2">
-        <a href="https://instagram.com/studiokilat" class="hover:text-kilat transition-colors" target="_blank" rel="noopener">Instagram</a>
+        <a href="#" class="hover:text-kilat transition-colors">Instagram</a>
         <span aria-hidden="true">,</span>
-        <a href="https://dribbble.com/studiokilat" class="hover:text-kilat transition-colors" target="_blank" rel="noopener">Dribbble</a>
+        <a href="#" class="hover:text-kilat transition-colors">Dribbble</a>
         <span aria-hidden="true">,</span>
-        <a href="https://linkedin.com/company/studiokilat" class="hover:text-kilat transition-colors" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" class="hover:text-kilat transition-colors">LinkedIn</a>
       </div>
     </div>
 

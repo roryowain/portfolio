@@ -21,35 +21,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;600;800&display=swap" rel="stylesheet" />
 
-  <!-- Tailwind (Play CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            smoke: '#171310',
-            ash: '#241E19',
-            ember: '#FF5C1F',
-            heat: '#FFB021',
-            bone: '#EFE6D8',
-            leaf: '#45624A',
-          },
-          fontFamily: {
-            display: ['Anton', 'sans-serif'],
-            serif: ['"Instrument Serif"', 'serif'],
-            sans: ['Manrope', 'sans-serif'],
-          },
-          borderRadius: {
-            none: '0px',
-            DEFAULT: '0px',
-          },
-        },
-      },
-    };
-  </script>
-
   <link rel="stylesheet" href="assets/css/custom.css" />
+  <link rel="stylesheet" href="assets/css/tailwind.css" />
   <!-- main.js registers Alpine.data('reservationForm', ...) on alpine:init,
        so it must be parsed before the Alpine core script runs. -->
   <script src="assets/js/main.js" defer></script>

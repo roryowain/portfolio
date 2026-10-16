@@ -21,33 +21,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700&family=Karla:wght@400;700&family=Newsreader:ital,opsz,wght@1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
 
-<!-- Tailwind (Play CDN) + design tokens -->
-<script src="https://cdn.tailwindcss.com"></script>
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          espresso: '#241611',
-          husk: '#3A2A20',
-          crema: '#EFDFC7',
-          gold: '#E3A422',
-          leaf: '#4C6B4F',
-        },
-        fontFamily: {
-          display: ['Unbounded', 'sans-serif'],
-          body: ['Karla', 'sans-serif'],
-          serif: ['Newsreader', 'serif'],
-        },
-        borderRadius: {
-          card: '12px',
-        },
-      },
-    },
-  };
-</script>
-
 <link rel="stylesheet" href="assets/css/custom.css">
+<link rel="stylesheet" href="assets/css/tailwind.css">
 
 <!-- Alpine store + journey logic must register before Alpine boots -->
 <script defer src="assets/js/main.js"></script>
@@ -507,7 +482,7 @@
               </button>
             </h3>
             <div id="faq-4" x-show="open" x-cloak x-transition class="font-body text-crema/75 text-sm leading-relaxed mt-3 pr-8">
-              <p>Yes: we supply a small number of cafés and roasteries across Johor and the Klang Valley with green and roasted lots. Volumes are limited by what the farm can pick, so wholesale accounts are onboarded gradually. Email wholesale@tanahcoffee.my with your monthly volume to start a conversation.</p>
+              <p>Yes: we supply a small number of cafés and roasteries across Johor and the Klang Valley with green and roasted lots. Volumes are limited by what the farm can pick, so wholesale accounts are onboarded gradually. Email wholesale@tanahcoffee.example with your monthly volume to start a conversation.</p>
             </div>
           </div>
 

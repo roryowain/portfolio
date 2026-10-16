@@ -4,3 +4,4 @@ outreach/
 CLAUDE.md
 *.local.md
 .DS_Store
+_build/

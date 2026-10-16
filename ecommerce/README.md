@@ -2,8 +2,8 @@
 
 This is a portfolio showpiece: a single-product landing page for TANAH, a fictional
 specialty coffee brand selling rare Liberica coffee grown in Kluang, Johor, Malaysia. It's
-built with no framework and no build step: semantic HTML5, Tailwind CSS via the Play CDN
-with an inline design-token config, and Alpine.js for the buy box, cart drawer, FAQ
+built with no framework: semantic HTML5, Tailwind CSS precompiled to a small static
+stylesheet with the brand's design tokens, and Alpine.js for the buy box, cart drawer, FAQ
 accordion and newsletter capture. Every product visual (the coffee bag, tasting-note
 glyphs, journey icons) is hand-drawn inline SVG, with no external image files. The
 signature piece is the "From Tanah to Cup" section: a gold line grows down the page as you

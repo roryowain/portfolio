@@ -1,7 +1,7 @@
 /* Ridge & Beam: custom.css
    Keyframes, fine-grained selectors and anything Tailwind's utility
-   classes can't express cleanly. Design tokens (colour/type) are set
-   in the Tailwind config inline in index.html; this file only adds
+   classes can't express cleanly. Design tokens (colour/type) are
+   compiled into assets/css/tailwind.css; this file only adds
    behaviour Tailwind can't reach.
 */
 

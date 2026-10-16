@@ -1,5 +1,5 @@
 /* Lakeline Dental Studio: custom CSS
-   Things Tailwind's Play CDN can't express cleanly: keyframes, the FAQ
+   Things Tailwind's utility classes can't express cleanly: keyframes, the FAQ
    collapse technique, focus-visible rings, and a few compound components. */
 
 [x-cloak] { display: none !important; }
