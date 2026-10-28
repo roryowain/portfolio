@@ -19,11 +19,13 @@ Pages describe services and typical outcomes in general terms. No client results
 - [AI for UK manufacturers: Made Smarter ready, Rory Phillips](https://roryphillips.dev/ai-for-manufacturing/): Fractional AI officer for UK manufacturers: automating quoting, purchase orders, production reporting and stock paperwork, audits Made Smarter grant-ready.
 - [AI for UK wholesalers, distributors and hauliers: Rory Phillips](https://roryphillips.dev/ai-for-distribution/): Fractional AI officer for UK wholesalers, distributors and hauliers: automating order processing, supplier invoices and POD paperwork, priced in £/month saved.
 
-## Concept builds for fictional businesses
+## Concept builds (invented businesses, not real companies)
 
-- [Lakeline Dental Studio: Modern Dentistry in Austin, TX](https://roryphillips.dev/clinic-us/): Lakeline Dental Studio is a modern dental practice in Austin, Texas with published prices, gentle hands, and same-day emergency appointments. Dentistry, minus the dread.
-- [Ridge & Beam: Heritage Roofing Specialists, York](https://roryphillips.dev/roofing-uk/): Family-run heritage roofing specialists in York since 1987. Slate and pantile re-roofing, leadwork, chimney repair and listed building consent: guaranteed for 50 years.
-- [API API: Modern Malaysian Wood-Fire](https://roryphillips.dev/restaurant/): API API is a modern-Malaysian wood-fire restaurant in Bukit Bintang, Kuala Lumpur. No gas: everything is cooked over api-api wood and charcoal.
-- [Studio Kilat: Brand & Web, Kuala Lumpur](https://roryphillips.dev/agency/): Studio Kilat is a two-person brand and web studio in Kuala Lumpur. We design brands and hand-code the websites that carry them. No page builders, no plugins, no six-week discovery phase.
-- [TANAH: Rare Liberica Coffee from Johor, Malaysia](https://roryphillips.dev/ecommerce/): Single-origin Liberica coffee grown on volcanic-adjacent soil in Kluang, Johor. Notes of jackfruit, dark cocoa and woodsmoke. Roasted every Monday, shipped fresh.
-- [Ampere & Sons: Instant Electrical Quote Calculator, Manchester](https://roryphillips.dev/calculator/): Family electricians in Manchester since 1987. Get an instant, itemised estimate for rewires, consumer units, EV chargers and more: no forms, no waiting.
+Demo websites built to show design and front-end work. Every business name, address, price, review and phone number on these pages is made up. None of them is a real company, and they are not meant to appear in search results.
+
+- [Dental clinic demo (fictional "Lakeline Dental Studio")](https://roryphillips.dev/clinic-us/): Concept site for an invented dental practice in Austin, Texas, with published prices and an emergency booking flow.
+- [Heritage roofing demo (fictional "Ridge & Beam")](https://roryphillips.dev/roofing-uk/): Concept site for an invented roofing firm in York, covering slate and pantile work, leadwork and listed building consent.
+- [Restaurant demo (fictional "API API")](https://roryphillips.dev/restaurant/): Concept site for an invented wood-fire restaurant in Kuala Lumpur, with menu, opening hours and a booking section.
+- [Design studio demo (fictional "Studio Kilat")](https://roryphillips.dev/agency/): Concept site for an invented two-person brand and web studio in Kuala Lumpur, with case studies and a contact section.
+- [Online shop demo (fictional "TANAH" coffee)](https://roryphillips.dev/ecommerce/): Concept shop for an invented Liberica coffee roaster in Johor, with a shop section and a working demo cart.
+- [Instant quote calculator demo (fictional "Ampere & Sons")](https://roryphillips.dev/calculator/): A working instant-quote tool on a concept site for an invented Manchester electrician, giving itemised estimates for rewires, consumer units and EV chargers.
